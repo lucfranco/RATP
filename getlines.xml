@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <wsiv:getLines>
+            <wsiv:line>
+                <xsd:id>RA</xsd:id>
+            </wsiv:line>
+    	</wsiv:getLines>
+    </soapenv:Body>
+</soapenv:Envelope>
