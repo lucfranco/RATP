@@ -1,0 +1,94 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsiv="http://wsiv.ratp.fr" xmlns:xsd="http://wsiv.ratp.fr/xsd">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <wsiv:getGeoPointsResponse>
+         <!--Zero or more repetitions:-->
+         <wsiv:return>
+            <!--Optional:-->
+            <xsd:id>?</xsd:id>
+            <!--Optional:-->
+            <xsd:name>?</xsd:name>
+            <!--Optional:-->
+            <xsd:nameSuffix>?</xsd:nameSuffix>
+            <!--Optional:-->
+            <xsd:type>?</xsd:type>
+            <!--Optional:-->
+            <xsd:x>?</xsd:x>
+            <!--Optional:-->
+            <xsd:y>?</xsd:y>
+         </wsiv:return>
+      </wsiv:getGeoPointsResponse>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <wsiv:getLines>
+            <wsiv:line>
+                <xsd:id>RA</xsd:id>
+            </wsiv:line>
+        </wsiv:getLines>
+    </soapenv:Body>
+</soapenv:Envelope>
+
+https://graphical.weather.gov:443/xml/SOAP_server/ndfdXMLserver.php
+https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl
+
+<SOAP-ENV:Envelope SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
+   <SOAP-ENV:Body>
+      <ns1:LatLonListZipCodeResponse xmlns:ns1="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl">
+         <listLatLonOut xsi:type="xsd:string">&lt;?xml version='1.0'?>&lt;dwml version='1.0' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='https://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd'>&lt;latLonList>40.7198,-73.993&lt;/latLonList>&lt;/dwml></listLatLonOut>
+      </ns1:LatLonListZipCodeResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+<?xml version=\'1.0\' encoding=\'UTF-8\'?>
+<soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope" xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    <soapenv:Header>
+        <wsa:Action>http://www.w3.org/2005/08/addressing/soap/fault</wsa:Action>
+    </soapenv:Header>
+    <soapenv:Body>
+        <soapenv:Fault>
+            <soapenv:Code>
+                <soapenv:Value>soapenv:VersionMismatch</soapenv:Value>
+            </soapenv:Code>
+            <soapenv:Reason>
+                <soapenv:Text xml:lang="en-US">Transport level information does not match with SOAP Message namespace URI</soapenv:Text>
+            </soapenv:Reason>
+            <soapenv:Detail />
+
+            </soapenv:Fault></soapenv:Body></soapenv:Envelope>
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions
+    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+    xmlns:tns="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    targetNamespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl">
+<types>
+<xsd:schema targetNamespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl">
+
+xmlns:soapenv="http://schemas.xmlsoap.org/soap-envelope/"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+
+<soapenv:Envelope
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:ndf="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ndf:LatLonListZipCode soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <zipCodeList xsi:type="xsd:string">?10001</zipCodeList>
+      </ndf:LatLonListZipCode>
+   </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,2274 @@
+    <soap:operation soapAction="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#LatLonListLine" style="rpc"/>
+    <input><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="LatLonListZipCode">
+    <soap:operation soapAction="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#LatLonListZipCode" style="rpc"/>
+    <input><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="LatLonListCityNames">
+    <soap:operation soapAction="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#LatLonListCityNames" style="rpc"/>
+    <input><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="LatLonListSquare">
+    <soap:operation soapAction="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#LatLonListSquare" style="rpc"/>
+    <input><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="CornerPoints">
+    <soap:operation soapAction="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#CornerPoints" style="rpc"/>
+    <input><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="GmlLatLonList">
+    <soap:operation soapAction="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#GmlLatLonList" style="rpc"/>
+    <input><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="GmlTimeSeries">
+    <soap:operation soapAction="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#GmlTimeSeries" style="rpc"/>
+    <input><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="NDFDgenByDay">
+    <soap:operation soapAction="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#NDFDgenByDay" style="rpc"/>
+    <input><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="NDFDgenByDayLatLonList">
+    <soap:operation soapAction="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#NDFDgenByDayLatLonList" style="rpc"/>
+    <input><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+</binding>
+<service name="ndfdXML">
+  <port name="ndfdXMLPort" binding="tns:ndfdXMLBinding">
+    <soap:address location="https://graphical.weather.gov:443/xml/SOAP_server/ndfdXMLserver.php"/>
+  </port>
+</service>
+</definitions>(certif) pc48:RATP lukka$ cp collecte_temps_reel/collecte_api.py collecte_temps_reel/soap_ratp.py
+(certif) pc48:RATP lukka$
+  [Restauré 8 avr. 2020 à 23:58:34]
+Last login: Wed Apr  8 23:58:31 on console
+(base) pc48:RATP lukka$ conda activate certif
+(certif) pc48:RATP lukka$ curl https://graphical.weather.gov/xml/SOAP_server/ndfdXMLserver.php?wsdl
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl">
+<types>
+<xsd:schema targetNamespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="weatherParametersType">
+  <xsd:all>
+   <xsd:element name="maxt" type="xsd:boolean"/>
+   <xsd:element name="mint" type="xsd:boolean"/>
+   <xsd:element name="temp" type="xsd:boolean"/>
+   <xsd:element name="dew" type="xsd:boolean"/>
+   <xsd:element name="pop12" type="xsd:boolean"/>
+   <xsd:element name="qpf" type="xsd:boolean"/>
+   <xsd:element name="sky" type="xsd:boolean"/>
+   <xsd:element name="snow" type="xsd:boolean"/>
+   <xsd:element name="wspd" type="xsd:boolean"/>
+   <xsd:element name="wdir" type="xsd:boolean"/>
+   <xsd:element name="wx" type="xsd:boolean"/>
+   <xsd:element name="waveh" type="xsd:boolean"/>
+   <xsd:element name="icons" type="xsd:boolean"/>
+   <xsd:element name="rh" type="xsd:boolean"/>
+   <xsd:element name="appt" type="xsd:boolean"/>
+   <xsd:element name="incw34" type="xsd:boolean"/>
+   <xsd:element name="incw50" type="xsd:boolean"/>
+   <xsd:element name="incw64" type="xsd:boolean"/>
+   <xsd:element name="cumw34" type="xsd:boolean"/>
+   <xsd:element name="cumw50" type="xsd:boolean"/>
+   <xsd:element name="cumw64" type="xsd:boolean"/>
+   <xsd:element name="critfireo" type="xsd:boolean"/>
+   <xsd:element name="dryfireo" type="xsd:boolean"/>
+   <xsd:element name="conhazo" type="xsd:boolean"/>
+   <xsd:element name="ptornado" type="xsd:boolean"/>
+   <xsd:element name="phail" type="xsd:boolean"/>
+   <xsd:element name="ptstmwinds" type="xsd:boolean"/>
+   <xsd:element name="pxtornado" type="xsd:boolean"/>
+   <xsd:element name="pxhail" type="xsd:boolean"/>
+   <xsd:element name="pxtstmwinds" type="xsd:boolean"/>
+   <xsd:element name="ptotsvrtstm" type="xsd:boolean"/>
+   <xsd:element name="pxtotsvrtstm" type="xsd:boolean"/>
+   <xsd:element name="tmpabv14d" type="xsd:boolean"/>
+   <xsd:element name="tmpblw14d" type="xsd:boolean"/>
+   <xsd:element name="tmpabv30d" type="xsd:boolean"/>
+   <xsd:element name="tmpblw30d" type="xsd:boolean"/>
+   <xsd:element name="tmpabv90d" type="xsd:boolean"/>
+   <xsd:element name="tmpblw90d" type="xsd:boolean"/>
+   <xsd:element name="prcpabv14d" type="xsd:boolean"/>
+   <xsd:element name="prcpblw14d" type="xsd:boolean"/>
+   <xsd:element name="prcpabv30d" type="xsd:boolean"/>
+   <xsd:element name="prcpblw30d" type="xsd:boolean"/>
+   <xsd:element name="prcpabv90d" type="xsd:boolean"/>
+   <xsd:element name="prcpblw90d" type="xsd:boolean"/>
+   <xsd:element name="precipa_r" type="xsd:boolean"/>
+   <xsd:element name="sky_r" type="xsd:boolean"/>
+   <xsd:element name="temp_r" type="xsd:boolean"/>
+   <xsd:element name="td_r" type="xsd:boolean"/>
+   <xsd:element name="wdir_r" type="xsd:boolean"/>
+   <xsd:element name="wspd_r" type="xsd:boolean"/>
+   <xsd:element name="wwa" type="xsd:boolean"/>
+   <xsd:element name="wgust" type="xsd:boolean"/>
+   <xsd:element name="iceaccum" type="xsd:boolean"/>
+  </xsd:all>
+ </xsd:complexType>
+</xsd:schema>
+</types>
+<message name="NDFDgenRequest">
+  <part name="latitude" type="xsd:decimal" />
+  <part name="longitude" type="xsd:decimal" />
+  <part name="product" type="xsd:string" />
+  <part name="startTime" type="xsd:dateTime" />
+  <part name="endTime" type="xsd:dateTime" />
+  <part name="Unit" type="xsd:string" />
+  <part name="weatherParameters" type="tns:weatherParametersType" /></message>
+<message name="NDFDgenResponse">
+  <part name="dwmlOut" type="xsd:string" /></message>
+<message name="NDFDgenLatLonListRequest">
+  <part name="listLatLon" type="xsd:string" />
+  <part name="product" type="xsd:string" />
+  <part name="startTime" type="xsd:dateTime" />
+  <part name="endTime" type="xsd:dateTime" />
+  <part name="Unit" type="xsd:string" />
+  <part name="weatherParameters" type="tns:weatherParametersType" /></message>
+<message name="NDFDgenLatLonListResponse">
+  <part name="dwmlOut" type="xsd:string" /></message>
+<message name="LatLonListSubgridRequest">
+  <part name="lowerLeftLatitude" type="xsd:decimal" />
+  <part name="lowerLeftLongitude" type="xsd:decimal" />
+  <part name="upperRightLatitude" type="xsd:decimal" />
+  <part name="upperRightLongitude" type="xsd:decimal" />
+  <part name="resolution" type="xsd:decimal" /></message>
+<message name="LatLonListSubgridResponse">
+  <part name="listLatLonOut" type="xsd:string" /></message>
+<message name="LatLonListLineRequest">
+  <part name="endPoint1Lat" type="xsd:decimal" />
+  <part name="endPoint1Lon" type="xsd:decimal" />
+  <part name="endPoint2Lat" type="xsd:decimal" />
+  <part name="endPoint2Lon" type="xsd:decimal" /></message>
+<message name="LatLonListLineResponse">
+  <part name="listLatLonOut" type="xsd:string" /></message>
+<message name="LatLonListZipCodeRequest">
+  <part name="zipCodeList" type="xsd:string" /></message>
+<message name="LatLonListZipCodeResponse">
+  <part name="listLatLonOut" type="xsd:string" /></message>
+<message name="LatLonListCityNamesRequest">
+  <part name="displayLevel" type="xsd:integer" /></message>
+<message name="LatLonListCityNamesResponse">
+  <part name="listLatLonOut" type="xsd:string" /></message>
+<message name="LatLonListSquareRequest">
+  <part name="centerPointLat" type="xsd:decimal" />
+  <part name="centerPointLon" type="xsd:decimal" />
+  <part name="distanceLat" type="xsd:decimal" />
+  <part name="distanceLon" type="xsd:decimal" />
+  <part name="resolution" type="xsd:decimal" /></message>
+<message name="LatLonListSquareResponse">
+  <part name="listLatLonOut" type="xsd:string" /></message>
+<message name="CornerPointsRequest">
+  <part name="sector" type="xsd:string" /></message>
+<message name="CornerPointsResponse">
+  <part name="listLatLonOut" type="xsd:string" /></message>
+<message name="GmlLatLonListRequest">
+  <part name="listLatLon" type="xsd:string" />
+  <part name="requestedTime" type="xsd:dateTime" />
+  <part name="featureType" type="xsd:string" />
+  <part name="weatherParameters" type="tns:weatherParametersType" /></message>
+<message name="GmlLatLonListResponse">
+  <part name="dwGmlOut" type="xsd:string" /></message>
+<message name="GmlTimeSeriesRequest">
+  <part name="listLatLon" type="xsd:string" />
+  <part name="startTime" type="xsd:dateTime" />
+  <part name="endTime" type="xsd:dateTime" />
+  <part name="compType" type="xsd:string" />
+  <part name="featureType" type="xsd:string" />
+  <part name="propertyName" type="xsd:string" /></message>
+<message name="GmlTimeSeriesResponse">
+  <part name="dwGmlOut" type="xsd:string" /></message>
+<message name="NDFDgenByDayRequest">
+  <part name="latitude" type="xsd:decimal" />
+  <part name="longitude" type="xsd:decimal" />
+  <part name="startDate" type="xsd:date" />
+  <part name="numDays" type="xsd:integer" />
+  <part name="Unit" type="xsd:string" />
+  <part name="format" type="xsd:string" /></message>
+<message name="NDFDgenByDayResponse">
+  <part name="dwmlByDayOut" type="xsd:string" /></message>
+<message name="NDFDgenByDayLatLonListRequest">
+  <part name="listLatLon" type="xsd:string" />
+  <part name="startDate" type="xsd:date" />
+  <part name="numDays" type="xsd:integer" />
+  <part name="Unit" type="xsd:string" />
+  <part name="format" type="xsd:string" /></message>
+<message name="NDFDgenByDayLatLonListResponse">
+  <part name="dwmlByDayOut" type="xsd:string" /></message>
+<portType name="ndfdXMLPortType">
+  <operation name="NDFDgen">
+    <documentation>Returns National Weather Service digital weather forecast data.  Supports latitudes and longitudes for the Continental United States, Alaska, Hawaii, Guam, and Puerto Rico only. Allowable values for the input variable &quot;product&quot; are &quot;time-series&quot; and &quot;glance&quot;. Allowable values for the input variable &quot;Unit&quot; are &quot;e&quot; for U.S. Standare/English units and &quot;m&quot; for Metric units. For both products, a start and end time (Local) are required.  For the time-series product, the input variable &quot;weatherParameters&quot; has array elements set to &quot;true&quot; to indicate which weather parameters are being requested.  If an array element is set to &quot;false&quot;, data for that weather parameter are not to be returned.</documentation>
+    <input message="tns:NDFDgenRequest"/>
+    <output message="tns:NDFDgenResponse"/>
+  </operation>
+  <operation name="NDFDgenLatLonList">
+    <documentation>Returns National Weather Service digital weather forecast data.  Supports latitudes and longitudes for the Continental United States, Alaska, Hawaii, Guam, and Puerto Rico only.  The latitude and longitude are delimited by a comma and multiple pairs are delimited by a space (i.e. 30.00,-77.00 40.00,-90.00). Allowable values for the input variable &quot;product&quot; are &quot;time-series&quot; and &quot;glance&quot;. Allowable values for the input variable &quot;Unit&quot; are &quot;e&quot; for U.S. Standare/English units and &quot;m&quot; for Metric units. For both products, a start and end time (Local) are required. For both products, a start and end time (Local) are required.  For the time-series product, the input variable &quot;weatherParameters&quot; has array elements set to &quot;true&quot; to indicate which weather parameters are being requested.  If an array element is set to &quot;false&quot;, data for that weather parameter are not to be returned.</documentation>
+    <input message="tns:NDFDgenLatLonListRequest"/>
+    <output message="tns:NDFDgenLatLonListResponse"/>
+  </operation>
+  <operation name="LatLonListSubgrid">
+    <documentation>Returns a list of Latitude and longitude pairs for a rectangle defined by its lower left and upper right points.  Provides points in a format suitable for use in calling multi-point functions NDFDgenLatLonList and NDFDgenByDayLatLonList.  Supports latitudes and longitudes for the Continental United States, Alaska, Hawaii, Guam, and Puerto Rico.</documentation>
+    <input message="tns:LatLonListSubgridRequest"/>
+    <output message="tns:LatLonListSubgridResponse"/>
+  </operation>
+  <operation name="LatLonListLine">
+    <documentation>Returns a list of latitude and longitude pairs along a line defined by two points.  Supports latitudes and longitudes for the Continental United States, Alaska, Hawaii, Guam, and Puerto Rico only.  Provides points in a format suitable for use in calling multi-point functions NDFDgenLatLonList and NDFDgenByDayLatLonList.</documentation>
+    <input message="tns:LatLonListLineRequest"/>
+    <output message="tns:LatLonListLineResponse"/>
+  </operation>
+  <operation name="LatLonListZipCode">
+    <documentation>Returns the latitude and longitude pairs corresponding to a list of one or more zip codes.  Supports zip codes for the Continental United States, Alaska, Hawaii, and Puerto Rico only. Provides points in a format suitable for use in calling multi-point functions NDFDgenLatLonList and NDFDgenByDayLatLonList.</documentation>
+    <input message="tns:LatLonListZipCodeRequest"/>
+    <output message="tns:LatLonListZipCodeResponse"/>
+  </operation>
+  <operation name="LatLonListCityNames">
+    <documentation>Returns the latitude and longitude pairs corresponding to a predefined list of US cities.  Provides points in a format suitable for use in calling multi-point functions NDFDgenLatLonList and NDFDgenByDayLatLonList.  The response also includes a list of city names with the order of the names matching the order of the corresponding point.</documentation>
+    <input message="tns:LatLonListCityNamesRequest"/>
+    <output message="tns:LatLonListCityNamesResponse"/>
+  </operation>
+  <operation name="LatLonListSquare">
+    <documentation>Returns a list of latitude and longitude pairs in a rectangle defined by a central point and distance from that point in the latitudinal and longitudinal directions.  Supports latitudes and longitudes for the Continental United States, Alaska, Hawaii, Guam, and Puerto Rico only.  Provides points in a format suitable for use in calling multi-point functions NDFDgenLatLonList and NDFDgenByDayLatLonList.</documentation>
+    <input message="tns:LatLonListSquareRequest"/>
+    <output message="tns:LatLonListSquareResponse"/>
+  </operation>
+  <operation name="CornerPoints">
+    <documentation>Returns latitude and longitude pairs of the four corners of an NDFD grid.  Provides points in a format suitable for use in calling multi-point functions NDFDgenLatLonList and NDFDgenByDayLatLonList.  Supports latitudes and longitudes for the Continental United States, Hawaii, Guam, and Puerto Rico only.  Also provides a minimum resolution for requesting the grid.</documentation>
+    <input message="tns:CornerPointsRequest"/>
+    <output message="tns:CornerPointsResponse"/>
+  </operation>
+  <operation name="GmlLatLonList">
+    <documentation>Returns National Weather Service digital weather forecast data encoded in GML.  Supports latitudes and longitudes for the Continental United States, Alaska, Hawaii, Guam, and Puerto Rico only.  The latitude and longitude are delimited by a comma and multiple pairs are delimited by a space (i.e. 30.00,-77.00 40.00,-90.00). Allowable values for the input variable &quot;featureType&quot; are &quot;Forecast_Gml2Point&quot;, &quot;Forecast_GmlObs&quot;, &quot;NdfdMultiPointCoverage&quot;, &quot;Ndfd_KmlPoint&quot;, and &quot;Forecast_GmlsfPoint&quot;.  For all feature types a time (UTC) is required to indicate when data is requested.  The input variable &quot;weatherParameters&quot; has array elements set to &quot;true&quot; to indicate which weather parameters are being requested.  If an array element is set to &quot;false&quot;, data for that weather parameter are not to be returned.</documentation>
+    <input message="tns:GmlLatLonListRequest"/>
+    <output message="tns:GmlLatLonListResponse"/>
+  </operation>
+  <operation name="GmlTimeSeries">
+    <documentation>Returns National Weather Service digital weather forecast data encoded in GML.  Supports latitudes and longitudes for the Continental United States, Alaska, Hawaii, Guam, and Puerto Rico only.  The latitude and longitude are delimited by a comma and multiple pairs are delimited by a space (i.e. 30.00,-77.00 40.00,-90.00). Allowable values for the input variable &quot;featureType&quot; are &quot;Forecast_Gml2Point&quot;, &quot;Forecast_GmlObs&quot;, &quot;NdfdMultiPointCoverage&quot;, &quot;Ndfd_KmlPoint&quot;, and &quot;Forecast_GmlsfPoint&quot;.  For all feature types a start and end time (UTC) is required to indicate when data is requested.  a comparison type (IsEqual, Between, GreaterThan, GreaterThan, GreaterThanEqualTo, LessThan, and  LessThanEqualTo). The input variable &quot;propertyName&quot; contains a comma delimited string of NDFD element to indicate which weather parameters are being requested.</documentation>
+    <input message="tns:GmlTimeSeriesRequest"/>
+    <output message="tns:GmlTimeSeriesResponse"/>
+  </operation>
+  <operation name="NDFDgenByDay">
+    <documentation>Returns National Weather Service digital weather forecast data.  Supports latitudes and longitudes for the Continental United States, Hawaii, Guam, and Puerto Rico only.  Allowable values for the input variable &quot;format&quot; are &quot;24 hourly&quot; and &quot;12 hourly&quot;.  The input variable &quot;startDate&quot; is a date string representing the first day (Local) of data to be returned. The input variable &quot;numDays&quot; is the integer number of days for which the user wants data. Allowable values for the input variable &quot;Unit&quot; are &quot;e&quot; for U.S. Standare/English units and &quot;m&quot; for Metric units.</documentation>
+    <input message="tns:NDFDgenByDayRequest"/>
+    <output message="tns:NDFDgenByDayResponse"/>
+  </operation>
+  <operation name="NDFDgenByDayLatLonList">
+    <documentation>Returns National Weather Service digital weather forecast data.  Supports latitudes and longitudes for the Continental United States, Hawaii, Guam, and Puerto Rico only.  The latitude and longitude are delimited by a comma and multiple pairs are delimited by a space (i.e. 30.00,-77.00 40.00,-90.00). Allowable values for the input variable &quot;format&quot; are &quot;24 hourly&quot; and &quot;12 hourly&quot;.  The input variable &quot;startDate&quot; is a date string representing the first day (Local) of data to be returned. The input variable &quot;numDays&quot; is the integer number of days for which the user wants data. Allowable values for the input variable &quot;Unit&quot; are &quot;e&quot; for U.S. Standare/English units and &quot;m&quot; for Metric units.</documentation>
+    <input message="tns:NDFDgenByDayLatLonListRequest"/>
+    <output message="tns:NDFDgenByDayLatLonListResponse"/>
+  </operation>
+</portType>
+<binding name="ndfdXMLBinding" type="tns:ndfdXMLPortType">
+  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="NDFDgen">
+    <soap:operation soapAction="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#NDFDgen" style="rpc"/>
+    <input><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="NDFDgenLatLonList">
+    <soap:operation soapAction="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#NDFDgenLatLonList" style="rpc"/>
+    <input><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="LatLonListSubgrid">
+    <soap:operation soapAction="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#LatLonListSubgrid" style="rpc"/>
+    <input><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="LatLonListLine">
+    <soap:operation soapAction="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#LatLonListLine" style="rpc"/>
+    <input><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="LatLonListZipCode">
+    <soap:operation soapAction="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#LatLonListZipCode" style="rpc"/>
+    <input><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="LatLonListCityNames">
+    <soap:operation soapAction="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#LatLonListCityNames" style="rpc"/>
+    <input><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="LatLonListSquare">
+    <soap:operation soapAction="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#LatLonListSquare" style="rpc"/>
+    <input><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="CornerPoints">
+    <soap:operation soapAction="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#CornerPoints" style="rpc"/>
+    <input><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="GmlLatLonList">
+    <soap:operation soapAction="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#GmlLatLonList" style="rpc"/>
+    <input><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="GmlTimeSeries">
+    <soap:operation soapAction="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#GmlTimeSeries" style="rpc"/>
+    <input><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="NDFDgenByDay">
+    <soap:operation soapAction="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#NDFDgenByDay" style="rpc"/>
+    <input><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="NDFDgenByDayLatLonList">
+    <soap:operation soapAction="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#NDFDgenByDayLatLonList" style="rpc"/>
+    <input><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+</binding>
+<service name="ndfdXML">
+  <port name="ndfdXMLPort" binding="tns:ndfdXMLBinding">
+    <soap:address location="https://graphical.weather.gov:443/xml/SOAP_server/ndfdXMLserver.php"/>
+  </port>
+</service>
+</definitions>(certif) pc48:RATP lukka$ conda install lxml
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.8.2
+  latest version: 4.8.3
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+# All requested packages already installed.
+
+(certif) pc48:RATP lukka$ pip install lxml
+Requirement already satisfied: lxml in /Users/lukka/opt/miniconda3/envs/certif/lib/python3.7/site-packages (4.5.0)
+(certif) pc48:RATP lukka$ conda update -n base -c defaults conda
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /Users/lukka/opt/miniconda3
+
+  added / updated specs:
+    - conda
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    certifi-2020.4.5.1         |           py37_0         155 KB
+    conda-4.8.3                |           py37_0         2.8 MB
+    idna-2.9                   |             py_1          49 KB
+    openssl-1.1.1f             |       h1de35cc_0         2.2 MB
+    pycparser-2.20             |             py_0          92 KB
+    requests-2.23.0            |           py37_0          92 KB
+    setuptools-46.1.3          |           py37_0         520 KB
+    tqdm-4.44.1                |             py_0          57 KB
+    wrapt-1.12.1               |   py37h1de35cc_1          45 KB
+    ------------------------------------------------------------
+                                           Total:         6.0 MB
+
+The following packages will be REMOVED:
+
+  pip-20.0.2-py37_1
+  wheel-0.34.2-py37_0
+
+The following packages will be UPDATED:
+
+  certifi                                 2019.11.28-py37_0 --> 2020.4.5.1-py37_0
+  conda                                        4.8.2-py37_0 --> 4.8.3-py37_0
+  idna                    pkgs/main/osx-64::idna-2.8-py37_0 --> pkgs/main/noarch::idna-2.9-py_1
+  ncurses                                    6.1-h0a44026_1 --> 6.2-h0a44026_0
+  openssl                                 1.1.1d-h1de35cc_4 --> 1.1.1f-h1de35cc_0
+  pycparser          pkgs/main/osx-64::pycparser-2.19-py37~ --> pkgs/main/noarch::pycparser-2.20-py_0
+  requests                                    2.22.0-py37_1 --> 2.23.0-py37_0
+  setuptools                                  45.2.0-py37_0 --> 46.1.3-py37_0
+  tqdm                                          4.42.1-py_0 --> 4.44.1-py_0
+  wrapt                               1.11.2-py37h1de35cc_0 --> 1.12.1-py37h1de35cc_1
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages
+certifi-2020.4.5.1   | 155 KB    | ############################################################################################################################################################### | 100%
+pycparser-2.20       | 92 KB     | ############################################################################################################################################################### | 100%
+openssl-1.1.1f       | 2.2 MB    | ############################################################################################################################################################### | 100%
+requests-2.23.0      | 92 KB     | ############################################################################################################################################################### | 100%
+setuptools-46.1.3    | 520 KB    | ############################################################################################################################################################### | 100%
+tqdm-4.44.1          | 57 KB     | ############################################################################################################################################################### | 100%
+idna-2.9             | 49 KB     | ############################################################################################################################################################### | 100%
+wrapt-1.12.1         | 45 KB     | ############################################################################################################################################################### | 100%
+conda-4.8.3          | 2.8 MB    | ############################################################################################################################################################### | 100%
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+(certif) pc48:RATP lukka$ ssh -i "/www/ubuntu_xenial/Formation/Data_University/__DS/certif/spider-time.pem" ubuntu@ec2-35-180-118-223.eu-west-3.compute.amazonaws.com
+Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 4.15.0-1057-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Thu Apr  9 00:39:01 UTC 2020
+
+  System load:  0.0               Processes:           90
+  Usage of /:   46.3% of 7.69GB   Users logged in:     0
+  Memory usage: 21%               IP address for eth0: 172.31.36.248
+  Swap usage:   0%
+
+ * Kubernetes 1.18 GA is now available! See https://microk8s.io for docs or
+   install it with:
+
+     sudo snap install microk8s --channel=1.18 --classic
+
+ * Multipass 1.1 adds proxy support for developers behind enterprise
+   firewalls. Rapid prototyping for cloud operations just got easier.
+
+     https://multipass.run/
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+40 packages can be updated.
+7 updates are security updates.
+
+
+*** System restart required ***
+Last login: Wed Apr  8 21:16:33 2020 from 109.214.71.101
+ubuntu@ip-172-31-36-248:~$ su luc
+Password:
+su: Authentication failure
+ubuntu@ip-172-31-36-248:~$ su luc
+Password:
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+luc@ip-172-31-36-248:/home/ubuntu$ curl http://opendata-tr.ratp.fr/wsiv/services/Wsiv?wsdl
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://wsiv.ratp.fr" xmlns:ns1="http://wsiv.ratp.fr" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://wsiv.ratp.fr/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<wsdl:documentation>
+        RATP : Web Service Information Voyageur
+    </wsdl:documentation>
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://wsiv.ratp.fr/xsd" xmlns:ax21="http://wsiv.ratp.fr/xsd">
+    <xs:complexType name="GeoPoint">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="nameSuffix" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="x" type="xs:double"/>
+            <xs:element minOccurs="0" name="y" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Line">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="codeStif" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="image" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="realm" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="reseau" nillable="true" type="ax21:Reseau"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Reseau">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="image" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="WrDirections">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ambiguityMessage" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ambiguousLines" nillable="true" type="ax21:Line"/>
+            <xs:element minOccurs="0" name="argumentLine" nillable="true" type="ax21:Line"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="directions" nillable="true" type="ax21:Direction"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Direction">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="line" nillable="true" type="ax21:Line"/>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="sens" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="stationsEndLine" nillable="true" type="ax21:Station"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Station">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="direction" nillable="true" type="ax21:Direction"/>
+            <xs:element minOccurs="0" name="geoPointA" nillable="true" type="ax21:GeoPoint"/>
+            <xs:element minOccurs="0" name="geoPointR" nillable="true" type="ax21:GeoPoint"/>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="idsNextA" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="idsNextR" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="line" nillable="true" type="ax21:Line"/>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="stationArea" nillable="true" type="ax21:StationArea"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="StationArea">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="access" nillable="true" type="ax21:StationAcces"/>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="stations" nillable="true" type="ax21:Station"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="tarifsToParis" nillable="true" type="ax21:Tarif"/>
+            <xs:element minOccurs="0" name="zoneCarteOrange" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="StationAcces">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="address" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="index" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="timeDaysLabel" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="timeDaysStatus" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="timeEnd" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="timeStart" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="x" type="xs:double"/>
+            <xs:element minOccurs="0" name="y" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Tarif">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="demiTarif" type="xs:float"/>
+            <xs:element minOccurs="0" name="pleinTarif" type="xs:float"/>
+            <xs:element minOccurs="0" name="viaLine" nillable="true" type="ax21:Line"/>
+            <xs:element minOccurs="0" name="viaReseau" nillable="true" type="ax21:Reseau"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="WrItineraries">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ambiguityMessage" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ambiguousGeoPointsEnd" nillable="true" type="ax21:GeoPoint"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ambiguousGeoPointsStart" nillable="true" type="ax21:GeoPoint"/>
+            <xs:element minOccurs="0" name="argumentDate" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="itineraries" nillable="true" type="ax21:Itinerary"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Itinerary">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="dateEnd" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="dateStart" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="durationsTransit" nillable="true" type="xs:int"/>
+            <xs:element minOccurs="0" name="geoPointEnd" nillable="true" type="ax21:GeoPoint"/>
+            <xs:element minOccurs="0" name="geoPointStart" nillable="true" type="ax21:GeoPoint"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="missions" nillable="true" type="ax21:Mission"/>
+            <xs:element minOccurs="0" name="tarif" nillable="true" type="ax21:Tarif"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Mission">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="direction" nillable="true" type="ax21:Direction"/>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="line" nillable="true" type="ax21:Line"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="perturbations" nillable="true" type="ax21:Perturbation"/>
+            <xs:element minOccurs="0" name="stationEndLine" nillable="true" type="ax21:Station"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="stations" nillable="true" type="ax21:Station"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="stationsDates" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="stationsMessages" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="stationsPlatforms" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="stationsStops" nillable="true" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Perturbation">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="cause" nillable="true" type="ax21:PerturbationCause"/>
+            <xs:element minOccurs="0" name="consequence" nillable="true" type="ax21:PerturbationConsequence"/>
+            <xs:element minOccurs="0" name="dateEnd" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="dateStart" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="incidents" nillable="true" type="ax21:PerturbationIncident"/>
+            <xs:element minOccurs="0" name="level" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="line" nillable="true" type="ax21:Line"/>
+            <xs:element minOccurs="0" name="media" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="message" nillable="true" type="ax21:PerturbationMessage"/>
+            <xs:element minOccurs="0" name="source" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="station" nillable="true" type="ax21:Station"/>
+            <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="timeEnd" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="timeStart" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="title" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PerturbationCause">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="parentId" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="parentName" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PerturbationConsequence">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="level" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PerturbationIncident">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="date" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="incidentLines" nillable="true" type="ax21:PerturbationIncidentLine"/>
+            <xs:element minOccurs="0" name="messageGlobal" nillable="true" type="ax21:PerturbationMessage"/>
+            <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PerturbationIncidentLine">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="consequence" nillable="true" type="ax21:PerturbationConsequence"/>
+            <xs:element minOccurs="0" name="line" nillable="true" type="ax21:Line"/>
+            <xs:element minOccurs="0" name="messageLarge" nillable="true" type="ax21:PerturbationMessage"/>
+            <xs:element minOccurs="0" name="messageMedium" nillable="true" type="ax21:PerturbationMessage"/>
+            <xs:element minOccurs="0" name="messageShort" nillable="true" type="ax21:PerturbationMessage"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="stations" nillable="true" type="ax21:Station"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PerturbationMessage">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="mediaSpecific" type="xs:boolean"/>
+            <xs:element minOccurs="0" name="text" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="updated" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="WrMission">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ambiguityMessage" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ambiguousLines" nillable="true" type="ax21:Line"/>
+            <xs:element minOccurs="0" name="argumentDate" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="argumentLine" nillable="true" type="ax21:Line"/>
+            <xs:element minOccurs="0" name="mission" nillable="true" type="ax21:Mission"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="WrMissions">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ambiguityMessage" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ambiguousDirections" nillable="true" type="ax21:Direction"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ambiguousLines" nillable="true" type="ax21:Line"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ambiguousStations" nillable="true" type="ax21:Station"/>
+            <xs:element minOccurs="0" name="argumentDate" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="argumentDirection" nillable="true" type="ax21:Direction"/>
+            <xs:element minOccurs="0" name="argumentLine" nillable="true" type="ax21:Line"/>
+            <xs:element minOccurs="0" name="argumentStation" nillable="true" type="ax21:Station"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="missions" nillable="true" type="ax21:Mission"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="perturbations" nillable="true" type="ax21:Perturbation"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="WrPerturbations">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="argumentMedia" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="argumentSource" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="perturbations" nillable="true" type="ax21:Perturbation"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="WrStationAreas">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ambiguityMessage" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ambiguousGeoPoints" nillable="true" type="ax21:GeoPoint"/>
+            <xs:element minOccurs="0" name="argumentGeoPoint" nillable="true" type="ax21:GeoPoint"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="distances" nillable="true" type="xs:int"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="stationAreas" nillable="true" type="ax21:StationArea"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="WrStations">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ambiguityMessage" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ambiguousGeoPoints" nillable="true" type="ax21:GeoPoint"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ambiguousLines" nillable="true" type="ax21:Line"/>
+            <xs:element minOccurs="0" name="argumentDirection" nillable="true" type="ax21:Direction"/>
+            <xs:element minOccurs="0" name="argumentGeoPoint" nillable="true" type="ax21:GeoPoint"/>
+            <xs:element minOccurs="0" name="argumentLine" nillable="true" type="ax21:Line"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="distances" nillable="true" type="xs:int"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="stations" nillable="true" type="ax21:Station"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://wsiv.ratp.fr" xmlns:ns="http://wsiv.ratp.fr">
+    <xs:element name="getGeoPoints">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="gp" nillable="true" type="ns0:GeoPoint"/>
+                <xs:element minOccurs="0" name="limit" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getGeoPointsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ns0:GeoPoint"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getLines">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="line" nillable="true" type="ns0:Line"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getLinesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ns0:Line"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getDirections">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="line" nillable="true" type="ns0:Line"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getDirectionsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="return" nillable="true" type="ns0:WrDirections"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getMission">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="mission" nillable="true" type="ns0:Mission"/>
+                <xs:element minOccurs="0" name="date" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="stationAll" type="xs:boolean"/>
+                <xs:element minOccurs="0" name="stationSortAlpha" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getMissionResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="return" nillable="true" type="ns0:WrMission"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getMissionsFirstLast">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="station" nillable="true" type="ns0:Station"/>
+                <xs:element minOccurs="0" name="direction" nillable="true" type="ns0:Direction"/>
+                <xs:element minOccurs="0" name="date" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getMissionsFirstLastResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="return" nillable="true" type="ns0:WrMissions"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getMissionsFrequency">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="station" nillable="true" type="ns0:Station"/>
+                <xs:element minOccurs="0" name="direction" nillable="true" type="ns0:Direction"/>
+                <xs:element minOccurs="0" name="stationEndLine" nillable="true" type="ns0:Station"/>
+                <xs:element minOccurs="0" name="stationEnd" nillable="true" type="ns0:Station"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="datesStart" nillable="true" type="xs:string"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="datesEnd" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getMissionsFrequencyResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="return" nillable="true" type="ns0:WrMissions"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getMissionsNext">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="station" nillable="true" type="ns0:Station"/>
+                <xs:element minOccurs="0" name="direction" nillable="true" type="ns0:Direction"/>
+                <xs:element minOccurs="0" name="dateStart" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="limit" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getMissionsNextResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="return" nillable="true" type="ns0:WrMissions"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getStations">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="station" nillable="true" type="ns0:Station"/>
+                <xs:element minOccurs="0" name="gp" nillable="true" type="ns0:GeoPoint"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="distances" type="xs:int"/>
+                <xs:element minOccurs="0" name="limit" type="xs:int"/>
+                <xs:element minOccurs="0" name="sortAlpha" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getStationsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="return" nillable="true" type="ns0:WrStations"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getVersionResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+            <xs:element name="getMeteoTraficResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getLinesResponse">
+    <wsdl:part name="parameters" element="ns1:getLinesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMissionsFirstLastResponse">
+    <wsdl:part name="parameters" element="ns1:getMissionsFirstLastResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionResponse">
+    <wsdl:part name="parameters" element="ns1:getVersionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getStationsResponse">
+    <wsdl:part name="parameters" element="ns1:getStationsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMeteoTraficRequest">
+    <wsdl:part name="parameters" element="ns1:getMeteoTrafic">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionRequest">
+  </wsdl:message>
+  <wsdl:message name="getStationsRequest">
+    <wsdl:part name="parameters" element="ns1:getStations">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMissionsNextRequest">
+    <wsdl:part name="parameters" element="ns1:getMissionsNext">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMissionsFrequencyResponse">
+    <wsdl:part name="parameters" element="ns1:getMissionsFrequencyResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDirectionsResponse">
+    <wsdl:part name="parameters" element="ns1:getDirectionsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDirectionsRequest">
+    <wsdl:part name="parameters" element="ns1:getDirections">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLinesRequest">
+    <wsdl:part name="parameters" element="ns1:getLines">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMissionResponse">
+    <wsdl:part name="parameters" element="ns1:getMissionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMissionRequest">
+    <wsdl:part name="parameters" element="ns1:getMission">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMissionsFrequencyRequest">
+    <wsdl:part name="parameters" element="ns1:getMissionsFrequency">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getGeoPointsResponse">
+    <wsdl:part name="parameters" element="ns1:getGeoPointsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMissionsFirstLastRequest">
+    <wsdl:part name="parameters" element="ns1:getMissionsFirstLast">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMissionsNextResponse">
+    <wsdl:part name="parameters" element="ns1:getMissionsNextResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getGeoPointsRequest">
+    <wsdl:part name="parameters" element="ns1:getGeoPoints">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMeteoTraficResponse">
+    <wsdl:part name="parameters" element="ns1:getMeteoTraficResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WsivPortType">
+    <wsdl:operation name="getMissionsFrequency">
+      <wsdl:input message="ns1:getMissionsFrequencyRequest" wsaw:Action="urn:getMissionsFrequency">
+    </wsdl:input>
+      <wsdl:output message="ns1:getMissionsFrequencyResponse" wsaw:Action="urn:getMissionsFrequencyResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMissionsFirstLast">
+      <wsdl:input message="ns1:getMissionsFirstLastRequest" wsaw:Action="urn:getMissionsFirstLast">
+    </wsdl:input>
+      <wsdl:output message="ns1:getMissionsFirstLastResponse" wsaw:Action="urn:getMissionsFirstLastResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <wsdl:input message="ns1:getVersionRequest" wsaw:Action="urn:getVersion">
+    </wsdl:input>
+      <wsdl:output message="ns1:getVersionResponse" wsaw:Action="urn:getVersionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMeteoTrafic">
+      <wsdl:input message="ns1:getMeteoTraficRequest" wsaw:Action="urn:getMeteoTrafic">
+    </wsdl:input>
+      <wsdl:output message="ns1:getMeteoTraficResponse" wsaw:Action="urn:getMeteoTraficResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLines">
+      <wsdl:input message="ns1:getLinesRequest" wsaw:Action="urn:getLines">
+    </wsdl:input>
+      <wsdl:output message="ns1:getLinesResponse" wsaw:Action="urn:getLinesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStations">
+      <wsdl:input message="ns1:getStationsRequest" wsaw:Action="urn:getStations">
+    </wsdl:input>
+      <wsdl:output message="ns1:getStationsResponse" wsaw:Action="urn:getStationsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMissionsNext">
+      <wsdl:input message="ns1:getMissionsNextRequest" wsaw:Action="urn:getMissionsNext">
+    </wsdl:input>
+      <wsdl:output message="ns1:getMissionsNextResponse" wsaw:Action="urn:getMissionsNextResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDirections">
+      <wsdl:input message="ns1:getDirectionsRequest" wsaw:Action="urn:getDirections">
+    </wsdl:input>
+      <wsdl:output message="ns1:getDirectionsResponse" wsaw:Action="urn:getDirectionsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMission">
+      <wsdl:input message="ns1:getMissionRequest" wsaw:Action="urn:getMission">
+    </wsdl:input>
+      <wsdl:output message="ns1:getMissionResponse" wsaw:Action="urn:getMissionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGeoPoints">
+      <wsdl:input message="ns1:getGeoPointsRequest" wsaw:Action="urn:getGeoPoints">
+    </wsdl:input>
+      <wsdl:output message="ns1:getGeoPointsResponse" wsaw:Action="urn:getGeoPointsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsivHttpBinding" type="ns1:WsivPortType">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="getMissionsFrequency">
+      <http:operation location="Wsiv/getMissionsFrequency"/>
+      <wsdl:input>
+        <mime:content part="getMissionsFrequency" type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getMissionsFrequency" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMissionsFirstLast">
+      <http:operation location="Wsiv/getMissionsFirstLast"/>
+      <wsdl:input>
+        <mime:content part="getMissionsFirstLast" type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getMissionsFirstLast" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <http:operation location="Wsiv/getVersion"/>
+      <wsdl:input>
+        <mime:content part="getVersion" type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getVersion" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMeteoTrafic">
+      <http:operation location="Wsiv/getMeteoTrafic"/>
+      <wsdl:input>
+        <mime:content part="getMeteoTrafic" type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getMeteoTrafic" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLines">
+      <http:operation location="Wsiv/getLines"/>
+      <wsdl:input>
+        <mime:content part="getLines" type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getLines" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStations">
+      <http:operation location="Wsiv/getStations"/>
+      <wsdl:input>
+        <mime:content part="getStations" type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getStations" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMissionsNext">
+      <http:operation location="Wsiv/getMissionsNext"/>
+      <wsdl:input>
+        <mime:content part="getMissionsNext" type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getMissionsNext" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDirections">
+      <http:operation location="Wsiv/getDirections"/>
+      <wsdl:input>
+        <mime:content part="getDirections" type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getDirections" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMission">
+      <http:operation location="Wsiv/getMission"/>
+      <wsdl:input>
+        <mime:content part="getMission" type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getMission" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGeoPoints">
+      <http:operation location="Wsiv/getGeoPoints"/>
+      <wsdl:input>
+        <mime:content part="getGeoPoints" type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getGeoPoints" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsivSOAP11Binding" type="ns1:WsivPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getMissionsFrequency">
+      <soap:operation soapAction="urn:getMissionsFrequency" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMissionsFirstLast">
+      <soap:operation soapAction="urn:getMissionsFirstLast" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <soap:operation soapAction="urn:getVersion" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMeteoTrafic">
+      <soap:operation soapAction="urn:getMeteoTrafic" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLines">
+      <soap:operation soapAction="urn:getLines" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStations">
+      <soap:operation soapAction="urn:getStations" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMissionsNext">
+      <soap:operation soapAction="urn:getMissionsNext" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDirections">
+      <soap:operation soapAction="urn:getDirections" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMission">
+      <soap:operation soapAction="urn:getMission" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGeoPoints">
+      <soap:operation soapAction="urn:getGeoPoints" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsivSOAP12Binding" type="ns1:WsivPortType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getMissionsFrequency">
+      <soap12:operation soapAction="urn:getMissionsFrequency" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMissionsFirstLast">
+      <soap12:operation soapAction="urn:getMissionsFirstLast" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <soap12:operation soapAction="urn:getVersion" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMeteoTrafic">
+      <soap12:operation soapAction="urn:getMeteoTrafic" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLines">
+      <soap12:operation soapAction="urn:getLines" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStations">
+      <soap12:operation soapAction="urn:getStations" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMissionsNext">
+      <soap12:operation soapAction="urn:getMissionsNext" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDirections">
+      <soap12:operation soapAction="urn:getDirections" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMission">
+      <soap12:operation soapAction="urn:getMission" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGeoPoints">
+      <soap12:operation soapAction="urn:getGeoPoints" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Wsiv">
+    <wsdl:port name="WsivSOAP11port_http" binding="ns1:WsivSOAP11Binding">
+      <soap:address location="http://www13.ratp.fr/wsiv/services/Wsiv"/>
+    </wsdl:port>
+    <wsdl:port name="WsivSOAP12port_http" binding="ns1:WsivSOAP12Binding">
+      <soap12:address location="http://www13.ratp.fr/wsiv/services/Wsiv"/>
+    </wsdl:port>
+    <wsdl:port name="WsivHttpport" binding="ns1:WsivHttpBinding">
+      <http:address location="http://www13.ratp.fr/wsiv/services/Wsiv"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
+luc@ip-172-31-36-248:/home/ubuntu$ curl http://www13.ratp.fr/wsiv/services/Wsiv
+curl: (6) Could not resolve host: www13.ratp.fr
+luc@ip-172-31-36-248:/home/ubuntu$ exit
+exit
+ubuntu@ip-172-31-36-248:~$ pip3 install suds
+Collecting suds
+  Downloading https://files.pythonhosted.org/packages/bc/d6/960acce47ee6f096345fe5a7d9be7708135fd1d0713571836f073efc7393/suds-0.4.tar.gz (104kB)
+    100% |████████████████████████████████| 112kB 8.5MB/s
+    Complete output from command python setup.py egg_info:
+    Traceback (most recent call last):
+      File "<string>", line 1, in <module>
+      File "/tmp/pip-build-1o3rnfo9/suds/setup.py", line 20, in <module>
+        import suds
+      File "/tmp/pip-build-1o3rnfo9/suds/suds/__init__.py", line 154, in <module>
+        import client
+    ModuleNotFoundError: No module named 'client'
+
+    ----------------------------------------
+Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-1o3rnfo9/suds/
+ubuntu@ip-172-31-36-248:~$ apt-cache depends suds
+E: No packages found
+ubuntu@ip-172-31-36-248:~$ pip3 install request
+Collecting request
+  Downloading https://files.pythonhosted.org/packages/f1/27/7cbde262d854aedf217061a97020d66a63163c5c04e0ec02ff98c5d8f44e/request-2019.4.13.tar.gz
+Collecting get (from request)
+  Downloading https://files.pythonhosted.org/packages/3f/ef/bb46f77f7220ac1b7edba0c76d810c89fddb24ddd8c08f337b9b4a618db7/get-2019.4.13.tar.gz
+Collecting post (from request)
+  Downloading https://files.pythonhosted.org/packages/0f/05/bd79da5849ea6a92485ed7029ef97b1b75e55c26bc0ed3a7ec769af666f3/post-2019.4.13.tar.gz
+Collecting setuptools (from request)
+  Downloading https://files.pythonhosted.org/packages/a0/df/635cdb901ee4a8a42ec68e480c49f85f4c59e8816effbf57d9e6ee8b3588/setuptools-46.1.3-py3-none-any.whl (582kB)
+    100% |████████████████████████████████| 583kB 2.2MB/s
+Collecting query_string (from get->request)
+  Downloading https://files.pythonhosted.org/packages/12/3c/412a45daf5bea9b1d06d7de41787ec4168001dfa418db7ec8723356b119f/query-string-2019.4.13.tar.gz
+Collecting public (from query_string->get->request)
+  Downloading https://files.pythonhosted.org/packages/54/4d/b40004cc6c07665e48af22cfe1e631f219bf4282e15fa76a5b6364f6885c/public-2019.4.13.tar.gz
+Building wheels for collected packages: request, get, post, query-string, public
+  Running setup.py bdist_wheel for request ... done
+  Stored in directory: /home/ubuntu/.cache/pip/wheels/30/84/5f/484cfba678967ef58c16fce6890925d5c7172622f20111fbfd
+  Running setup.py bdist_wheel for get ... done
+  Stored in directory: /home/ubuntu/.cache/pip/wheels/c1/e3/c1/d02c8c58538853e4c9b78cadb74f6d5c5c370b48a69a7271aa
+  Running setup.py bdist_wheel for post ... done
+  Stored in directory: /home/ubuntu/.cache/pip/wheels/c3/c3/24/b5c132b537ab380c02d69e6bd4dec1f5db56b5fe19030473d7
+  Running setup.py bdist_wheel for query-string ... done
+  Stored in directory: /home/ubuntu/.cache/pip/wheels/d6/a4/78/01b20a9dc224dcc009fab669f7f27b943b8889c5150bd68d8a
+  Running setup.py bdist_wheel for public ... done
+  Stored in directory: /home/ubuntu/.cache/pip/wheels/23/7c/6e/f5b4e09d6596c8b8802b347e48f149031e2363368048f1347a
+Successfully built request get post query-string public
+Installing collected packages: setuptools, public, query-string, get, post, request
+Successfully installed get-2019.4.13 post-2019.4.13 public-2019.4.13 query-string-2019.4.13 request-2019.4.13 setuptools-46.1.3
+ubuntu@ip-172-31-36-248:~$ su luc
+Password:
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+luc@ip-172-31-36-248:/home/ubuntu$ cd /home/luc/RATP/
+luc@ip-172-31-36-248:~/RATP$ vi request_RATP.py
+luc@ip-172-31-36-248:~/RATP$ python3 request_RATP.py
+  File "request_RATP.py", line 19
+    print response.content
+                 ^
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print(response.content)?
+luc@ip-172-31-36-248:~/RATP$ vi request_RATP.py
+luc@ip-172-31-36-248:~/RATP$ python3 request_RATP.py
+b'<faultstring>The endpoint reference (EPR) for the Operation not found is http://opendata-tr.ratp.fr/wsiv/services/Wsiv and the WSA Action = null</faultstring>'
+luc@ip-172-31-36-248:~/RATP$ vi request_RATP.py
+luc@ip-172-31-36-248:~/RATP$ vi request_RATP.py
+luc@ip-172-31-36-248:~/RATP$ python3 request_RATP.py
+b'<?xml version=\'1.0\' encoding=\'UTF-8\'?><soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope" xmlns:wsa="http://www.w3.org/2005/08/addressing"><soapenv:Header><wsa:Action>http://www.w3.org/2005/08/addressing/soap/fault</wsa:Action></soapenv:Header><soapenv:Body><soapenv:Fault><soapenv:Code><soapenv:Value>soapenv:VersionMismatch</soapenv:Value></soapenv:Code><soapenv:Reason><soapenv:Text xml:lang="en-US">Transport level information does not match with SOAP Message namespace URI</soapenv:Text></soapenv:Reason><soapenv:Detail /></soapenv:Fault></soapenv:Body></soapenv:Envelope>'
+luc@ip-172-31-36-248:~/RATP$ vi request_RATP.py
+luc@ip-172-31-36-248:~/RATP$ python3 request_RATP.py
+b'<?xml version=\'1.0\' encoding=\'UTF-8\'?><soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope" xmlns:wsa="http://www.w3.org/2005/08/addressing"><soapenv:Header><wsa:Action>http://www.w3.org/2005/08/addressing/soap/fault</wsa:Action></soapenv:Header><soapenv:Body><soapenv:Fault><soapenv:Code><soapenv:Value>soapenv:VersionMismatch</soapenv:Value></soapenv:Code><soapenv:Reason><soapenv:Text xml:lang="en-US">Transport level information does not match with SOAP Message namespace URI</soapenv:Text></soapenv:Reason><soapenv:Detail /></soapenv:Fault></soapenv:Body></soapenv:Envelope>'
+luc@ip-172-31-36-248:~/RATP$ vi request_RATP.py
+luc@ip-172-31-36-248:~/RATP$ python3 request_RATP.py
+b'<?xml version=\'1.0\' encoding=\'UTF-8\'?><soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope" xmlns:wsa="http://www.w3.org/2005/08/addressing"><soapenv:Header><wsa:Action>http://www.w3.org/2005/08/addressing/soap/fault</wsa:Action></soapenv:Header><soapenv:Body><soapenv:Fault><soapenv:Code><soapenv:Value>soapenv:VersionMismatch</soapenv:Value></soapenv:Code><soapenv:Reason><soapenv:Text xml:lang="en-US">Transport level information does not match with SOAP Message namespace URI</soapenv:Text></soapenv:Reason><soapenv:Detail /></soapenv:Fault></soapenv:Body></soapenv:Envelope>'
+luc@ip-172-31-36-248:~/RATP$ vi request_RATP.py
+luc@ip-172-31-36-248:~/RATP$ python3 request_RATP.py
+b'<?xml version=\'1.0\' encoding=\'UTF-8\'?><soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"><soapenv:Body><soapenv:Fault><soapenv:Code><soapenv:Value>soapenv:Receiver</soapenv:Value></soapenv:Code><soapenv:Reason><soapenv:Text xml:lang="en-US">com.ctc.wstx.exc.WstxParsingException: Undeclared namespace prefix "wsiv"\n at [row,col {unknown-source}]: [6,23]</soapenv:Text></soapenv:Reason><soapenv:Detail /></soapenv:Fault></soapenv:Body></soapenv:Envelope>'
+luc@ip-172-31-36-248:~/RATP$ vi request_RATP.py
+luc@ip-172-31-36-248:~/RATP$ vi request_RATP.py
+luc@ip-172-31-36-248:~/RATP$ python3 request_RATP.py
+b'<?xml version=\'1.0\' encoding=\'UTF-8\'?><soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"><soapenv:Body><soapenv:Fault><soapenv:Code><soapenv:Value>soapenv:Receiver</soapenv:Value></soapenv:Code><soapenv:Reason><soapenv:Text xml:lang="en-US">org.apache.axis2.databinding.ADBException: Unexpected subelement line</soapenv:Text></soapenv:Reason><soapenv:Detail /></soapenv:Fault></soapenv:Body></soapenv:Envelope>'
+luc@ip-172-31-36-248:~/RATP$ vi request_RATP.py
+luc@ip-172-31-36-248:~/RATP$ python3 request_RATP.py
+b'<?xml version=\'1.0\' encoding=\'UTF-8\'?><soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"><soapenv:Body><soapenv:Fault><soapenv:Code><soapenv:Value>soapenv:Receiver</soapenv:Value></soapenv:Code><soapenv:Reason><soapenv:Text xml:lang="en-US">org.apache.axis2.databinding.ADBException: Unexpected subelement line</soapenv:Text></soapenv:Reason><soapenv:Detail /></soapenv:Fault></soapenv:Body></soapenv:Envelope>'
+luc@ip-172-31-36-248:~/RATP$ curl http://opendata-tr.ratp.fr/wsiv/services/Wsiv?wsdl
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://wsiv.ratp.fr" xmlns:ns1="http://wsiv.ratp.fr" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://wsiv.ratp.fr/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<wsdl:documentation>
+        RATP : Web Service Information Voyageur
+    </wsdl:documentation>
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://wsiv.ratp.fr/xsd" xmlns:ax21="http://wsiv.ratp.fr/xsd">
+    <xs:complexType name="GeoPoint">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="nameSuffix" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="x" type="xs:double"/>
+            <xs:element minOccurs="0" name="y" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Line">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="codeStif" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="image" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="realm" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="reseau" nillable="true" type="ax21:Reseau"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Reseau">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="image" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="WrDirections">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ambiguityMessage" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ambiguousLines" nillable="true" type="ax21:Line"/>
+            <xs:element minOccurs="0" name="argumentLine" nillable="true" type="ax21:Line"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="directions" nillable="true" type="ax21:Direction"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Direction">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="line" nillable="true" type="ax21:Line"/>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="sens" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="stationsEndLine" nillable="true" type="ax21:Station"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Station">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="direction" nillable="true" type="ax21:Direction"/>
+            <xs:element minOccurs="0" name="geoPointA" nillable="true" type="ax21:GeoPoint"/>
+            <xs:element minOccurs="0" name="geoPointR" nillable="true" type="ax21:GeoPoint"/>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="idsNextA" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="idsNextR" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="line" nillable="true" type="ax21:Line"/>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="stationArea" nillable="true" type="ax21:StationArea"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="StationArea">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="access" nillable="true" type="ax21:StationAcces"/>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="stations" nillable="true" type="ax21:Station"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="tarifsToParis" nillable="true" type="ax21:Tarif"/>
+            <xs:element minOccurs="0" name="zoneCarteOrange" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="StationAcces">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="address" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="index" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="timeDaysLabel" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="timeDaysStatus" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="timeEnd" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="timeStart" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="x" type="xs:double"/>
+            <xs:element minOccurs="0" name="y" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Tarif">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="demiTarif" type="xs:float"/>
+            <xs:element minOccurs="0" name="pleinTarif" type="xs:float"/>
+            <xs:element minOccurs="0" name="viaLine" nillable="true" type="ax21:Line"/>
+            <xs:element minOccurs="0" name="viaReseau" nillable="true" type="ax21:Reseau"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="WrItineraries">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ambiguityMessage" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ambiguousGeoPointsEnd" nillable="true" type="ax21:GeoPoint"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ambiguousGeoPointsStart" nillable="true" type="ax21:GeoPoint"/>
+            <xs:element minOccurs="0" name="argumentDate" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="itineraries" nillable="true" type="ax21:Itinerary"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Itinerary">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="dateEnd" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="dateStart" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="durationsTransit" nillable="true" type="xs:int"/>
+            <xs:element minOccurs="0" name="geoPointEnd" nillable="true" type="ax21:GeoPoint"/>
+            <xs:element minOccurs="0" name="geoPointStart" nillable="true" type="ax21:GeoPoint"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="missions" nillable="true" type="ax21:Mission"/>
+            <xs:element minOccurs="0" name="tarif" nillable="true" type="ax21:Tarif"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Mission">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="direction" nillable="true" type="ax21:Direction"/>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="line" nillable="true" type="ax21:Line"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="perturbations" nillable="true" type="ax21:Perturbation"/>
+            <xs:element minOccurs="0" name="stationEndLine" nillable="true" type="ax21:Station"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="stations" nillable="true" type="ax21:Station"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="stationsDates" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="stationsMessages" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="stationsPlatforms" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="stationsStops" nillable="true" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Perturbation">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="cause" nillable="true" type="ax21:PerturbationCause"/>
+            <xs:element minOccurs="0" name="consequence" nillable="true" type="ax21:PerturbationConsequence"/>
+            <xs:element minOccurs="0" name="dateEnd" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="dateStart" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="incidents" nillable="true" type="ax21:PerturbationIncident"/>
+            <xs:element minOccurs="0" name="level" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="line" nillable="true" type="ax21:Line"/>
+            <xs:element minOccurs="0" name="media" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="message" nillable="true" type="ax21:PerturbationMessage"/>
+            <xs:element minOccurs="0" name="source" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="station" nillable="true" type="ax21:Station"/>
+            <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="timeEnd" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="timeStart" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="title" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PerturbationCause">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="parentId" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="parentName" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PerturbationConsequence">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="level" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PerturbationIncident">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="date" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="incidentLines" nillable="true" type="ax21:PerturbationIncidentLine"/>
+            <xs:element minOccurs="0" name="messageGlobal" nillable="true" type="ax21:PerturbationMessage"/>
+            <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PerturbationIncidentLine">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="consequence" nillable="true" type="ax21:PerturbationConsequence"/>
+            <xs:element minOccurs="0" name="line" nillable="true" type="ax21:Line"/>
+            <xs:element minOccurs="0" name="messageLarge" nillable="true" type="ax21:PerturbationMessage"/>
+            <xs:element minOccurs="0" name="messageMedium" nillable="true" type="ax21:PerturbationMessage"/>
+            <xs:element minOccurs="0" name="messageShort" nillable="true" type="ax21:PerturbationMessage"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="stations" nillable="true" type="ax21:Station"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PerturbationMessage">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="mediaSpecific" type="xs:boolean"/>
+            <xs:element minOccurs="0" name="text" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="updated" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="WrMission">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ambiguityMessage" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ambiguousLines" nillable="true" type="ax21:Line"/>
+            <xs:element minOccurs="0" name="argumentDate" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="argumentLine" nillable="true" type="ax21:Line"/>
+            <xs:element minOccurs="0" name="mission" nillable="true" type="ax21:Mission"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="WrMissions">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ambiguityMessage" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ambiguousDirections" nillable="true" type="ax21:Direction"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ambiguousLines" nillable="true" type="ax21:Line"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ambiguousStations" nillable="true" type="ax21:Station"/>
+            <xs:element minOccurs="0" name="argumentDate" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="argumentDirection" nillable="true" type="ax21:Direction"/>
+            <xs:element minOccurs="0" name="argumentLine" nillable="true" type="ax21:Line"/>
+            <xs:element minOccurs="0" name="argumentStation" nillable="true" type="ax21:Station"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="missions" nillable="true" type="ax21:Mission"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="perturbations" nillable="true" type="ax21:Perturbation"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="WrPerturbations">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="argumentMedia" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="argumentSource" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="perturbations" nillable="true" type="ax21:Perturbation"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="WrStationAreas">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ambiguityMessage" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ambiguousGeoPoints" nillable="true" type="ax21:GeoPoint"/>
+            <xs:element minOccurs="0" name="argumentGeoPoint" nillable="true" type="ax21:GeoPoint"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="distances" nillable="true" type="xs:int"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="stationAreas" nillable="true" type="ax21:StationArea"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="WrStations">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ambiguityMessage" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ambiguousGeoPoints" nillable="true" type="ax21:GeoPoint"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ambiguousLines" nillable="true" type="ax21:Line"/>
+            <xs:element minOccurs="0" name="argumentDirection" nillable="true" type="ax21:Direction"/>
+            <xs:element minOccurs="0" name="argumentGeoPoint" nillable="true" type="ax21:GeoPoint"/>
+            <xs:element minOccurs="0" name="argumentLine" nillable="true" type="ax21:Line"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="distances" nillable="true" type="xs:int"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="stations" nillable="true" type="ax21:Station"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://wsiv.ratp.fr" xmlns:ns="http://wsiv.ratp.fr">
+    <xs:element name="getGeoPoints">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="gp" nillable="true" type="ns0:GeoPoint"/>
+                <xs:element minOccurs="0" name="limit" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getGeoPointsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ns0:GeoPoint"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getLines">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="line" nillable="true" type="ns0:Line"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getLinesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ns0:Line"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getDirections">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="line" nillable="true" type="ns0:Line"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getDirectionsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="return" nillable="true" type="ns0:WrDirections"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getMission">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="mission" nillable="true" type="ns0:Mission"/>
+                <xs:element minOccurs="0" name="date" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="stationAll" type="xs:boolean"/>
+                <xs:element minOccurs="0" name="stationSortAlpha" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getMissionResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="return" nillable="true" type="ns0:WrMission"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getMissionsFirstLast">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="station" nillable="true" type="ns0:Station"/>
+                <xs:element minOccurs="0" name="direction" nillable="true" type="ns0:Direction"/>
+                <xs:element minOccurs="0" name="date" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getMissionsFirstLastResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="return" nillable="true" type="ns0:WrMissions"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getMissionsFrequency">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="station" nillable="true" type="ns0:Station"/>
+                <xs:element minOccurs="0" name="direction" nillable="true" type="ns0:Direction"/>
+                <xs:element minOccurs="0" name="stationEndLine" nillable="true" type="ns0:Station"/>
+                <xs:element minOccurs="0" name="stationEnd" nillable="true" type="ns0:Station"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="datesStart" nillable="true" type="xs:string"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="datesEnd" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getMissionsFrequencyResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="return" nillable="true" type="ns0:WrMissions"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getMissionsNext">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="station" nillable="true" type="ns0:Station"/>
+                <xs:element minOccurs="0" name="direction" nillable="true" type="ns0:Direction"/>
+                <xs:element minOccurs="0" name="dateStart" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="limit" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getMissionsNextResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="return" nillable="true" type="ns0:WrMissions"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getStations">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="station" nillable="true" type="ns0:Station"/>
+                <xs:element minOccurs="0" name="gp" nillable="true" type="ns0:GeoPoint"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="distances" type="xs:int"/>
+                <xs:element minOccurs="0" name="limit" type="xs:int"/>
+                <xs:element minOccurs="0" name="sortAlpha" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getStationsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="return" nillable="true" type="ns0:WrStations"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getVersionResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+            <xs:element name="getMeteoTraficResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getLinesResponse">
+    <wsdl:part name="parameters" element="ns1:getLinesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMissionsFirstLastResponse">
+    <wsdl:part name="parameters" element="ns1:getMissionsFirstLastResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionResponse">
+    <wsdl:part name="parameters" element="ns1:getVersionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getStationsResponse">
+    <wsdl:part name="parameters" element="ns1:getStationsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMeteoTraficRequest">
+    <wsdl:part name="parameters" element="ns1:getMeteoTrafic">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionRequest">
+  </wsdl:message>
+  <wsdl:message name="getStationsRequest">
+    <wsdl:part name="parameters" element="ns1:getStations">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMissionsNextRequest">
+    <wsdl:part name="parameters" element="ns1:getMissionsNext">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMissionsFrequencyResponse">
+    <wsdl:part name="parameters" element="ns1:getMissionsFrequencyResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDirectionsResponse">
+    <wsdl:part name="parameters" element="ns1:getDirectionsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDirectionsRequest">
+    <wsdl:part name="parameters" element="ns1:getDirections">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLinesRequest">
+    <wsdl:part name="parameters" element="ns1:getLines">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMissionResponse">
+    <wsdl:part name="parameters" element="ns1:getMissionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMissionRequest">
+    <wsdl:part name="parameters" element="ns1:getMission">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMissionsFrequencyRequest">
+    <wsdl:part name="parameters" element="ns1:getMissionsFrequency">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getGeoPointsResponse">
+    <wsdl:part name="parameters" element="ns1:getGeoPointsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMissionsFirstLastRequest">
+    <wsdl:part name="parameters" element="ns1:getMissionsFirstLast">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMissionsNextResponse">
+    <wsdl:part name="parameters" element="ns1:getMissionsNextResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getGeoPointsRequest">
+    <wsdl:part name="parameters" element="ns1:getGeoPoints">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMeteoTraficResponse">
+    <wsdl:part name="parameters" element="ns1:getMeteoTraficResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WsivPortType">
+    <wsdl:operation name="getMissionsFrequency">
+      <wsdl:input message="ns1:getMissionsFrequencyRequest" wsaw:Action="urn:getMissionsFrequency">
+    </wsdl:input>
+      <wsdl:output message="ns1:getMissionsFrequencyResponse" wsaw:Action="urn:getMissionsFrequencyResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMissionsFirstLast">
+      <wsdl:input message="ns1:getMissionsFirstLastRequest" wsaw:Action="urn:getMissionsFirstLast">
+    </wsdl:input>
+      <wsdl:output message="ns1:getMissionsFirstLastResponse" wsaw:Action="urn:getMissionsFirstLastResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <wsdl:input message="ns1:getVersionRequest" wsaw:Action="urn:getVersion">
+    </wsdl:input>
+      <wsdl:output message="ns1:getVersionResponse" wsaw:Action="urn:getVersionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMeteoTrafic">
+      <wsdl:input message="ns1:getMeteoTraficRequest" wsaw:Action="urn:getMeteoTrafic">
+    </wsdl:input>
+      <wsdl:output message="ns1:getMeteoTraficResponse" wsaw:Action="urn:getMeteoTraficResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLines">
+      <wsdl:input message="ns1:getLinesRequest" wsaw:Action="urn:getLines">
+    </wsdl:input>
+      <wsdl:output message="ns1:getLinesResponse" wsaw:Action="urn:getLinesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStations">
+      <wsdl:input message="ns1:getStationsRequest" wsaw:Action="urn:getStations">
+    </wsdl:input>
+      <wsdl:output message="ns1:getStationsResponse" wsaw:Action="urn:getStationsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMissionsNext">
+      <wsdl:input message="ns1:getMissionsNextRequest" wsaw:Action="urn:getMissionsNext">
+    </wsdl:input>
+      <wsdl:output message="ns1:getMissionsNextResponse" wsaw:Action="urn:getMissionsNextResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDirections">
+      <wsdl:input message="ns1:getDirectionsRequest" wsaw:Action="urn:getDirections">
+    </wsdl:input>
+      <wsdl:output message="ns1:getDirectionsResponse" wsaw:Action="urn:getDirectionsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMission">
+      <wsdl:input message="ns1:getMissionRequest" wsaw:Action="urn:getMission">
+    </wsdl:input>
+      <wsdl:output message="ns1:getMissionResponse" wsaw:Action="urn:getMissionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGeoPoints">
+      <wsdl:input message="ns1:getGeoPointsRequest" wsaw:Action="urn:getGeoPoints">
+    </wsdl:input>
+      <wsdl:output message="ns1:getGeoPointsResponse" wsaw:Action="urn:getGeoPointsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsivHttpBinding" type="ns1:WsivPortType">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="getMissionsFrequency">
+      <http:operation location="Wsiv/getMissionsFrequency"/>
+      <wsdl:input>
+        <mime:content part="getMissionsFrequency" type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getMissionsFrequency" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMissionsFirstLast">
+      <http:operation location="Wsiv/getMissionsFirstLast"/>
+      <wsdl:input>
+        <mime:content part="getMissionsFirstLast" type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getMissionsFirstLast" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <http:operation location="Wsiv/getVersion"/>
+      <wsdl:input>
+        <mime:content part="getVersion" type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getVersion" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMeteoTrafic">
+      <http:operation location="Wsiv/getMeteoTrafic"/>
+      <wsdl:input>
+        <mime:content part="getMeteoTrafic" type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getMeteoTrafic" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLines">
+      <http:operation location="Wsiv/getLines"/>
+      <wsdl:input>
+        <mime:content part="getLines" type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getLines" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStations">
+      <http:operation location="Wsiv/getStations"/>
+      <wsdl:input>
+        <mime:content part="getStations" type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getStations" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMissionsNext">
+      <http:operation location="Wsiv/getMissionsNext"/>
+      <wsdl:input>
+        <mime:content part="getMissionsNext" type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getMissionsNext" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDirections">
+      <http:operation location="Wsiv/getDirections"/>
+      <wsdl:input>
+        <mime:content part="getDirections" type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getDirections" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMission">
+      <http:operation location="Wsiv/getMission"/>
+      <wsdl:input>
+        <mime:content part="getMission" type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getMission" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGeoPoints">
+      <http:operation location="Wsiv/getGeoPoints"/>
+      <wsdl:input>
+        <mime:content part="getGeoPoints" type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getGeoPoints" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsivSOAP11Binding" type="ns1:WsivPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getMissionsFrequency">
+      <soap:operation soapAction="urn:getMissionsFrequency" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMissionsFirstLast">
+      <soap:operation soapAction="urn:getMissionsFirstLast" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <soap:operation soapAction="urn:getVersion" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMeteoTrafic">
+      <soap:operation soapAction="urn:getMeteoTrafic" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLines">
+      <soap:operation soapAction="urn:getLines" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStations">
+      <soap:operation soapAction="urn:getStations" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMissionsNext">
+      <soap:operation soapAction="urn:getMissionsNext" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDirections">
+      <soap:operation soapAction="urn:getDirections" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMission">
+      <soap:operation soapAction="urn:getMission" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGeoPoints">
+      <soap:operation soapAction="urn:getGeoPoints" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsivSOAP12Binding" type="ns1:WsivPortType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getMissionsFrequency">
+      <soap12:operation soapAction="urn:getMissionsFrequency" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMissionsFirstLast">
+      <soap12:operation soapAction="urn:getMissionsFirstLast" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <soap12:operation soapAction="urn:getVersion" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMeteoTrafic">
+      <soap12:operation soapAction="urn:getMeteoTrafic" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLines">
+      <soap12:operation soapAction="urn:getLines" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStations">
+      <soap12:operation soapAction="urn:getStations" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMissionsNext">
+      <soap12:operation soapAction="urn:getMissionsNext" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDirections">
+      <soap12:operation soapAction="urn:getDirections" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMission">
+      <soap12:operation soapAction="urn:getMission" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGeoPoints">
+      <soap12:operation soapAction="urn:getGeoPoints" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Wsiv">
+    <wsdl:port name="WsivSOAP11port_http" binding="ns1:WsivSOAP11Binding">
+      <soap:address location="http://www13.ratp.fr/wsiv/services/Wsiv"/>
+    </wsdl:port>
+    <wsdl:port name="WsivSOAP12port_http" binding="ns1:WsivSOAP12Binding">
+      <soap12:address location="http://www13.ratp.fr/wsiv/services/Wsiv"/>
+    </wsdl:port>
+    <wsdl:port name="WsivHttpport" binding="ns1:WsivHttpBinding">
+      <http:address location="http://www13.ratp.fr/wsiv/services/Wsiv"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
+luc@ip-172-31-36-248:~/RATP$ vi request_RATP.py
+luc@ip-172-31-36-248:~/RATP$ python3 request_RATP.py
+b'<?xml version=\'1.0\' encoding=\'UTF-8\'?><soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"><soapenv:Body><soapenv:Fault><soapenv:Code><soapenv:Value>soapenv:Receiver</soapenv:Value></soapenv:Code><soapenv:Reason><soapenv:Text xml:lang="en-US">org.apache.axis2.databinding.ADBException: Unexpected subelement line</soapenv:Text></soapenv:Reason><soapenv:Detail /></soapenv:Fault></soapenv:Body></soapenv:Envelope>'
+luc@ip-172-31-36-248:~/RATP$ curl http://opendata-tr.ratp.fr/wsiv/services/Wsiv?wsdl > wsdl
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 39830    0 39830    0     0   279k      0 --:--:-- --:--:-- --:--:--  279k
+luc@ip-172-31-36-248:~/RATP$ ls -lha
+total 92K
+drwxrwxr-x 4 luc luc 4.0K Apr  9 01:43 .
+drwxr-xr-x 6 luc luc 4.0K Apr  9 01:34 ..
+-rw-r--r-- 1 luc luc  12K Apr  8 15:12 .api_ratp.py.swp
+drwxrwxr-x 8 luc luc 4.0K Apr  6 16:05 .git
+-rw-rw-r-- 1 luc luc    7 Apr  6 16:05 README.md
+-rw-rw-r-- 1 luc luc  924 Apr  8 15:09 api_ratp.py
+-rw-rw-r-- 1 luc luc 1.2K Apr  7 13:02 api_ratp2.py
+-rw-rw-r-- 1 luc luc  816 Apr  8 14:57 curl_ratp.py
+-rw-rw-r-- 1 luc luc  377 Apr  8 13:10 getlines.xml
+drwxrwxr-x 2 luc luc 4.0K Apr  6 16:05 neo4j
+-rw-rw-r-- 1 luc luc  695 Apr  9 01:28 request_RATP.py
+-rw-rw-r-- 1 luc luc  39K Apr  9 01:43 wsdl
+luc@ip-172-31-36-248:~/RATP$ vi wsdl
+
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://wsiv.ratp.fr" xmlns:ns1="http://wsiv.ratp.fr" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://wsiv.ratp.fr/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<wsdl:documentation>
+                RATP : Web Service Information Voyageur
+        </wsdl:documentation>
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://wsiv.ratp.fr/xsd" xmlns:ax21="http://wsiv.ratp.fr/xsd">
+    <xs:complexType name="GeoPoint">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="nameSuffix" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="x" type="xs:double"/>
+            <xs:element minOccurs="0" name="y" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Line">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="codeStif" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="image" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="realm" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="reseau" nillable="true" type="ax21:Reseau"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Reseau">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="image" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="WrDirections">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ambiguityMessage" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ambiguousLines" nillable="true" type="ax21:Line"/>
+            <xs:element minOccurs="0" name="argumentLine" nillable="true" type="ax21:Line"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="directions" nillable="true" type="ax21:Direction"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Direction">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="line" nillable="true" type="ax21:Line"/>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="sens" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="stationsEndLine" nillable="true" type="ax21:Station"/>
+        </xs:sequence>
+"wsdl" 825L, 39830C                                                                                                                                                                     1,1           Top
