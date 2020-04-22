@@ -1,16 +1,27 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+import os
+from dotenv import load_dotenv
 from kafka import KafkaProducer
 
-bootstrap_servers = ['15.236.9.122:9092']
-topicName = 'test'
 
-producer = KafkaProducer(bootstrap_servers = bootstrap_servers)
+if __name__ == "__main__":
+    load_dotenv()
 
-ack = producer.send(topicName, b'Hello World!!!!!!!!')
-metadata = ack.get()
-print(metadata.topic)
-print(metadata.partition)
+    # Configuration-----------------
+    bootstrap_servers = [os.getenv("aws_kafka_name") + ':9092']
+    topic_name = 'ratp-1'
+    producer = KafkaProducer(bootstrap_servers = bootstrap_servers)
+    print(f"Connexion : {bootstrap_servers}")
+
+    try:
+        ack = producer.send(topic_name, b'Hello World!!!!!!!!')
+        metadata = ack.get()
+    except Exception as e:
+        print(e)
+    else:
+        print(metadata.topic)
+        print(metadata.partition)
 
 
 
