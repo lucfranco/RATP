@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from flask import Flask
 
 env_path = Path('../') / '.env'
-print(env_path)
+print('env_path' + env_path)
 
 app = Flask(__name__)
 
@@ -13,7 +13,7 @@ app.config.from_object('config')
 
 @app.route('/')
 def index():
-        return "Hello world !"
+        return "Hello world !" + env_path
 
 if __name__ == "__main__":
     load_dotenv(dotenv_path=env_path)
