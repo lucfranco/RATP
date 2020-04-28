@@ -1,4 +1,9 @@
+from pathlib import Path
+from dotenv import load_dotenv
 from flask import Flask
+
+env_path = Path('../') / '.env'
+print(env_path)
 
 app = Flask(__name__)
 
@@ -11,4 +16,5 @@ def index():
         return "Hello world !"
 
 if __name__ == "__main__":
-        app.run()
+    load_dotenv(dotenv_path=env_path)
+    app.run()
