@@ -2,7 +2,8 @@ from pathlib import Path
 from dotenv import load_dotenv
 from flask import Flask
 
-env_path = Path('../') / '.env'
+#env_path = Path('../../') / '.env'
+env_path = "../../.env"
 print('env_path' + env_path)
 
 app = Flask(__name__)
