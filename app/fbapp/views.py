@@ -2,10 +2,8 @@ from pathlib import Path
 from dotenv import load_dotenv
 from flask import Flask
 
-
+# Path file .env-----------------
 env_path = Path.cwd() / '.env'
-#env_path = "../../.env"
-print('env_path' + str(env_path))
 
 app = Flask(__name__)
 
@@ -16,6 +14,14 @@ app.config.from_object('config')
 @app.route('/')
 def index():
         return "Hello world !" + str(env_path)
+
+
+@app.route('/config')
+    def config():
+    list_env = ''
+    for a in os.environ:
+        list_env += 'Var: ', a, 'Value: ', os.getenv(a)
+    return list_env
 
 if __name__ == "__main__":
     load_dotenv(dotenv_path=env_path)
