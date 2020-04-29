@@ -22,10 +22,10 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}">
 
     <!-- Theme CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/freelancer-theme.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/freelancer-theme.min.css') }}">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/custom.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
 
     <!-- Custom Fonts -->
     <script src="https://use.fontawesome.com/470b91f216.js"></script>
@@ -74,7 +74,7 @@
               <div class="card">
                 <div class="row">
                   <div class="col-sm-3 col-sm-offset-3">
-                      <img class="img-responsive img-circle user_profile" src="static/img/profile.png" id="user_image">
+                      <img class="img-responsive img-circle user_profile" src="{{ url_for('static', filename='img/profile.png') }}" id="user_image">
                   </div>
                   <div class="col-sm-3">
                     <h2 id="user_name">Tom</h2>
