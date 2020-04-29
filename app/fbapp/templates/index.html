@@ -19,13 +19,13 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="static/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}">
 
     <!-- Theme CSS -->
-    <link rel="stylesheet" href="static/css/freelancer-theme.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/freelancer-theme.min.css') }}">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="static/css/custom.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/custom.css') }}">
 
     <!-- Custom Fonts -->
     <script src="https://use.fontawesome.com/470b91f216.js"></script>
@@ -38,7 +38,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="static/js/jquery/jquery.min.js" charset="utf-8"></script>
+    <script src="{{ url_for('static', filename='js/jquery/jquery.min.js') }}" charset="utf-8"></script>
 
 </head>
 
