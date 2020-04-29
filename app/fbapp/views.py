@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 from dotenv import load_dotenv
-from flask import Flask
+from flask import Flask, render_template
 from class_db_mariadb import gestionMARIADB
 #import mysql.connector
 
@@ -26,8 +26,9 @@ app.config.from_object('config')
 # To get one variable, tape app.config['MY_VARIABLE']
 
 @app.route('/')
+@app.route('/index/')
 def index():
-        return "Hello world !" + str(env_path)
+        return render_template('index.html')
 
 
 @app.route('/config')
