@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from dotenv import load_dotenv
 from flask import Flask
@@ -17,10 +18,10 @@ def index():
 
 
 @app.route('/config')
-    def config():
+def config():
     list_env = ''
-    for a in os.environ:
-        list_env += 'Var: ', a, 'Value: ', os.getenv(a)
+    for i, j in os.environ.items():
+        list_env += 'Var: ' + str(i) + 'Value: ' + str(j) + '<br/>'
     return list_env
 
 if __name__ == "__main__":
