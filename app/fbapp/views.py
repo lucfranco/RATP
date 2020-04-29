@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 from flask import Flask
-from class_base_mariadb import gestionMARIADB
+from class_db_mariadb import gestionMARIADB
 #import mysql.connector
 
 # Path file .env-----------------
@@ -39,7 +39,7 @@ def config():
 
 @app.route('/mysqlshow')
 def mysqlshow():
-    listStop = ratp.listStop()
+    listStop = ratp.extractRouteGlobal()
     return listStop
 
 
