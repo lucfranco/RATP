@@ -55,6 +55,10 @@ def ratp():
 def ratp2():
     return render_template('ratp2.html')
 
+@app.route('/test')
+def test():
+    return render_template('test.html')
+
 
 if __name__ == "__main__":
     #print(mariadb_config)
