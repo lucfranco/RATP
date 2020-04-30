@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 from dotenv import load_dotenv
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, json
 from class_db_mariadb import gestionMARIADB
 #import mysql.connector
 
@@ -17,7 +17,8 @@ mariadb_config = {
     'database': os.getenv("mariadb_base")
 }
 # INIT MariaDB------------------------------------
-ratp = gestionMARIADB(mariadb_config)
+#ratp = gestionMARIADB(mariadb_config)
+#print(ratp.test("rerepipo"))
 
 app = Flask(__name__)
 
@@ -40,12 +41,19 @@ def config():
 
 @app.route('/mysqlshow')
 def mysqlshow():
-    listStop = ratp.extractRouteGlobal()
+    ratp = gestionMARIADB(mariadb_config)
+    listStop = ratp.test("pipo") #ratp.extractRouteGlobal()
     return listStop
 
-@app.route('/station.json')
+@app.route('/station.json', methods=['GET'])
 def station():
-    return jsonify(hello='world') # Returns HTTP Response with {"hello": "world"}
+    data = {'nom': 'Wayne', 'prenom': 'Bruce'}
+    response = app.response_class(
+        response=json.dumps(data),
+        mimetype='application/json'
+    )
+    return response
+    #return jsonify(hello='world') # Returns HTTP Response with {"hello": "world"}
 
 @app.route('/ratp')
 def ratp():
@@ -66,6 +74,6 @@ def test2():
 
 if __name__ == "__main__":
     #print(mariadb_config)
-
+    
     app.run()
 
