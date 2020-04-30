@@ -16,9 +16,7 @@ mariadb_config = {
     'host': os.getenv("mariadb_host"),
     'database': os.getenv("mariadb_base")
 }
-# INIT MariaDB------------------------------------
-#ratp = gestionMARIADB(mariadb_config)
-#print(ratp.test("rerepipo"))
+
 
 app = Flask(__name__)
 
@@ -42,11 +40,13 @@ def config():
 @app.route('/mysqlshow')
 def mysqlshow():
     ratp = gestionMARIADB(mariadb_config)
-    listStop = ratp.test("pipo") #ratp.extractRouteGlobal()
-    return listStop
+    test = ratp.test("pipo") #ratp.extractRouteGlobal()
+    return test
 
 @app.route('/station.json', methods=['GET'])
 def station():
+    ratp = gestionMARIADB(mariadb_config)
+    listStop = ratp.listStop()
     data = {'nom': 'Wayne', 'prenom': 'Bruce'}
     response = app.response_class(
         response=json.dumps(data),
@@ -74,6 +74,6 @@ def test2():
 
 if __name__ == "__main__":
     #print(mariadb_config)
-    
+
     app.run()
 
