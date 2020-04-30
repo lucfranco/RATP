@@ -41,12 +41,16 @@ def config():
 @app.route('/mysqlshow')
 def mysqlshow():
     listStop = ratp.extractRouteGlobal()
-    return listStop[0]
+    return listStop
 
 
 @app.route('/ratp')
 def ratp():
     return render_template('ratp.html')
+
+@app.route('/ratp2')
+def ratp2():
+    return render_template('ratp2.html')
 
 
 if __name__ == "__main__":
