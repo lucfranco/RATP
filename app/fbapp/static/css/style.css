@@ -12,7 +12,7 @@ body {
 
 .navbar-brand {
   min-height: 60px;
-  padding: 0 20px 5px !important;
+  padding: 0 20px 5px;
   font-size: 16px
 }
 
