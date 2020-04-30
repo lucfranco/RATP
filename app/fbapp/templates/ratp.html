@@ -74,43 +74,24 @@
 
     <!-- Header -->
     <header>
-      <div class="container" id="maincontent" tabindex="-1">
-        <div class="row">
-            <div class="col-lg-6 col-lg-offset-3">
-              <div class="card">
-                <div class="row">
-                  <div class="col-sm-3 col-sm-offset-3">
-                      <img class="img-responsive img-circle user_profile" src="{{ url_for('static', filename='img/profile.png') }}" id="user_image">
-                  </div>
-                  <div class="col-sm-3">
-                    <h2 id="user_name">Tom</h2>
-                  </div>
-                  <div class="col-sm-12">
-                    <p id="description" class="blur">Toi, tu sais comment utiliser la console ! Jamais à court d'idées pour réaliser ton objectif, tu es déterminé-e et persévérant-e. Tes amis disent d'ailleurs volontiers que tu as du caractère et que tu ne te laisses pas marcher sur les pieds. Un peu hacker sur les bords, tu aimes trouver des solutions à tout problème. N'aurais-tu pas un petit problème d'autorité ? ;-)</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
-        <div class="row">
-          <div class="intro-text">
-            <h1 class="name">Prêt-e à savoir qui tu es vraiment ?</h1>
-            <hr class="star-light">
-          </div>
-          <div class="col-lg-8 col-lg-offset-2 text-center">
-            <p>
-              Connecte-toi à Facebook afin de connaître les résultats !
-            </p>
-            <p style="margin-top: 20px;">
-              <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true" onlogin='checkLoginState()'></div>
-            </p>
-          </div>
-        </div>
-      </div>
     </header>
 
-    <div id="mapid" style="width: 600px; height: 400px;"></div>
+ <div id="mapid" style="width: 600px; height: 400px;"></div>
+<script>
 
+    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        maxZoom: 18,
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1
+    }).addTo(mymap);
+
+</script>
     <footer class="text-center">
         <div class="footer-below">
             <div class="container">
