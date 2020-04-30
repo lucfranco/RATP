@@ -40,6 +40,10 @@
 
     <!-- leafletjs JS -->
     <script src="{{ url_for('static', filename='leaflet/leaflet.js') }}" charset="utf-8"></script>
+
+    <!-- tile.stamen JS -->
+    <script src="{{ url_for('static', filename='js/tile.stamen.js') }}" charset="utf-8"></script>
+
 </head>
     <body>
         <nav class ="navbar navbar-default navbar-fixed-top" role ="navigation">
@@ -82,14 +86,12 @@
         </div>
     </body>
     <script>
-        var map = new L.Map('map', {
-        layers: [
-            new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                'attribution': 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-            })
-        ],
-        center: [0, 0],
-        zoom: 0
+        // replace "toner" here with "terrain" or "watercolor"
+        var layer = new L.StamenTileLayer("toner");
+        var map = new L.Map("map", {
+            center: new L.LatLng(37.7, -122.4),
+            zoom: 12
         });
+        map.addLayer(layer);
     </script>
 </html>
