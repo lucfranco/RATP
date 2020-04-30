@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 from dotenv import load_dotenv
-from flask import Flask, render_template, json
+from flask import Flask, render_template, json, jsonify
 from class_db_mariadb import gestionMARIADB
 #import mysql.connector
 
@@ -47,13 +47,13 @@ def mysqlshow():
 def station():
     ratp = gestionMARIADB(mariadb_config)
     listStop = ratp.listStop()
-    data = {'nom': 'Wayne', 'prenom': 'Bruce'}
-    response = app.response_class(
-        response=json.dumps(data),
-        mimetype='application/json'
-    )
-    return response
-    #return jsonify(hello='world') # Returns HTTP Response with {"hello": "world"}
+    #data = {'nom': 'Wayne', 'prenom': 'Bruce'}
+    #response = app.response_class(
+    #     response=json.dumps(listStop),
+    #     mimetype='application/json'
+    # )
+    # return response
+    return jsonify({'listStop' : listStop}) # Returns HTTP Response with {"hello": "world"}
 
 @app.route('/ratp')
 def ratp():
