@@ -43,6 +43,9 @@ def mysqlshow():
     listStop = ratp.extractRouteGlobal()
     return listStop
 
+@app.route('/station.json')
+def station():
+    return jsonify(hello='world') # Returns HTTP Response with {"hello": "world"}
 
 @app.route('/ratp')
 def ratp():
