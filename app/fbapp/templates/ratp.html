@@ -46,6 +46,9 @@
     <!-- leafletjs JS -->
     <script src="{{ url_for('static', filename='leaflet/leaflet.js') }}" charset="utf-8"></script>
 
+    <!-- stamen JS -->
+    <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
+
 </head>
 
 <body id="page-top" class="index">
@@ -79,17 +82,13 @@
  <div id="mapid" style="width: 600px; height: 400px;"></div>
 <script>
 
-    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-
-    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-        maxZoom: 18,
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        id: 'mapbox/streets-v11',
-        tileSize: 512,
-        zoomOffset: -1
-    }).addTo(mymap);
+// replace "toner" here with "terrain" or "watercolor"
+var layer = new L.StamenTileLayer("toner");
+var map = new L.Map("element_id", {
+    center: new L.LatLng(37.7, -122.4),
+    zoom: 12
+});
+map.addLayer(layer);
 
 </script>
     <footer class="text-center">
