@@ -9,16 +9,36 @@
     <meta name="author" content="">
     <title>RATP</title>
 
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-            <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Bootstrap Core CSS -->
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}">
 
-            <!--   <script type="text/javascript" src="js/uikit.js"></script> -->
-            <script src="https://unpkg.com/leaflet/dist/leaflet-src.js"></script>
-            <link type="text/css" rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-            <link type="text/css" rel="stylesheet" href="/static/css/style.css" />
+    <!-- Theme CSS -->
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/freelancer-theme.min.css') }}">
+
+    <!-- Custom CSS -->
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+
+    <!-- LeafLetJs CSS -->
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='leaflet/leaflet.css') }}">
+
+    <!-- Style CSS -->
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Custom Fonts -->
+    <script src="https://use.fontawesome.com/470b91f216.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="{{ url_for('static', filename='js/jquery/jquery.min.js') }}" charset="utf-8"></script>
+
+    <!-- leafletjs JS -->
+    <script src="{{ url_for('static', filename='leaflet/leaflet.js') }}" charset="utf-8"></script>
 
 </head>
 
