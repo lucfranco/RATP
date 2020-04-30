@@ -93,7 +93,7 @@
         });
         map.addLayer(layer);
         // create a red polygon from an array of LatLng points
-        var latlngs = [[50.8586, 2.3427],[49.8586, 2.3427],[47.8586, 2.3427],[46.8586, 2.3427]];
+        var latlngs = [[50.8586, 1.3427],[49.8586, 3.3427],[47.8586, 4.3427],[46.8586, 5.3427]];
         var polygon = L.polygon(latlngs, {color: 'red'}).addTo(map);
         // zoom the map to the polygon
         map.fitBounds(polygon.getBounds());
