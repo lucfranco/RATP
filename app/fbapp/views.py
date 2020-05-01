@@ -43,7 +43,7 @@ def mysqlshow():
     test = ratp.test("pipo") #ratp.extractRouteGlobal()
     return test
 
-@app.route('/station.json', methods=['GET'])
+@app.route('/stations.json', methods=['GET'])
 def station():
     list_stop_dict = dict()
     #list_stop_dict["type"] = "FeatureCollection"
