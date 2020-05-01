@@ -86,14 +86,6 @@ def station():
 def ratp():
     return render_template('ratp.html')
 
-@app.route('/ratp2')
-def ratp2():
-    return render_template('ratp2.html')
-
-@app.route('/test')
-def test():
-    return render_template('test.html')
-
 @app.route('/test2')
 def test2():
     return render_template('test2.html')
