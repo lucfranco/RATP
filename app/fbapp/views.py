@@ -58,7 +58,7 @@ def stations_ligne(ligne):
             'ID': station[2],
             'SEQUENCE': station[3],
             'NAME': station[4],
-            'DESCRIPTION': station[5]
+            'DESCRIPTION': station[5],
             "geometry": {
                 "type":"Point",
                 "coordinates":[station[7], station[6]]
