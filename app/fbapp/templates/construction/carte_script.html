@@ -22,14 +22,43 @@
         layers: [Stamen_TonerLite],
     });
 
-let lgn = document.getElementById("lignes");
+
+// init---------------------------------------
 let clickCircle = '';
 let clickCircle1 = '';
-function affich() {
-    lgn_val = lgn.options[lgn.selectedIndex].value;
+let url = "{{ url_for(stations_ligne) }}";
+// ajout d'un écouteur d'évènement sur le select
+let lgn = document.getElementById("lignes");
+lgn.addEventListener("onchange", load_list, false);
 
+// ajout d'un écouteur d'évènement sur le bouton
+let bt_affich = document.getElementById("affich_ligne");
+bt_affich.addEventListener("click", affich, false);
+
+
+
+
+//document.getElementsByTagName('select')[0].onchange = function() {
+//  var index = this.selectedIndex;
+//  var inputText = this.children[index].innerHTML.trim();
+//  console.log(inputText);
+//}
+
+
+
+
+//function------------------------------------------------
+function load_list() {
+    lgn_val = lgn.options[lgn.selectedIndex].value;
     if (lgn_val){
         alert(lgn_val)
+    }
+}
+
+function affich() {
+    lgn_val = lgn.options[lgn.selectedIndex].value;
+    if (lgn_val){
+        //alert(lgn_val)
         clickCircle1 = L.circle([48.853, 2.333], 200).addTo(map);
         clickCircle = L.circle([48.853, 2.333], 1609 * 3, {color: '#f07300',fillOpacity: 0,opacity: 0.5}).addTo(map);
     } else {
@@ -39,15 +68,7 @@ function affich() {
     }
 }
 
-// ajout d'un écouteur d'évènement au tableau
-var bt_affich = document.getElementById("affich_ligne");
-bt_affich.addEventListener("click", affich, false);
 
-//document.getElementsByTagName('select')[0].onchange = function() {
-//  var index = this.selectedIndex;
-//  var inputText = this.children[index].innerHTML.trim();
-//  console.log(inputText);
-//}
 
 /*
     var svg = d3.select(map.getPanes().overlayPane).append("svg");
