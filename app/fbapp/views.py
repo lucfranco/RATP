@@ -103,7 +103,7 @@ def fullscreen():
     return render_template('fullscreen.html')
 
 @app.route('/carte')
-def fullscreen():
+def carte():
     return render_template('carte.html')
 
 
