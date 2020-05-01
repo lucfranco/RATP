@@ -43,8 +43,8 @@ function load_list() {
     lgn_val = lgn.options[lgn.selectedIndex].value;
     if (lgn_val){
         url_get = url + lgn_val + "/";
-        makeRequest(url_get)
-        alert(url_get)
+        list_stations  = makeRequest(url_get);
+        alert(url_get + list_stations['geometry']);
     }
 }
 
@@ -81,9 +81,10 @@ function affich() {
         }
         // Handle XHR Success
         function updateUISuccess(responseText) {
-            var response = JSON.parse(responseText)
-            console.log(response) // Correctly logs json data in console.
-            console.log(typeof(response)) // Shows the type is 'object' in console.
+            var response = JSON.parse(responseText);
+            console.log(response);// Correctly logs json data in console.
+            console.log(typeof(response)); // Shows the type is 'object' in console.
+            return response;
         }
 
 /*
