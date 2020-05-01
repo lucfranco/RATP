@@ -18,7 +18,7 @@
 
     var map = new L.Map("map", {
         center: new L.LatLng(48.853, 2.333),
-        zoom: 15,
+        zoom: 12,
         layers: [Stamen_TonerLite],
     });
 
@@ -27,6 +27,7 @@ function affich() {
     var lgn = document.getElementById("lignes");
     var lgn_val = lgn.options[lgn.selectedIndex].value;
     alert(lgn_val)
+    L.circle([48.853, 2.333], 200).addTo(map);
 }
 
 // ajout d'un écouteur d'évènement au tableau
