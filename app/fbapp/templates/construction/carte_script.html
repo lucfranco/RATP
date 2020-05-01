@@ -26,7 +26,9 @@
 // init---------------------------------------
 let clickCircle = '';
 let clickCircle1 = '';
-let url = "{{ url_for(stations_ligne) }}";
+let url = "{{ url_for('stations_ligne_mysql') }}";
+let url2 = "{{ url_for('stations_ligne') }}";
+let url3 = "{{ url_for('stations_ligne') }}";
 // ajout d'un écouteur d'évènement sur le select
 let lgn = document.getElementById("lignes");
 lgn.addEventListener("onchange", load_list, false);
