@@ -134,12 +134,19 @@
         </div>
     </body>
     <script>
-        var layer = new L.StamenTileLayer("terrain");
-        var map = new L.Map("map", {
-            center: new L.LatLng(48.8586, 2.3427),
-            zoom: 12
-        });
-        map.addLayer(layer);
+   var Stamen_TonerLite = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.{ext}', {
+        attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        subdomains: 'abcd',
+        minZoom: 0,
+        maxZoom: 20,
+        ext: 'png'
+    });
+
+    var map = new L.Map("map", {
+        center: new L.LatLng(48.853, 2.333),
+        zoom: 13,
+        layers: [Stamen_TonerLite],
+    });
 
     var svg = d3.select(map.getPanes().overlayPane).append("svg");
     var linesGroup = svg.append("g").attr("class", "leaflet-zoom-hide");
