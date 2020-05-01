@@ -14,7 +14,7 @@
                     {% include 'construction/carte_container.html' %}
                 {% elif url_for(request.endpoint) == '/config' %}
                     {% for name, val in list_env %}
-                        Var: {{ name }} = {{ val }}
+                        Var: {{ name }} = {{ val }}<br/>
                     {% endfor %}
                 {% endif %}
             </div>
