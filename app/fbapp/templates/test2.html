@@ -50,6 +50,41 @@
     <!-- queue.v1 JS -->
     <script src="{{ url_for('static', filename='js/queue.v1.min.js') }}" charset="utf-8"></script>
 
+    <style type="text/css">
+        .station {
+            stroke: black;
+        }
+
+        .line {
+            stroke-width: 5;
+            fill: none;
+            z-index: 1;
+        }
+
+        .box {
+            background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
+            border-radius: 6px;
+            box-sizing: border-box;
+            display: none;
+            padding: 10px;
+            display: block;
+            color: white;
+        }
+
+        .box-title {
+            width: 100%;
+            font-weight: bold;
+            font-size: 150%;
+            border-bottom: 1px solid white;
+        }
+
+        .right-box {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            min-width: 300px;
+        }
+    </style>
 </head>
     <body>
         <nav class ="navbar navbar-default navbar-fixed-top" role ="navigation">
