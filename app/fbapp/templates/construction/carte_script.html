@@ -18,9 +18,23 @@
 
     var map = new L.Map("map", {
         center: new L.LatLng(48.853, 2.333),
-        zoom: 14,
+        zoom: 15,
         layers: [Stamen_TonerLite],
     });
+
+
+function affich() {
+    var lgn = document.getElementById("lignes");
+    var lgn_val = lgn.options[lgn.selectedIndex].value;
+    alert(lgn_val)
+}
+
+// ajout d'un écouteur d'évènement au tableau
+var bt_affich = document.getElementById("affich_ligne");
+bt_affich.addEventListener("click", affich, false);
+
+
+
 /*
     var svg = d3.select(map.getPanes().overlayPane).append("svg");
     var linesGroup = svg.append("g").attr("class", "leaflet-zoom-hide");
