@@ -164,6 +164,13 @@
         .await(ready);
 
     function ready(error, stations) {
+        // stations are ordered from the bigger one to the smaller one
+        // like that, smaller circle will be on the top of bigger ones
+
+        var radius = d3.scale.linear()
+            .domain([0, d3.max(stations.features, function(d) { return +d.properties.TRAFIC; })])
+            .range([2, 50]);
+
         featureStation = stationsGroup.selectAll(".station")
             .data(stations.features)
             .attr("id", function(d){ return "s" + d.properties.ID; })
