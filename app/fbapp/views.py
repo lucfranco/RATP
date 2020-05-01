@@ -29,13 +29,13 @@ app.config.from_object('config')
 def index():
     return render_template('index.html')
 
-
 @app.route('/config')
 def config():
+    titre = 'Configuration'
     list_env = ''
     for i, j in os.environ.items():
         list_env += 'Var: ' + str(i) + ' Value: ' + str(j) + '<br/>'
-    return list_env
+    return render_template('template_01.html', titre=titre, list_env=list_env)
 
 @app.route('/mysqlshow')
 def mysqlshow():
@@ -97,7 +97,7 @@ def fullscreen():
 @app.route('/carte')
 def carte():
     titre = 'Carte RATP'
-    return render_template('carte.html', titre=titre)
+    return render_template('template_01.html', titre=titre)
 
 
 if __name__ == "__main__":
