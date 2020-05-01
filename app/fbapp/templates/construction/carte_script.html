@@ -44,7 +44,7 @@ function load_list() {
     if (lgn_val){
         url_get = url + lgn_val + "/";
         list_stations  = makeRequest(url_get);
-        alert(url_get + list_stations['geometry']);
+        alert(url_get + list_stations[0]['geometry']);
     }
 }
 
