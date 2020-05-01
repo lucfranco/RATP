@@ -1,13 +1,11 @@
                 <div class="row">
                     <div class="col-md-4">
                         <select name="lignes" id="lignes">
-                          <option value="first">First Value</option>
-                          <option value="second" selected>Second Value</option>
-                          <option value="third">Third Value</option>
-                        </select>
+                            <option value="">Choisir une ligne</option>
                             {% for ligne in list_lignes %}
-                            {{ ligne[0] }}
+                            <option value="{{ ligne[0] }}">{{ ligne[2] }}</option>
                             {% endfor %}
+                        </select>
                     </div>
                     <div class="col-md-8">
                         <div id="map"></div>
