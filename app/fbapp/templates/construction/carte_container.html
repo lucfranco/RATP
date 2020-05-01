@@ -5,7 +5,9 @@
                           <option value="second" selected>Second Value</option>
                           <option value="third">Third Value</option>
                         </select>
-
+                            {% for ligne in list_lignes %}
+                            {{ ligne[0] }}
+                            {% endfor %}
                     </div>
                     <div class="col-md-8">
                         <div id="map"></div>
