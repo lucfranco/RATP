@@ -102,6 +102,10 @@ def test2():
 def fullscreen():
     return render_template('fullscreen.html')
 
+@app.route('/carte')
+def fullscreen():
+    return render_template('carte.html')
+
 
 if __name__ == "__main__":
     #print(mariadb_config)
