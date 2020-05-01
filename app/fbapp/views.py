@@ -60,7 +60,6 @@ def stations_ligne(ligne):
             'NAME': station[4],
             'DESCRIPTION': station[5],
             "geometry": {
-                "type":"Point",
                 "coordinates":[station[7], station[6]]
                 }
             })
