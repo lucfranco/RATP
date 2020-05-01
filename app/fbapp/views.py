@@ -59,10 +59,12 @@ def stations_ligne(ligne):
             'SEQUENCE': station[3],
             'NAME': station[4],
             'DESCRIPTION': station[5]
-            },
-            "geometry":{
+            },{
+            "geometry": {
                 "type":"Point",
                 "coordinates":[station[7], station[6]]
+                }
+            }
             })
 
     return list_stations_dict
