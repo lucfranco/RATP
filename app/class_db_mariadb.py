@@ -11,6 +11,7 @@ class gestionMARIADB:
     nb_horaire = 0
     nb_stop = 0
     nb_list_stop = 0
+    nb_lignes = 0
 
     def __init__(self, config):
         self.config = config
@@ -60,3 +61,14 @@ class gestionMARIADB:
         records = list_stop.fetchall()
         self.nb_list_stop = list_stop.rowcount
         return records
+
+    def listLignes(self):
+        print('listLignes')
+        list_Lignes = self.mariadb.cursor()
+        request = '''SELECT route_id, route_short_name, route_long_name FROM routes'''
+        print("0| " + request)
+        list_Lignes.execute(request)
+        records = list_Lignes.fetchall()
+        self.nb_lignes = list_Lignes.rowcount
+        return records
+

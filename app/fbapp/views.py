@@ -97,7 +97,8 @@ def fullscreen():
 @app.route('/carte')
 def carte():
     titre = 'Carte RATP'
-    return render_template('template_01.html', titre=titre)
+    ratp = gestionMARIADB(mariadb_config)
+    return render_template('template_01.html', titre=titre, list_lignes=ratp.listLignes())
 
 
 if __name__ == "__main__":
