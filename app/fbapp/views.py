@@ -47,7 +47,7 @@ def mysqlshow():
 def station():
     return render_template('json/stations.json')
 
-@app.route('/stations_ligne/<int:ligne>/', methods=['GET'])
+@app.route('/stations_ligne_mysql/<int:ligne>/', methods=['GET'])
 def stations_ligne(ligne):
     list_stations_dict = dict()
     list_stations_dict['station'] = list()

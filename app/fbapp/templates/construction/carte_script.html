@@ -22,10 +22,10 @@
         layers: [Stamen_TonerLite],
     });
 
-
+var lgn = document.getElementById("lignes");
+var lgn_val = lgn.options[lgn.selectedIndex].value;
 function affich() {
-    var lgn = document.getElementById("lignes");
-    var lgn_val = lgn.options[lgn.selectedIndex].value;
+
     if (lgn_val){
         alert(lgn_val)
         clickCircle1 = L.circle([48.853, 2.333], 200).addTo(map);
@@ -41,7 +41,11 @@ function affich() {
 var bt_affich = document.getElementById("affich_ligne");
 bt_affich.addEventListener("click", affich, false);
 
-
+//document.getElementsByTagName('select')[0].onchange = function() {
+//  var index = this.selectedIndex;
+//  var inputText = this.children[index].innerHTML.trim();
+//  console.log(inputText);
+//}
 
 /*
     var svg = d3.select(map.getPanes().overlayPane).append("svg");
