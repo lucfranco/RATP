@@ -105,8 +105,7 @@ def fullscreen():
 @app.route('/carte')
 def carte():
     titre = 'Carte RATP'
-    link = url_for('carte')
-    return render_template('carte.html', titre=titre, link=link)
+    return render_template('carte.html', titre=titre)
 
 
 if __name__ == "__main__":
