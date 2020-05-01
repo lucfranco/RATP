@@ -98,6 +98,10 @@ def test():
 def test2():
     return render_template('test2.html')
 
+@app.route('/fullscreen')
+def fullscreen():
+    return render_template('fullscreen.html')
+
 
 if __name__ == "__main__":
     #print(mariadb_config)
