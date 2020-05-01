@@ -9,12 +9,47 @@
     <meta name="author" content="">
     <title>RATP</title>
 
-		<title>Trafic du Mï¿½tro Parisien</title>
+    <!-- Bootstrap Core CSS -->
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}">
 
-		<link rel="stylesheet" href="https://unpkg.com/leaflet@0.7.3/dist/leaflet.css" />
-		<script src="https://unpkg.com/leaflet@0.7.3/dist/leaflet.js"></script>
-		<script src="https://d3js.org/d3.v3.min.js"></script>
-		<script src="https://d3js.org/queue.v1.min.js"></script>
+    <!-- Theme CSS -->
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/freelancer-theme.min.css') }}">
+
+    <!-- Custom CSS -->
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+
+    <!-- LeafLetJs CSS -->
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='leaflet_0.7.3/leaflet.css') }}">
+
+    <!-- Style CSS -->
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="{{ url_for('static', filename='js/jquery/jquery.min.js') }}" charset="utf-8"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.min.js') }}" charset="utf-8"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="{{ url_for('static', filename='js/freelancer-theme.min.js') }}" charset="utf-8"></script>
+
+    <!-- leafletjs JS -->
+    <script src="{{ url_for('static', filename='leaflet_0.7.3/leaflet.js') }}" charset="utf-8"></script>
+
+    <!-- tile.stamen JS -->
+    <script src="{{ url_for('static', filename='js/tile.stamen.js') }}" charset="utf-8"></script>
+
+    <!-- d3.v3 JS -->
+    <script src="{{ url_for('static', filename='js/d3.v3.min.js') }}" charset="utf-8"></script>
+
+    <!-- queue.v1 JS -->
+    <script src="{{ url_for('static', filename='js/queue.v1.min.js') }}" charset="utf-8"></script>
+
 
 		<style type="text/css">
 			html, body { height: 100% }
