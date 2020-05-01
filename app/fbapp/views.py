@@ -55,7 +55,14 @@ def stations_ligne(ligne):
     list_stations_ligne = ratp.listStationLigne(ligne)
     for station in list_stations_ligne:
         list_stations_dict['station'].append({
-            'ID': station[2]
+            'ID': station[2],
+            'SEQUENCE': station[3],
+            'NAME': station[4],
+            'DESCRIPTION': station[5]
+            },
+            "geometry":{
+                "type":"Point",
+                "coordinates":[station[7], station[6]]
             })
 
     return list_stations_dict
