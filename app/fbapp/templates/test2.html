@@ -186,8 +186,6 @@
             linesGroup.attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
             stationsGroup.attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
 
-            featureLine.attr("d", path);
-
             if (rootWidth === undefined) { // rootWidth means max range for stations radius = 50
                 rootWidth = bottomRight[0] - topLeft[0];
                 previousWidth = rootWidth;
