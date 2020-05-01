@@ -12,7 +12,7 @@
             <div class="container">
                 {% if url_for(request.endpoint) == '/carte' %}
                     {% include 'construction/carte_container.html' %}
-                {% elsif url_for(request.endpoint) == '/config' %}
+                {% elif url_for(request.endpoint) == '/config' %}
                     {{ list_env }}
                 {% endif %}
             </div>
