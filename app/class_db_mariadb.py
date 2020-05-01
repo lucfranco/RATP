@@ -11,7 +11,8 @@ class gestionMARIADB:
     nb_horaire = 0
     nb_stop = 0
     nb_list_stop = 0
-    nb_lignes = 0
+    nb_list_Lignes = 0
+    nb_list_station_lgn = 0
 
     def __init__(self, config):
         self.config = config
@@ -69,6 +70,23 @@ class gestionMARIADB:
         print("0| " + request)
         list_Lignes.execute(request)
         records = list_Lignes.fetchall()
-        self.nb_lignes = list_Lignes.rowcount
+        self.nb_list_Lignes = list_Lignes.rowcount
+        return records
+
+    def listStationLigne(self, var_ligne):
+        print('listStationLigne')
+        list_station_lgn = self.mariadb.cursor()
+        request = """SELECT tr.route_id, tr.trip_id, s_tr.stop_id, s_tr.stop_sequence, sts.stop_name, sts.stop_desc, sts.stop_lat, sts.stop_lon
+                        FROM trips AS tr
+                        LEFT JOIN stop_times AS s_tr ON tr.trip_id = s_tr.trip_id
+                        LEFT JOIN stops AS sts ON sts.stop_id = s_tr.stop_id
+                        LEFT JOIN routes AS rtes ON rtes.route_id = tr.route_id
+                        WHERE tr.route_id = %var_ligne
+                        GROUP BY stop_name
+                        ORDER BY s_tr.stop_sequence"""
+        print("0| " + request)
+        list_station_lgn.execute(request)
+        records = list_station_lgn.fetchall()
+        self.nb_list_station_lgn = list_station_lgn.rowcount
         return records
 
