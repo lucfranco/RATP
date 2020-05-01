@@ -1,0 +1,140 @@
+    <script>
+        //var layer = new L.StamenTileLayer("terrain");
+        //var map = new L.Map("map", {
+        //    center: new L.LatLng(48.8586, 2.3427),
+        //    zoom: 12
+        //});
+        //map.addLayer(layer);
+
+
+
+   var Stamen_TonerLite = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.{ext}', {
+        attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        subdomains: 'abcd',
+        minZoom: 0,
+        maxZoom: 20,
+        ext: 'png'
+    });
+
+    var map = new L.Map("map", {
+        center: new L.LatLng(48.853, 2.333),
+        zoom: 13,
+        layers: [Stamen_TonerLite],
+    });
+
+    var svg = d3.select(map.getPanes().overlayPane).append("svg");
+    var linesGroup = svg.append("g").attr("class", "leaflet-zoom-hide");
+    var stationsGroup = svg.append("g").attr("class", "leaflet-zoom-hide");
+
+    var featureStation, featureLine;
+
+    var transform = d3.geo.transform({point: projectPoint});
+    var path = d3.geo.path().projection(transform);
+
+    var rootWidth, previousWidth;
+
+    var div = d3.select("#rightbox");
+
+    queue()
+        .defer(d3.json, "stations.json")
+        .defer(d3.json, "lines.json")
+        .await(ready);
+
+    function ready(error, stations, lines) {
+        // stations are ordered from the bigger one to the smaller one
+        // like that, smaller circle will be on the top of bigger ones
+
+        var radius = d3.scale.linear()
+            .domain([0, d3.max(stations.features, function(d) { return +d.properties.TRAFIC; })])
+            .range([2, 50]);
+
+        featureStation = stationsGroup.selectAll(".station")
+            .data(stations.features)
+            .enter().append("path")
+            .attr("class", "station")
+            .attr("id", function(d){ return "s" + d.properties.ID; })
+            .attr("d", path.pointRadius(function(d) { return radius(d.properties.TRAFIC) }))
+            .style("fill", function(d) { return (d.properties.COLORS.indexOf('-') > 0 ? "#B8B8B8" : d.properties.COLORS); })
+            .style("z-index", function(d){ return Math.floor(50 - (d.properties.TRAFIC / 1000000)); })
+            .style("opacity", function(d) { return (d.properties.COLORS.indexOf('-') > 0 ? "0.7" : "1"); })
+            .on("mouseover", function(d) {
+                div.html('<div class="box-title">Informations</div></br>'
+                      +  'Station : <span style="font-weight:bold;">' + d.properties.STATION
+                      +  '</span><br/>Ville : <span style="font-weight:bold;">' + d.properties.CITY + ' ' + d.properties.QUARTER
+                      // http://stackoverflow.com/questions/10809136/how-to-format-numbers-with-white-spaces-between-thousands
+                      +  '</span><br/>Trafic : <span style="font-weight:bold;">' + ("" + d.properties.TRAFIC).replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+                      +  '</span><br/>Lignes : ' + getLines(d)
+                      +  '</span><br/><a href="../../index.php?page=metro" target="_blank" style="color: #3498db;">Information & Dï¿½tails techniques</a>');
+
+                var lines = d.properties.LINES.split('-');
+                for (i = 0; i < lines.length; ++i) {
+                    d3.selectAll('#l' + lines[i]).style("stroke", "black");
+                }
+            })
+            .on("mouseout", function(d) {
+                var lines = d.properties.LINES.split('-');
+                var colors = d.properties.COLORS.split('-');
+                for (i = 0; i < lines.length; ++i) {
+                    d3.selectAll('#l' + lines[i]).style("stroke", colors[i]);
+                }
+            });
+
+        featureLine = linesGroup.selectAll("lines")
+            .data(lines.features)
+            .enter()
+            .append("path")
+            .attr('class', 'line')
+            .attr('id', function(d) { return 'l' + d.properties.LINE; })
+            .attr("d", path)
+            .style("stroke", function(d) { return d.properties.COLOR; });
+
+        map.on("viewreset", reset);
+        reset();
+
+        // Reposition the SVG to cover the features.
+        function reset() {
+            var bounds = path.bounds(stations),
+                topLeft = bounds[0],
+                bottomRight = bounds[1];
+
+            svg.attr("width", bottomRight[0] - topLeft[0])
+                .attr("height", bottomRight[1] - topLeft[1])
+                .style("left", topLeft[0] + "px")
+                .style("top", topLeft[1] + "px");
+
+            linesGroup.attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
+            stationsGroup.attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
+
+            featureLine.attr("d", path);
+
+            if (rootWidth === undefined) { // rootWidth means max range for stations radius = 50
+                rootWidth = bottomRight[0] - topLeft[0];
+                previousWidth = rootWidth;
+            }
+
+            var newWidth = bottomRight[0] - topLeft[0];
+            if (previousWidth != newWidth) {
+                radius.range([2, 50 * (newWidth / rootWidth)]);
+            }
+            featureStation.attr("d", path.pointRadius(function(d) { return radius(d.properties.TRAFIC) }));
+            previousWidth = newWidth;
+        }
+    }
+
+    // Use Leaflet to implement a D3 geometric transformation.
+    function projectPoint(x, y) {
+        var point = map.latLngToLayerPoint(new L.LatLng(y, x));
+        this.stream.point(point.x, point.y);
+    }
+
+    function getLines(d) {
+        var lines = d.properties.LINES.split('-');
+        var colors = d.properties.COLORS.split('-');
+        var textLines = '';
+        var i;
+        for (i = 0; i < lines.length; ++i) {
+            textLines += '<span style="margin-right:10px; font-weight:bold; font-size:120%; color:' + colors[i] + ';">' + lines[i] + '</span>';
+        }
+        return textLines;
+    }
+    </script>
