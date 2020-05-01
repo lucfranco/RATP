@@ -85,7 +85,7 @@ class gestionMARIADB:
                         GROUP BY stop_name
                         ORDER BY s_tr.stop_sequence"""
         print("0| " + request)
-        list_station_lgn.execute(request, var_ligne)
+        list_station_lgn.execute(request, (var_ligne))
         records = list_station_lgn.fetchall()
         self.nb_list_station_lgn = list_station_lgn.rowcount
         return records
