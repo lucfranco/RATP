@@ -27,7 +27,7 @@ app.config.from_object('config')
 @app.route('/')
 @app.route('/index/')
 def index():
-        return render_template('index.html')
+    return render_template('index.html')
 
 
 @app.route('/config')
@@ -44,6 +44,13 @@ def mysqlshow():
     return test
 
 @app.route('/stations.json', methods=['GET'])
+def station():
+    return render_template('json/stations.json')
+
+@app.route('/lines.json', methods=['GET'])
+def line():
+    return render_template('json/lines.json')
+'''
 def station():
     list_stop_dict = dict()
     #list_stop_dict["type"] = "FeatureCollection"
@@ -74,7 +81,7 @@ def station():
     # return response
     list_stop_dict["type"] = "FeatureCollection"
     return list_stop_dict #json.dumps(list_stop_dict) #jsonify({list_stop_dist}) # Returns HTTP Response with {"hello": "world"}
-
+'''
 @app.route('/ratp')
 def ratp():
     return render_template('ratp.html')
