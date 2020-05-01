@@ -168,6 +168,39 @@
             .data(stations.features)
             .attr("id", function(d){ return "s" + d.properties.ID; })
             .style("z-index", function(d){ return Math.floor(50 - (d.properties.TRAFIC / 1000000)); })
+
+        map.on("viewreset", reset);
+        reset();
+
+        // Reposition the SVG to cover the features.
+        function reset() {
+            var bounds = path.bounds(stations),
+                topLeft = bounds[0],
+                bottomRight = bounds[1];
+
+            svg.attr("width", bottomRight[0] - topLeft[0])
+                .attr("height", bottomRight[1] - topLeft[1])
+                .style("left", topLeft[0] + "px")
+                .style("top", topLeft[1] + "px");
+
+            linesGroup.attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
+            stationsGroup.attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
+
+            featureLine.attr("d", path);
+
+            if (rootWidth === undefined) { // rootWidth means max range for stations radius = 50
+                rootWidth = bottomRight[0] - topLeft[0];
+                previousWidth = rootWidth;
+            }
+
+            var newWidth = bottomRight[0] - topLeft[0];
+            if (previousWidth != newWidth) {
+                radius.range([2, 50 * (newWidth / rootWidth)]);
+            }
+            featureStation.attr("d", path.pointRadius(function(d) { return radius(d.properties.TRAFIC) }));
+            previousWidth = newWidth;
+        }
+
     }
 
     // Use Leaflet to implement a D3 geometric transformation.
