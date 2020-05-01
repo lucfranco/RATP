@@ -83,7 +83,7 @@ class gestionMARIADB:
                         LEFT JOIN routes AS rtes ON rtes.route_id = tr.route_id
                         WHERE tr.route_id = ?
                         GROUP BY stop_name
-                        ORDER BY s_tr.stop_sequence""", (var_ligne))
+                        ORDER BY s_tr.stop_sequence""", var_ligne)
         print("0| " + request)
         list_station_lgn.execute(request)
         records = list_station_lgn.fetchall()
