@@ -1,10 +1,11 @@
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12" style="margin-top: 10px;margin-bottom: 10px;">
                         <select name="lignes" id="lignes">
                             <option value="">Choisir une ligne</option>
                             {% for ligne in list_lignes %}
                             <option value="{{ ligne[0] }}">{{ ligne[2] }}</option>
                             {% endfor %}
+                            <button>Afficher</button>
                         </select>
                     </div>
                     <div class="col-md-12">
