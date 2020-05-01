@@ -33,6 +33,7 @@ body {
 #map-container {
   padding-top: 120px;
   padding-left: 10px;
+  padding-bottom: 40px;
 }
 
 #map {
