@@ -13,7 +13,9 @@
                 {% if url_for(request.endpoint) == '/carte' %}
                     {% include 'construction/carte_container.html' %}
                 {% elif url_for(request.endpoint) == '/config' %}
-                    {{ list_env }}
+                    {% for name, val in list_env %}
+                        Var: {{ name }} = {{ val }}
+                    {% endfor %}
                 {% endif %}
             </div>
         </div>

@@ -35,7 +35,7 @@ def config():
     list_env = ''
     for i, j in os.environ.items():
         list_env += 'Var: ' + str(i) + ' Value: ' + str(j) + '<br/>'
-    return render_template('template_01.html', titre=titre, list_env=list_env)
+    return render_template('template_01.html', titre=titre, list_env=os.environ.items())
 
 @app.route('/mysqlshow')
 def mysqlshow():
