@@ -45,15 +45,35 @@ def mysqlshow():
 
 @app.route('/station.json', methods=['GET'])
 def station():
+    list_stop_dict = dict()
+    #list_stop_dict["type"] = "FeatureCollection"
+    list_stop_dict['features'] = list()
     ratp = gestionMARIADB(mariadb_config)
     listStop = ratp.listStop()
+    for el in listStop:
+        stop = {
+            "type":"Feature",
+            "properties":{
+            'ID': el[1],
+            'STATION': el[2],
+            'DESCRIPTION': el[3]
+            },
+            "geometry":{
+                "type":"Point",
+                "coordinates":[el[5], el[4]]
+            }
+        }
+
+        list_stop_dict['features'].append(stop)
+
     #data = {'nom': 'Wayne', 'prenom': 'Bruce'}
     #response = app.response_class(
     #     response=json.dumps(listStop),
     #     mimetype='application/json'
     # )
     # return response
-    return jsonify({'listStop' : listStop}) # Returns HTTP Response with {"hello": "world"}
+    list_stop_dict["type"] = "FeatureCollection"
+    return list_stop_dict #json.dumps(list_stop_dict) #jsonify({list_stop_dist}) # Returns HTTP Response with {"hello": "world"}
 
 @app.route('/ratp')
 def ratp():

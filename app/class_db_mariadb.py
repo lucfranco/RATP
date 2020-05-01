@@ -17,6 +17,7 @@ class gestionMARIADB:
         print(self.config)
         try:
             self.mariadb = mysql.connector.connect(**self.config)
+            self.mariadb.set_charset_collation('utf8', 'utf8')
         except mysql.connector.Error as err:
             if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
                 print("Something is wrong with your user name or password")
@@ -38,7 +39,8 @@ class gestionMARIADB:
         return records
 
     def listStop(self):
-        print('listtStop')
+        print('listStop')
+        #list_stop_dist = {}
         list_stop = self.mariadb.cursor()
         request = """SELECT LEFT(MD5(RAND()), 16) AS id, sts.stop_id, sts.stop_name, sts.stop_desc, sts.stop_lat, sts.stop_lon
                         FROM routes AS rtes
