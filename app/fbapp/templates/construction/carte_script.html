@@ -22,11 +22,11 @@
         layers: [Stamen_TonerLite],
     });
 
-var lgn = document.getElementById("lignes");
-var lgn_val = lgn.options[lgn.selectedIndex].value;
-clickCircle = '';
-clickCircle1 = '';
+let lgn = document.getElementById("lignes");
+let clickCircle = '';
+let clickCircle1 = '';
 function affich() {
+    lgn_val = lgn.options[lgn.selectedIndex].value;
 
     if (lgn_val){
         alert(lgn_val)
