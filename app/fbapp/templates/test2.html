@@ -44,6 +44,12 @@
     <!-- tile.stamen JS -->
     <script src="{{ url_for('static', filename='js/tile.stamen.js') }}" charset="utf-8"></script>
 
+    <!-- d3.v3 JS -->
+    <script src="{{ url_for('static', filename='js/d3.v3.min.js') }}" charset="utf-8"></script>
+
+    <!-- queue.v1 JS -->
+    <script src="{{ url_for('static', filename='js/queue.v1.min.js') }}" charset="utf-8"></script>
+
 </head>
     <body>
         <nav class ="navbar navbar-default navbar-fixed-top" role ="navigation">
@@ -79,6 +85,11 @@
                         </p>
                     </div>
                     <div class="col-md-8">
+                        <div id="rightbox" class="box right-box">
+                            <div class="box-title">Informations</div>
+                            <br><span style="font-style:italic;">Survolez une station</span>
+                            <br><span><a href="../../index.php?page=metro" target="_blank" style="color: #3498db;">Information &amp; Détails techniques</a></span>
+                        </div>
                         <div id="map"></div>
                     </div>
                 </div>
@@ -96,7 +107,7 @@
         var latlngs = [[50.8586, 1.3427],[49.8586, 3.3427],[47.8586, 4.3427],[46.8586, 5.3427]];
         var polygon = L.polygon(latlngs, {color: 'red'}).addTo(map);
         // zoom the map to the polygon
-        map.fitBounds(polygon.getBounds());
+        //map.fitBounds(polygon.getBounds());
 
 
     </script>
