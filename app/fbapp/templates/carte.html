@@ -5,8 +5,8 @@
 </head>
 <body>
 {% include 'construction/navigation.html' %}
-{{ url_for(request.endpoint) }}
         <div class="padding" id ="map-container">
+            {{ url_for(request.endpoint) }}
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
@@ -24,6 +24,9 @@
                 </div>
             </div>
         </div>
+
+{% include 'construction/footer.html' %}
+
 </body>
     <script>
         var layer = new L.StamenTileLayer("terrain");
