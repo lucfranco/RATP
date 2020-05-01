@@ -43,7 +43,7 @@ function load_list() {
     lgn_val = lgn.options[lgn.selectedIndex].value;
     if (lgn_val){
         url_get = url + lgn_val + "/";
-        makeRequest()
+        makeRequest(url_get)
         alert(url_get)
     }
 }
@@ -62,10 +62,10 @@ function affich() {
 }
 
         // create and send an XHR request
-        function makeRequest() {
+        function makeRequest(url_get) {
             httpRequest = new XMLHttpRequest();
             httpRequest.onreadystatechange = responseMethod;
-            httpRequest.open('GET', url)
+            httpRequest.open('GET', url_get)
             httpRequest.send()
         }
         // Handle XHR Response
