@@ -49,9 +49,16 @@ def station():
 
 @app.route('/stations_ligne/<int:ligne>/', methods=['GET'])
 def stations_ligne(ligne):
+    list_stations_dict = dict()
+    list_stations_dict['station'] = list()
     ratp = gestionMARIADB(mariadb_config)
     list_stations_ligne = ratp.listStationLigne(ligne)
-    return list_stations_ligne
+    for station in list_stations_ligne:
+        list_stations_dict['station'].append(
+            'ID': station[2],
+            )
+
+    return list_stations_dict
 
 @app.route('/lines.json', methods=['GET'])
 def line():
