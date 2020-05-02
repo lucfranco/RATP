@@ -70,6 +70,7 @@ function affich_AB(lst){
         //L.marker([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]]).addTo(map);
         line.push([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]]);
     }
+    L.polyline(line, {color: 'red'}).addTo(map);
     console.log(line);
 }
 
