@@ -60,6 +60,7 @@ def stations_ligne(ligne):
             'NAME': station[4],
             'DESCRIPTION': station[5],
             'COLOR': station[8],
+            'PICTO': station[9],
             "geometry": {
                 "coordinates":[station[7], station[6]]
                 }
