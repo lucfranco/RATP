@@ -87,7 +87,7 @@ function affich_AB(lst){
     groupLayer.addTo(map);
     console.log(line);
     if(layerControl === false) {
-        layerControl = L.control({position: 'bottomleft'}).layers().addTo(map);
+        layerControl = L.control.layers({position: 'bottomleft'}).addTo(map);
     }
     layerControl.addOverlay(groupLayer, name_line);
     return false;
