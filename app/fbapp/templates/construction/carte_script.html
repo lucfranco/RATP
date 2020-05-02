@@ -45,7 +45,8 @@ function load_list() {
     if (lgn_val){
         url_get = url + lgn_val + "/";
         response = ajaxListStations(url_get);
-        alert(url_get + response.stations[0]);
+        console.log(response);
+        alert("load_list" + '/n' + "lgn_val=" + lgn_val + '/n' + "url_get=" + url_get + '/n' + response.stations[0]);
 
     }
 }
@@ -72,7 +73,7 @@ function ajaxListStations(url_get){
       var OK = 200; // status 200 is a successful return.
       if (xhr.readyState === DONE) {
         if (xhr.status === OK) {
-          console.log(xhr.responseText); // 'This is the returned text.'
+          //console.log(xhr.responseText); // 'This is the returned text.'
           response = JSON.parse(xhr.responseText);
         } else {
           console.log('Error: ' + xhr.status); // An error occurred during the request.
