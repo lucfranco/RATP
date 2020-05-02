@@ -31,11 +31,11 @@ let httpRequest;
 let response;
 // ajout d'un écouteur d'évènement sur le select
 let lgn = document.getElementById("lignes");
-//lgn.addEventListener("change", load_list, false);
+lgn.addEventListener("change", load_list, false);
 
 // ajout d'un écouteur d'évènement sur le bouton
 let bt_affich = document.getElementById("affich_ligne");
-bt_affich.addEventListener("click", load_list, false);
+bt_affich.addEventListener("click", affich, false);
 
 
 
