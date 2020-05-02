@@ -28,7 +28,7 @@ let clickCircle = '';
 let clickCircle1 = '';
 let url = "/stations_ligne_mysql/";
 let httpRequest;
-
+let response;
 // ajout d'un écouteur d'évènement sur le select
 let lgn = document.getElementById("lignes");
 lgn.addEventListener("change", load_list, false);
@@ -44,10 +44,9 @@ function load_list() {
     lgn_val = lgn.options[lgn.selectedIndex].value;
     if (lgn_val){
         url_get = url + lgn_val + "/";
-        makeRequest(url_get);
+        response = ajaxListStations(url_get);
         alert(url_get + response['stations']);
-        console.log(response);// Correctly logs json data in console.
-        console.log(typeof(response)); // Shows the type is 'object' in console.
+
     }
 }
 
@@ -63,6 +62,32 @@ function affich() {
         alert("Selectionnez une ligne")
     }
 }
+
+function ajaxListStations(url_get){
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url_get);
+    xhr.send(null);
+    xhr.onreadystatechange = function () {
+      var DONE = 4; // readyState 4 means the request is done.
+      var OK = 200; // status 200 is a successful return.
+      if (xhr.readyState === DONE) {
+        if (xhr.status === OK) {
+          console.log(xhr.responseText); // 'This is the returned text.'
+          response = JSON.parse(xhr.responseText);
+        } else {
+          console.log('Error: ' + xhr.status); // An error occurred during the request.
+        }
+      }
+    };
+    return response;
+}
+
+
+
+
+
+
+
 
         // create and send an XHR request
         function makeRequest(url_get) {
@@ -85,6 +110,8 @@ function affich() {
         // Handle XHR Success
         function updateUISuccess(responseText) {
             response = JSON.parse(responseText);
+            console.log(response);// Correctly logs json data in console.
+            console.log(typeof(response)); // Shows the type is 'object' in console.
         }
 
 /*
