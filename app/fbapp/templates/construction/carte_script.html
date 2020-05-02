@@ -46,7 +46,7 @@ function load_list() {
     if (lgn_val){
         url_get = url + lgn_val + "/";
         response = ajaxListStations(url_get);
-        sleep(2);
+        setTimeout(() => {  console.log("pause ok!"); }, 2000);
         console.log('load_list');
         console.log(response);
         alert("load_list" + '\n' + "lgn_val=" + lgn_val + '\n' + "url_get=" + url_get + '\n' + response.stations[2].DESCRIPTION);
