@@ -55,7 +55,7 @@ function load_list() {
                 list_station = JSON.parse(xhr.responseText);
                 console.log(list_station);
                 affich_AB(list_station);
-                layerControl = L.control.layers().addTo(map);
+                var layerControl = L.control.layers().addTo(map);
             }
         });
         xhr.send(null); // La requête est prête, on envoie tout !
