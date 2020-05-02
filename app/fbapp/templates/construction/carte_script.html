@@ -67,14 +67,12 @@ function affich_AB(lst){
     //map.removeLayer(markerGroup)
     //var markerGroup = L.layerGroup().addTo(map);
     for(var i= 0; i < lst.stations.length; i++) {
-        L.circle([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]], 100, {color: color[lst.stations[i].COLOR]}).addTo(map);
+        result_color = color[lst.stations[i].COLOR]
+        L.circle([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]], 100, {color: result_color}).addTo(map);
         //L.marker([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]]).addTo(map);
         line.push([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]]);
     }
-    console.log(lst.stations[i].COLOR)
-    console.log(color[lst.stations[i].COLOR])
-
-    L.polyline(line, {color: color[lst.stations[i].COLOR]}).addTo(map);
+    L.polyline(line, {color: result_color}).addTo(map);
     console.log(line);
 }
 
