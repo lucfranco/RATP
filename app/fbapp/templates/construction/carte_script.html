@@ -51,18 +51,11 @@ function load_list() {
         xhr.addEventListener('readystatechange', function() { // On gère ici une requête asynchrone
             if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) { // Si le fichier est chargé sans erreur
                 list_station = JSON.parse(xhr.responseText);
+                console.log(list_station)
                 affich_AB(list_station)
             }
         });
         xhr.send(null); // La requête est prête, on envoie tout !
-
-        //response = ajaxListStations(url_get);
-        //console.log('load_list');
-        //console.log(response);
-        ////alert("load_list" + '\n' + "lgn_val=" + lgn_val + '\n' + "url_get=" + url_get + '\n' + response.stations[2].DESCRIPTION);
-        //if (response){
-        //    affich_AB(response)
-        //}
     }
 }
 
@@ -83,61 +76,7 @@ function affich() {
     }
 }
 
-function ajaxListStations(url_get){
-    var xhr = new XMLHttpRequest();
 
-    xhr.open('GET', url_get);
-    xhr.send(null);
-    xhr.onreadystatechange = function () {
-      var DONE = 4; // readyState 4 means the request is done.
-      var OK = 200; // status 200 is a successful return.
-      console.log(xhr.readyState)
-      console.log(xhr.status)
-      if (xhr.readyState === DONE) {
-        if (xhr.status === OK) {
-          //console.log(xhr.responseText); // 'This is the returned text.'
-          list_station = JSON.parse(xhr.responseText);
-          console.log('ajaxListStations');
-          console.log(list_station);
-        } else {
-          console.log('Error: ' + xhr.status); // An error occurred during the request.
-        }
-      }
-    };
-    return list_station;
-}
-
-
-
-
-
-
-
-
-        // create and send an XHR request
-        function makeRequest(url_get) {
-            httpRequest = new XMLHttpRequest();
-            httpRequest.onreadystatechange = responseMethod;
-            httpRequest.open('GET', url_get)
-            httpRequest.send()
-        }
-        // Handle XHR Response
-        function responseMethod () {
-            if (httpRequest.readyState === 4) {
-                if (httpRequest.status === 200) {
-                    updateUISuccess(httpRequest.responseText)
-                    } else {
-                        // Do something
-                        alert('Erreur chargement liste des stations')
-                    }
-            }
-        }
-        // Handle XHR Success
-        function updateUISuccess(responseText) {
-            response = JSON.parse(responseText);
-            console.log(response);// Correctly logs json data in console.
-            console.log(typeof(response)); // Shows the type is 'object' in console.
-        }
 
 /*
     var svg = d3.select(map.getPanes().overlayPane).append("svg");
