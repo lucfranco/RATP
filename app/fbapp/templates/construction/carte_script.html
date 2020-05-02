@@ -45,13 +45,24 @@ function load_list() {
     lgn_val = lgn.options[lgn.selectedIndex].value;
     if (lgn_val){
         url_get = url + lgn_val + "/";
-        response = ajaxListStations(url_get);
-        console.log('load_list');
-        console.log(response);
-        //alert("load_list" + '\n' + "lgn_val=" + lgn_val + '\n' + "url_get=" + url_get + '\n' + response.stations[2].DESCRIPTION);
-        if (response){
-            affich_AB(response)
-        }
+        var xhr = new XMLHttpRequest();
+        // On souhaite juste récupérer le contenu du fichier, la méthode GET suffit amplement :
+        xhr.open('GET', file);
+        xhr.addEventListener('readystatechange', function() { // On gère ici une requête asynchrone
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) { // Si le fichier est chargé sans erreur
+                list_station = JSON.parse(xhr.responseText);
+                affich_AB(list_station)
+            }
+        });
+        xhr.send(null); // La requête est prête, on envoie tout !
+
+        //response = ajaxListStations(url_get);
+        //console.log('load_list');
+        //console.log(response);
+        ////alert("load_list" + '\n' + "lgn_val=" + lgn_val + '\n' + "url_get=" + url_get + '\n' + response.stations[2].DESCRIPTION);
+        //if (response){
+        //    affich_AB(response)
+        //}
     }
 }
 
