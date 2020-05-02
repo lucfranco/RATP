@@ -55,6 +55,7 @@ function load_list() {
                 list_station = JSON.parse(xhr.responseText);
                 console.log(list_station);
                 affich_AB(list_station);
+                layerControl = L.control.layers().addTo(map);
             }
         });
         xhr.send(null); // La requête est prête, on envoie tout !
@@ -63,7 +64,7 @@ function load_list() {
 
 function affich_AB(lst){
     var groupLayer = L.layerGroup();
-    var layerControl = false;
+
     var line = [];
     color = {0 : 'yellow', 1: 'red', 2: 'blue', 3: 'green'}
     //alert(lst.stations.length + '\n' + lst.stations[0].geometry.coordinates[0] + '\n' + lst.stations[(lst.stations.length-1)].geometry.coordinates[0]);
@@ -86,10 +87,6 @@ function affich_AB(lst){
     groupLayer.addLayer(L.polyline(line, {color: result_color}));
     groupLayer.addTo(map);
     console.log(line);
-    if(layerControl === false) {
-        layerControl = L.control.layers().addTo(map);
-    }
-
     layerControl.addOverlay(groupLayer, id_line);
 
 
