@@ -47,12 +47,13 @@ function load_list() {
         url_get = url + lgn_val + "/";
         var xhr = new XMLHttpRequest();
         // On souhaite juste récupérer le contenu du fichier, la méthode GET suffit amplement :
+        console.log(url_get);
         xhr.open('GET', url_get);
         xhr.addEventListener('readystatechange', function() { // On gère ici une requête asynchrone
             if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) { // Si le fichier est chargé sans erreur
                 list_station = JSON.parse(xhr.responseText);
-                console.log(list_station)
-                affich_AB(list_station)
+                console.log(list_station);
+                affich_AB(list_station);
             }
         });
         xhr.send(null); // La requête est prête, on envoie tout !
