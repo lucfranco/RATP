@@ -68,6 +68,7 @@ function affich_AB(lst){
     //alert(lst.stations.length + '\n' + lst.stations[0].geometry.coordinates[0] + '\n' + lst.stations[(lst.stations.length-1)].geometry.coordinates[0]);
     for(var i= 0; i < lst.stations.length; i++) {
         var imagepath = "/static/pictos/" + lst.stations[i].PICTO;
+        var id_line = lst.stations[i].ID;
         myIcon = L.icon({iconUrl: imagepath,iconSize: [19, 30]});
         groupLayer.addLayer(L.marker([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]], {icon: myIcon}));
 
@@ -84,6 +85,14 @@ function affich_AB(lst){
     groupLayer.addLayer(L.polyline(line, {color: result_color}));
     groupLayer.addTo(map);
     console.log(line);
+    if(layerControl === false) {
+        layerControl = L.control.layers().addTo(map);
+    }
+
+    layerControl.addOverlay(groupLayer, id_line);
+
+
+    return false;
 }
 
 function affich() {
