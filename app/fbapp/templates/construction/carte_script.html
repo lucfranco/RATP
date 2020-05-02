@@ -66,6 +66,7 @@ function affich() {
 
 function ajaxListStations(url_get){
     var xhr = new XMLHttpRequest();
+    var list_station;
     xhr.open('GET', url_get);
     xhr.send(null);
     xhr.onreadystatechange = function () {
