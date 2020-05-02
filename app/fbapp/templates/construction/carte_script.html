@@ -45,7 +45,7 @@ function load_list() {
     if (lgn_val){
         url_get = url + lgn_val + "/";
         response = ajaxListStations(url_get);
-        alert(url_get + response['stations'][0]);
+        alert(url_get + response.stations[0]);
 
     }
 }
