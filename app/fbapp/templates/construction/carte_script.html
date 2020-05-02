@@ -67,19 +67,19 @@ function affich_AB(lst){
     //alert(lst.stations.length + '\n' + lst.stations[0].geometry.coordinates[0] + '\n' + lst.stations[(lst.stations.length-1)].geometry.coordinates[0]);
     for(var i= 0; i < lst.stations.length; i++) {
         var imagepath = "/static/pictos/" + lst.stations[i].PICTO;
-        myIcon = L.icon({iconUrl: imagepath,iconSize: [38, 95]});
-        var marker = L.marker([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]], {icon: myIcon}).addTo(map);
+        myIcon = L.icon({iconUrl: imagepath,iconSize: [38, 46]});
+        L.marker([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]], {icon: myIcon}).addTo(map);
 
         result_color = color[lst.stations[i].COLOR]
         //L.circle([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]], 100, {color: result_color}).addTo(map);
         //L.marker([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]]).addTo(map);
         line.push([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]]);
     }
-    map.on('zoomend', function(){
-        var currentZoom = map.getZoom();
-        myIcon = L.icon({iconUrl: imagepath,iconSize: [38*currentZoom, 95*currentZoom]});
-        marker.setIcon(busIcon);
-    });
+    //map.on('zoomend', function(){
+    //    var currentZoom = map.getZoom();
+    //    myIcon = L.icon({iconUrl: imagepath,iconSize: [38*currentZoom, 95*currentZoom]});
+    //    marker.setIcon(busIcon);
+    //});
 
     L.polyline(line, {color: result_color}).addTo(map);
     console.log(line);
