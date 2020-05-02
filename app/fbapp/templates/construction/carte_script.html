@@ -46,6 +46,8 @@ function load_list() {
         url_get = url + lgn_val + "/";
         makeRequest(url_get);
         alert(url_get + response['stations']);
+        console.log(response);// Correctly logs json data in console.
+        console.log(typeof(response)); // Shows the type is 'object' in console.
     }
 }
 
@@ -82,9 +84,7 @@ function affich() {
         }
         // Handle XHR Success
         function updateUISuccess(responseText) {
-            var response = JSON.parse(responseText);
-            console.log(response);// Correctly logs json data in console.
-            console.log(typeof(response)); // Shows the type is 'object' in console.
+            response = JSON.parse(responseText);
         }
 
 /*
