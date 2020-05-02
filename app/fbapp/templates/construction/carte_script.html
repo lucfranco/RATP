@@ -62,15 +62,16 @@ function load_list() {
 function affich_AB(lst){
     var markerGroup = '';
     var line = [];
+    color = {0 : 'yellow', 1: 'red', 2: 'blue', 3: 'green'}
     //alert(lst.stations.length + '\n' + lst.stations[0].geometry.coordinates[0] + '\n' + lst.stations[(lst.stations.length-1)].geometry.coordinates[0]);
     //map.removeLayer(markerGroup)
     //var markerGroup = L.layerGroup().addTo(map);
     for(var i= 0; i < lst.stations.length; i++) {
-        L.circle([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]], 100).addTo(map);
+        L.circle([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]], 100, , {color: color[lst.stations[i].COLOR]}).addTo(map);
         //L.marker([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]]).addTo(map);
         line.push([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]]);
     }
-    L.polyline(line, {color: 'red'}).addTo(map);
+    L.polyline(line, {color: color[lst.stations[i].COLOR]}).addTo(map);
     console.log(line);
 }
 
