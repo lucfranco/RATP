@@ -71,6 +71,9 @@ function affich_AB(lst){
         //L.marker([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]]).addTo(map);
         line.push([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]]);
     }
+    console.log(lst.stations[i].COLOR])
+    console.log(color[lst.stations[i].COLOR])
+
     L.polyline(line, {color: color[lst.stations[i].COLOR]}).addTo(map);
     console.log(line);
 }
