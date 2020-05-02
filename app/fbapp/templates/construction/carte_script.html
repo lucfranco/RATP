@@ -68,7 +68,7 @@ function affich_AB(lst){
     for(var i= 0; i < lst.stations.length; i++) {
         var imagepath = "/static/pictos/" + lst.stations[i].PICTO;
         myIcon = L.icon({iconUrl: imagepath,iconSize: [38, 95]});
-        vat marker = L.marker([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]], {icon: myIcon}).addTo(map);
+        var marker = L.marker([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]], {icon: myIcon}).addTo(map);
 
         result_color = color[lst.stations[i].COLOR]
         //L.circle([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]], 100, {color: result_color}).addTo(map);
