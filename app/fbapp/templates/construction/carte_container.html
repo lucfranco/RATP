@@ -3,7 +3,7 @@
                         <select name="lignes" id="lignes">
                             <option value="">Choisir une ligne</option>
                             {% for ligne in list_lignes %}
-                            <option value="{{ ligne[0] }}">{{ ligne[2] }}</option>
+                            <option value="{{ ligne[0] }}">{{ ligne[1] }}{{ ligne[2] }}</option>
                             {% endfor %}
                         </select>
                         <button name="affich_ligne" id="affich_ligne">Afficher</button>
