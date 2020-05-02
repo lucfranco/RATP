@@ -87,7 +87,11 @@ function affich_AB(lst){
     groupLayer.addTo(map);
     console.log(line);
     if(layerControl === false) {
-        layerControl = L.control.layers({position: 'bottomleft'}).addTo(map);
+        overlayPane = {
+          "Endpoints" : endpointMarkerLayer,
+          "Links" : linkLineLayer
+        };
+        layerControl = L.control.layers(null, overlayPane, {position: 'bottomleft'}).addTo(map);
     }
     layerControl.addOverlay(groupLayer, name_line);
     return false;
