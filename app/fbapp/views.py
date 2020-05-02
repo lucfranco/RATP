@@ -59,7 +59,7 @@ def stations_ligne(ligne):
             'SEQUENCE': station[3],
             'NAME': station[4],
             'DESCRIPTION': station[5],
-            'COLOR': station[6],
+            'COLOR': station[8],
             "geometry": {
                 "coordinates":[station[7], station[6]]
                 }
