@@ -49,12 +49,11 @@ def station():
 
 @app.route('/stations_ligne_mysql/<int:ligne>/', methods=['GET'])
 def stations_ligne(ligne):
-    list_stations_dict = dict()
-    list_stations_dict['stations'] = list()
+    list_stations_dict = list()
     ratp = gestionMARIADB(mariadb_config)
     list_stations_ligne = ratp.listStationLigne(ligne)
     for station in list_stations_ligne:
-        list_stations_dict['stations'].append({
+        list_stations_dict.append({
             'ID': station[2],
             'SEQUENCE': station[3],
             'NAME': station[4],
