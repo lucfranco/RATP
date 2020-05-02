@@ -76,7 +76,7 @@ function affich_AB(lst){
         line.push([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]]);
     }
     map.on('zoomend', function(){
-        var currentZoom = mymap.getZoom();
+        var currentZoom = map.getZoom();
         myIcon = L.icon({iconUrl: imagepath,iconSize: [38*currentZoom, 95*currentZoom]});
         marker.setIcon(busIcon);
     });
