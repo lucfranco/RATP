@@ -62,13 +62,14 @@ function load_list() {
 }
 
 function affich_AB(lst){
+    var groupLayer = L.layerGroup();
     var line = [];
     color = {0 : 'yellow', 1: 'red', 2: 'blue', 3: 'green'}
     //alert(lst.stations.length + '\n' + lst.stations[0].geometry.coordinates[0] + '\n' + lst.stations[(lst.stations.length-1)].geometry.coordinates[0]);
     for(var i= 0; i < lst.stations.length; i++) {
         var imagepath = "/static/pictos/" + lst.stations[i].PICTO;
-        myIcon = L.icon({iconUrl: imagepath,iconSize: [38, 46]});
-        L.marker([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]], {icon: myIcon}).addTo(map);
+        myIcon = L.icon({iconUrl: imagepath,iconSize: [19, 30]});
+        groupLayer.addLayer(L.marker([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]], {icon: myIcon}));
 
         result_color = color[lst.stations[i].COLOR]
         //L.circle([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]], 100, {color: result_color}).addTo(map);
@@ -80,8 +81,8 @@ function affich_AB(lst){
     //    myIcon = L.icon({iconUrl: imagepath,iconSize: [38*currentZoom, 95*currentZoom]});
     //    marker.setIcon(busIcon);
     //});
-
-    L.polyline(line, {color: result_color}).addTo(map);
+    groupLayer.addLayer(L.polyline(line, {color: result_color}));
+    groupLayer.addTo(map);
     console.log(line);
 }
 
