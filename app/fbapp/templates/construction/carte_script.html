@@ -47,6 +47,7 @@ function load_list() {
         url_get = url + lgn_val + "/";
         var xhr = new XMLHttpRequest();
         // On souhaite juste récupérer le contenu du fichier, la méthode GET suffit amplement :
+        console.log("zoom :" + map.getZoom());
         console.log(url_get);
         xhr.open('GET', url_get);
         xhr.addEventListener('readystatechange', function() { // On gère ici une requête asynchrone
