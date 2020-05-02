@@ -24,8 +24,8 @@
 
 
 // init---------------------------------------
-let clickCircle = '';
-let clickCircle1 = '';
+//let clickCircle = '';
+//let clickCircle1 = '';
 let url = "/stations_ligne_mysql/";
 let httpRequest;
 let response;
@@ -35,7 +35,7 @@ lgn.addEventListener("change", load_list, false);
 
 // ajout d'un écouteur d'évènement sur le bouton
 let bt_affich = document.getElementById("affich_ligne");
-bt_affich.addEventListener("click", affich, false);
+bt_affich.addEventListener("click", load_list, false);
 
 
 
