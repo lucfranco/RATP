@@ -79,13 +79,13 @@ function ajaxListStations(url_get){
         if (xhr.status === OK) {
           //console.log(xhr.responseText); // 'This is the returned text.'
           list_station = JSON.parse(xhr.responseText);
+          console.log('ajaxListStations');
+          console.log(list_station);
         } else {
           console.log('Error: ' + xhr.status); // An error occurred during the request.
         }
       }
     };
-    console.log('ajaxListStations');
-    console.log(list_station);
     return list_station;
 }
 
