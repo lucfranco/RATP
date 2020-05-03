@@ -71,7 +71,6 @@ function affich_AB(lst){
     //alert(lst.stations.length + '\n' + lst.stations[0].geometry.coordinates[0] + '\n' + lst.stations[(lst.stations.length-1)].geometry.coordinates[0]);
     for(var i= 0; i < lst.stations.length; i++) {
         station = lst.stations[i];
-        console.log(station);
         var imagepath = "/static/pictos/" + lst.stations[i].PICTO;
         var name_line = lst.stations[i].NAME;
         myIcon = L.icon({iconUrl: imagepath,iconSize: [19, 30]});
@@ -84,9 +83,8 @@ function affich_AB(lst){
                 riseOnHover: true
             })
         .on('click', function(e){
-            console.log(station);
             alert("hi. you clicked the marker at " + e.latlng);
-            url_get = url_station + e.ID + "/";
+            url_get = url_station + station.ID + "/";
             console.log(url_get);
         }));
 
