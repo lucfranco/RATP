@@ -78,7 +78,8 @@ function affich_AB(lst){
                 icon: myIcon,
                 title: lst.stations[i].ID + ' ' + lst.stations[i].SEQUENCE + ' - ' + lst.stations[i].NAME,
                 alt: lst.stations[i].SEQUENCE + ' - ' + lst.stations[i].NAME,
-                riseOnHover: true
+                riseOnHover: true,
+                id_station: lst.stations[i].ID
             })
         .on('click', function(e){
             alert("hi. you clicked the marker at " + e.latlng);
