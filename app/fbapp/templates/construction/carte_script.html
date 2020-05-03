@@ -85,7 +85,8 @@ function affich_AB(lst){
         .on('click', function(e){
             alert("hi. you clicked the marker at " + e.latlng);
             url_get = url_station + e.latlng.lat + "/" + e.latlng.lng + "/";
-            console.log(e.latlng.lat);
+            console.log(url_get);
+            xhr_ajax(url)
         }));
 
         result_color = color[lst.stations[i].COLOR]
@@ -108,11 +109,14 @@ function affich_AB(lst){
     return false;
 }
 
-function markerOnClick(e){
-    alert("hi. you clicked the marker at " + e.latlng);
-    marker = new L.Marker(e.latlng, {draggable:true});
-    map.addLayer(marker);
-    marker.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+function xhr_ajax(url){
+    xhr.open('GET', url);
+    xhr.addEventListener('readystatechange', function() { // On gère ici une requête asynchrone
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) { // Si le fichier est chargé sans erreur
+            return JSON.parse(xhr.responseText);
+        }
+    });
+    xhr.send(null); // La requête est prête, on envoie tout !
 }
 
 function affich() {

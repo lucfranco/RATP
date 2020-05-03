@@ -68,6 +68,15 @@ def stations_ligne(ligne):
 
     return list_stations_dict
 
+@app.route('/station_mysql/<float:lat>/<float:lng>/', methods=['GET'])
+def station(lat, lng):
+    station_dict = dict()
+    ratp = gestionMARIADB(mariadb_config)
+    station = ratp.infoStation(lat, lng)
+    return station
+
+
+
 @app.route('/lines.json', methods=['GET'])
 def line():
     return render_template('json/lines.json')
