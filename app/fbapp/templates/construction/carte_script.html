@@ -82,7 +82,7 @@ function affich_AB(lst){
             })
         .on('click', function(e){
             alert("hi. you clicked the marker at " + e.latlng);
-            url_get = url_station + lst.stations[i].ID + "/";
+            url_get = url_station + e.ID + "/";
             console.log(url_get);
         }));
 
