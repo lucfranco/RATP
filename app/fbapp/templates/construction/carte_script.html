@@ -32,6 +32,7 @@ let httpRequest;
 let response;
 var list_station;
 var layerControl = false;
+var station;
 // ajout d'un écouteur d'évènement sur le select
 let lgn = document.getElementById("lignes");
 lgn.addEventListener("change", load_list, false);
@@ -69,7 +70,7 @@ function affich_AB(lst){
     color = {0 : 'yellow', 1: 'red', 2: 'blue', 3: 'green'}
     //alert(lst.stations.length + '\n' + lst.stations[0].geometry.coordinates[0] + '\n' + lst.stations[(lst.stations.length-1)].geometry.coordinates[0]);
     for(var i= 0; i < lst.stations.length; i++) {
-        var station = function(lst.stations[i]);
+        station = lst.stations[i];
         console.log(station);
         var imagepath = "/static/pictos/" + lst.stations[i].PICTO;
         var name_line = lst.stations[i].NAME;
@@ -82,7 +83,7 @@ function affich_AB(lst){
                 alt: lst.stations[i].SEQUENCE + ' - ' + lst.stations[i].NAME,
                 riseOnHover: true
             })
-        .on('click', function(e, station){
+        .on('click', function(e){
             console.log(station);
             alert("hi. you clicked the marker at " + e.latlng);
             url_get = url_station + e.ID + "/";
