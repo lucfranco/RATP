@@ -13,6 +13,7 @@ class gestionMARIADB:
     nb_list_stop = 0
     nb_list_Lignes = 0
     nb_list_station_lgn = 0
+    nb_infostation = 0
 
     def __init__(self, config):
         self.config = config
@@ -86,7 +87,11 @@ class gestionMARIADB:
     def infoStation(self, ligne, lat, lng):
         print('infoStation')
         infostation = self.mariadb.cursor()
-        records = 'test'
+        request = ("SELECT rtes.route_short_name, rtes.route_id,  tr.trip_short_name, sts.stop_id, sts.stop_name, sts.stop_desc FROM routes AS rtes LEFT JOIN trips AS tr ON rtes.route_id = tr.route_id LEFT JOIN stop_times AS s_tr ON tr.trip_id = s_tr.trip_id LEFT JOIN stops AS sts ON sts.stop_id = s_tr.stop_id WHERE s_tr.stop_id = (SELECT DISTINCT s_tr.stop_id FROM trips AS tr LEFT JOIN stop_times AS s_tr ON tr.trip_id = s_tr.trip_id LEFT JOIN stops AS sts ON sts.stop_id = s_tr.stop_id LEFT JOIN routes AS rtes ON rtes.route_id = tr.route_id WHERE tr.route_id = " + str(ligne) + " AND sts.stop_lat = " + str(lat) + " AND sts.stop_lon = " + str(lng) + ") GROUP BY rtes.route_short_name")
+        print("0| " + request)
+        infostation.execute(request)
+        records = infostation.fetchall()
+        self.nb_infostation = infostation.rowcount
         return records
 
 
