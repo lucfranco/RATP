@@ -80,8 +80,8 @@ function affich_AB(lst){
                 alt: lst.stations[i].SEQUENCE + ' - ' + lst.stations[i].NAME,
                 riseOnHover: true
             })
-        .on('click', function(e){
-            console.log(e);
+        .on('click', function(e, lst.stations[i]){
+            console.log(lst.stations[i]);
             alert("hi. you clicked the marker at " + e.latlng);
             url_get = url_station + e.ID + "/";
             console.log(url_get);
