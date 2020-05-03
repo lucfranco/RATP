@@ -32,7 +32,7 @@ let httpRequest;
 let response;
 var list_station;
 var layerControl = false;
-var station;
+var id_station;
 // ajout d'un écouteur d'évènement sur le select
 let lgn = document.getElementById("lignes");
 lgn.addEventListener("change", load_list, false);
@@ -70,7 +70,7 @@ function affich_AB(lst){
     color = {0 : 'yellow', 1: 'red', 2: 'blue', 3: 'green'}
     //alert(lst.stations.length + '\n' + lst.stations[0].geometry.coordinates[0] + '\n' + lst.stations[(lst.stations.length-1)].geometry.coordinates[0]);
     for(var i= 0; i < lst.stations.length; i++) {
-        station = lst.stations[i];
+        id_station = lst.stations[i].ID;
         var imagepath = "/static/pictos/" + lst.stations[i].PICTO;
         var name_line = lst.stations[i].NAME;
         myIcon = L.icon({iconUrl: imagepath,iconSize: [19, 30]});
@@ -84,7 +84,7 @@ function affich_AB(lst){
             })
         .on('click', function(e){
             alert("hi. you clicked the marker at " + e.latlng);
-            url_get = url_station + station.ID + "/";
+            url_get = url_station + id_station + "/";
             console.log(url_get);
         }));
 
