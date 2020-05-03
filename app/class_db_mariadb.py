@@ -83,7 +83,7 @@ class gestionMARIADB:
         self.nb_list_station_lgn = list_station_lgn.rowcount
         return records
 
-    def infoStation(lat, lng):
+    def infoStation(self, ligne, lat, lng):
         print('infoStation')
         infostation = self.mariadb.cursor()
         records = 'test'
