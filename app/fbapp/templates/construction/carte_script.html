@@ -81,6 +81,7 @@ function affich_AB(lst){
                 riseOnHover: true
             })
         .on('click', function(e){
+            console.log(e);
             alert("hi. you clicked the marker at " + e.latlng);
             url_get = url_station + e.ID + "/";
             console.log(url_get);
