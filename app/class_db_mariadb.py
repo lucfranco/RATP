@@ -86,7 +86,7 @@ class gestionMARIADB:
     def infoStation(lat, lng):
         print('infoStation')
         infostation = self.mariadb.cursor()
-
+        records = 'test'
         return records
 
 
