@@ -72,7 +72,7 @@ def stations_ligne(ligne):
 def station(ligne, lat, lng):
     station_dict = dict()
     ratp = gestionMARIADB(mariadb_config)
-    station = ratp.infoStation(lat, lng)
+    station = ratp.infoStation(ligne, lat, lng)
     return station
 
 
