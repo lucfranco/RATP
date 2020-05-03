@@ -44,7 +44,7 @@ def mysqlshow():
     return test
 
 @app.route('/stations.json', methods=['GET'])
-def station():
+def station_json():
     return render_template('json/stations.json')
 
 @app.route('/stations_ligne_mysql/<int:ligne>/', methods=['GET'])
@@ -74,7 +74,6 @@ def station(lat, lng):
     ratp = gestionMARIADB(mariadb_config)
     station = ratp.infoStation(lat, lng)
     return station
-
 
 
 @app.route('/lines.json', methods=['GET'])
