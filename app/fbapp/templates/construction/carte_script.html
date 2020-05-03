@@ -69,6 +69,7 @@ function affich_AB(lst){
     color = {0 : 'yellow', 1: 'red', 2: 'blue', 3: 'green'}
     //alert(lst.stations.length + '\n' + lst.stations[0].geometry.coordinates[0] + '\n' + lst.stations[(lst.stations.length-1)].geometry.coordinates[0]);
     for(var i= 0; i < lst.stations.length; i++) {
+        var station = lst.stations[i];
         var imagepath = "/static/pictos/" + lst.stations[i].PICTO;
         var name_line = lst.stations[i].NAME;
         myIcon = L.icon({iconUrl: imagepath,iconSize: [19, 30]});
@@ -80,8 +81,8 @@ function affich_AB(lst){
                 alt: lst.stations[i].SEQUENCE + ' - ' + lst.stations[i].NAME,
                 riseOnHover: true
             })
-        .on('click', function(e, lst.stations[i]){
-            console.log(lst.stations[i]);
+        .on('click', function(e, station){
+            console.log(station);
             alert("hi. you clicked the marker at " + e.latlng);
             url_get = url_station + e.ID + "/";
             console.log(url_get);
