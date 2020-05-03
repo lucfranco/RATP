@@ -85,7 +85,7 @@ function affich_AB(lst){
             alert("hi. you clicked the marker at " + e.latlng);
             url_get = url_station + lgn_val + "/" + e.latlng.lat + "/" + e.latlng.lng + "/";
             console.log(url_get);
-            xhr_ajax(url)
+            xhr_ajax(url_get)
         }));
 
         result_color = color[lst.stations[i].COLOR]
