@@ -95,6 +95,9 @@ function affich_AB(lst){
 
 function markerOnClick(e){
     alert("hi. you clicked the marker at " + e.latlng);
+    marker = new L.Marker(e.latlng, {draggable:true});
+    map.addLayer(marker);
+    marker.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
 }
 
 function affich() {
