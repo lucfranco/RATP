@@ -47,7 +47,6 @@ function load_list() {
     lgn_val = lgn.options[lgn.selectedIndex].value;
     if (lgn_val){
         url_get = url_stations_ligne + lgn_val + "/";
-        console.log(url_get);
         var xhr = new XMLHttpRequest();
         // On souhaite juste récupérer le contenu du fichier, la méthode GET suffit amplement :
         console.log("zoom :" + map.getZoom());
@@ -110,6 +109,7 @@ function affich_AB(lst){
 }
 
 function xhr_ajax(url){
+    var xhr = new XMLHttpRequest();
     xhr.open('GET', url);
     xhr.addEventListener('readystatechange', function() { // On gère ici une requête asynchrone
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) { // Si le fichier est chargé sans erreur
