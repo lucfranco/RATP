@@ -71,7 +71,7 @@ function affich_AB(lst){
         var imagepath = "/static/pictos/" + lst.stations[i].PICTO;
         var name_line = lst.stations[i].NAME;
         myIcon = L.icon({iconUrl: imagepath,iconSize: [19, 30]});
-        groupLayer.addLayer(L.marker([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]], {icon: myIcon}));
+        groupLayer.addLayer(L.marker([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]], {icon: myIcon}).on('click', markerOnClick));
 
         result_color = color[lst.stations[i].COLOR]
         //L.circle([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]], 100, {color: result_color}).addTo(map);
@@ -91,6 +91,10 @@ function affich_AB(lst){
     }
     layerControl.addOverlay(groupLayer, name_line);
     return false;
+}
+
+function markerOnClick(e){
+    alert("hi. you clicked the marker at " + e.latlng);
 }
 
 function affich() {
