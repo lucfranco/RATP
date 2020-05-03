@@ -75,12 +75,13 @@ function affich_AB(lst){
             [lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]],
             {
                 icon: myIcon,
-                title: "Resource Location",
-                alt: "Resource Location",
-                riseOnHover: true,
-                draggable: true
+                title: lst.stations[0].SEQUENCE + ' - ' + lst.stations[0].NAME,
+                alt: lst.stations[0].SEQUENCE + ' - ' + lst.stations[0].NAME,
+                riseOnHover: true
             })
-        .on('click', markerOnClick));
+        .on('click', function(e){
+            alert("hi. you clicked the marker at " + e.latlng);
+        }));
 
         result_color = color[lst.stations[i].COLOR]
         //L.circle([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]], 100, {color: result_color}).addTo(map);
