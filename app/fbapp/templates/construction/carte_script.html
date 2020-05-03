@@ -47,10 +47,10 @@ function load_list() {
     lgn_val = lgn.options[lgn.selectedIndex].value;
     if (lgn_val){
         url_get = url_stations_ligne + lgn_val + "/";
-        var xhr = new XMLHttpRequest();
         // On souhaite juste récupérer le contenu du fichier, la méthode GET suffit amplement :
         console.log("zoom :" + map.getZoom());
         console.log(url_get);
+        var xhr = new XMLHttpRequest();
         xhr.open('GET', url_get);
         xhr.addEventListener('readystatechange', function() { // On gère ici une requête asynchrone
             if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) { // Si le fichier est chargé sans erreur
@@ -85,8 +85,15 @@ function affich_AB(lst){
             alert("hi. you clicked the marker at " + e.latlng);
             url_get = url_station + lgn_val + "/" + e.latlng.lat + "/" + e.latlng.lng + "/";
             console.log(url_get);
-            station = xhr_ajax(url_get)
-            console.log(station);
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url_get);
+            xhr.addEventListener('readystatechange', function() { // On gère ici une requête asynchrone
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) { // Si le fichier est chargé sans erreur
+                    station = JSON.parse(xhr.responseText);
+                    console.log(station);
+                }
+            });
+            xhr.send(null); // La requête est prête, on envoie tout !
         }));
 
         result_color = color[lst.stations[i].COLOR]
