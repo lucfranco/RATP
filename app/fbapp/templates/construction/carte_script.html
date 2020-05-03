@@ -26,7 +26,8 @@
 // init---------------------------------------
 //let clickCircle = '';
 //let clickCircle1 = '';
-let url = "/stations_ligne_mysql/";
+let url_stations_ligne = "/stations_ligne_mysql/";
+let url_station = "/station_mysql/";
 let httpRequest;
 let response;
 var list_station;
@@ -45,7 +46,7 @@ bt_affich.addEventListener("click", affich, false);
 function load_list() {
     lgn_val = lgn.options[lgn.selectedIndex].value;
     if (lgn_val){
-        url_get = url + lgn_val + "/";
+        url_get = url_stations_ligne + lgn_val + "/";
         var xhr = new XMLHttpRequest();
         // On souhaite juste récupérer le contenu du fichier, la méthode GET suffit amplement :
         console.log("zoom :" + map.getZoom());
@@ -81,6 +82,8 @@ function affich_AB(lst){
             })
         .on('click', function(e){
             alert("hi. you clicked the marker at " + e.latlng);
+            url_get = url_station + lst.stations[i].ID + "/";
+            console.log(url_get);
         }));
 
         result_color = color[lst.stations[i].COLOR]
