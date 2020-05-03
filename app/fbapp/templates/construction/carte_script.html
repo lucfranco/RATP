@@ -47,6 +47,7 @@ function load_list() {
     lgn_val = lgn.options[lgn.selectedIndex].value;
     if (lgn_val){
         url_get = url_stations_ligne + lgn_val + "/";
+        console.log(url_get);
         var xhr = new XMLHttpRequest();
         // On souhaite juste récupérer le contenu du fichier, la méthode GET suffit amplement :
         console.log("zoom :" + map.getZoom());
@@ -84,7 +85,7 @@ function affich_AB(lst){
         .on('click', function(e){
             alert("hi. you clicked the marker at " + e.latlng);
             //url_get = url_station + id_station + "/";
-            console.log(this);
+            console.log(e.latlng);
         }));
 
         result_color = color[lst.stations[i].COLOR]
