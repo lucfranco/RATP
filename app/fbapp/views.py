@@ -63,21 +63,24 @@ def stations_ligne(ligne):
             'PICTO': station[9],
             "geometry": {
                 "coordinates":[station[7], station[6]]
-                }
-            })
+            }
+        })
 
     return list_stations_dict
 
-@app.route('/station_mysql/<int:ligne>/<lat>/<lng>/', methods=['GET'])
-def station(ligne, lat, lng):
+@app.route('/station_mysql/<lat>/<lng>/', methods=['GET'])
+def station(lat, lng):
     station_dict = dict()
     station_dict['station'] = list()
     ratp = gestionMARIADB(mariadb_config)
-    station = ratp.infoStation(ligne, lat, lng)
+    station = ratp.infoStation(lat, lng)
     for st_element in station:
         station_dict['station'].append({
-            'ROUTE_NAME': st_element[0]
-            })
+            'ROUTE_SHORT_NAME': st_element[0],
+            'ROUTE_NAME': st_element[1]
+            'STATION_NAME': st_element[4]
+            'STATION_DESCRIPTION': st_element[5]
+        })
     return station_dict
 
 
