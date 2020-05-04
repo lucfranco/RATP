@@ -87,7 +87,8 @@ def station(ligne, lat, lng):
     station = ratp.infoStation(lat, lng)
 
     for index, item in enumerate(station):
-        #if (item[index][4] == ligne):
+        if (item[4] == ligne):
+            idx_ok = index
         #    print(index, item[index][4])
         print(index, item)
 
@@ -96,12 +97,12 @@ def station(ligne, lat, lng):
         route.append(st_element[4])
 
     station_dict['station'].append({
-            'ID': station[0][0],
-            'NAME': station[0][1],
-            'DESCRIPTION': station[0][2],
-            'SEQUENCE': station[0][3],
+            'ID': station[idx_ok][0],
+            'NAME': station[idx_ok][1],
+            'DESCRIPTION': station[idx_ok][2],
+            'SEQUENCE': station[idx_ok][3],
             'ROUTE_ID': route,
-            'ROUTE_TYPE': station[0][6],
+            'ROUTE_TYPE': station[idx_ok][6],
             'ROUTE_SHORT_NAME': list_ligne
     })
 
