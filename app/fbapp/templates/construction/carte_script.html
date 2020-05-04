@@ -117,15 +117,16 @@ function affich_encart_information(station){
 
     var style = 'font-size: 14px; color: #777; display: block;'
 
-    var content_id = "ID Station" + station.station[0].ID;
+    var content_id = "ID Station : <b>" + station.station[0].ID + "</b>";
     var span_id = document.createElement('span');
     span_id.id = 'span_id';
     span_id.style = style;
 
-    var content_name = "Nom Station" + station.station[0].NAME;
+    var content_name = "Nom Station : <b>" + station.station[0].NAME + "</b>";
     var span_name = document.createElement('span');
     span_name.id = 'span_name';
     span_name.style = style;
+
 
     span_id.textContent = content_id
     span_name.textContent = content_name
