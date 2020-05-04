@@ -176,7 +176,7 @@ function affich_encart_information(station){
             }
         }
         if (link_ligne) {
-            text_ligne += '<span onclick="load_list2(station.station[0].ROUTE_ID[i]);" style="text-decoration: underline;">' + station.station[0].ROUTE_SHORT_NAME[i] + '</span> ';
+            text_ligne += '<span onclick="load_list2(' + station.station[0].ROUTE_ID[i] + ');" style="text-decoration: underline;">' + station.station[0].ROUTE_SHORT_NAME[i] + '</span> ';
         } else {
             text_ligne += '<span>' + station.station[0].ROUTE_SHORT_NAME[i] + '</span> ';
         }
