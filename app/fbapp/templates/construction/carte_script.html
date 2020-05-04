@@ -115,11 +115,9 @@ function affich_AB(lst){
 
 function affich_encart_information(station){
     console.log(station);
-    var rightbox = document.getElementById("rightbox");
-    alert(document.getElementById("rightbox").innerHTLM)
-    alert(rightbox.innerHTLM)
-    rightbox.innerHTLM = "test" + station.station[0].ID;
-
+    var rightbox = document.getElementById('rightbox');
+    rightbox.querySelector('span').textContent = "test" + station.station[0].ID
+document.querySelector("#rightbox")
 }
 
 function xhr_ajax(url){
