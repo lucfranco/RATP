@@ -59,7 +59,7 @@ def stations_ligne(ligne):
     print(list_stations_ligne)
     sequence = 1
     for station in list_stations_ligne:
-        if sequence > station[3]:
+        if sequence < station[3]:
             list_stations_dict['stations'].append({
                 'ID': station[2],
                 'SEQUENCE': station[3],
