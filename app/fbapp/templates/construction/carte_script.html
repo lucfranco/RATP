@@ -108,19 +108,24 @@ function affich_encart_information(station){
     console.log(station);
     var rightbox = document.getElementById('rightbox');
     var info = document.getElementById('information');
-    if (info != null) {
-        if (info.parentNode) {
-          info.parentNode.removeChild(info);
-        }
-    }
+    var span_id = document.getElementById('span_id');
+    var span_name = document.getElementById('span_name');
+
+    if (info != null) {if (info.parentNode) {info.parentNode.removeChild(info);}}
+    if (span_id != null) {if (span_id.parentNode) {span_id.parentNode.removeChild(span_id);}}
+    if (span_name != null) {if (span_name.parentNode) {span_name.parentNode.removeChild(span_name);}}
+
+    var style = 'font-size: 14px; color: #777; display: block;'
 
     var content_id = "ID Station" + station.station[0].ID;
     var span_id = document.createElement('span');
     span_id.id = 'span_id';
+    span_id.style = style;
 
     var content_name = "Nom Station" + station.station[0].NAME;
     var span_name = document.createElement('span');
     span_name.id = 'span_name';
+    span_name.style = style;
 
     span_id.textContent = content_id
     span_name.textContent = content_name
