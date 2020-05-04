@@ -84,7 +84,7 @@ def station(lat, lng):
             'ROUTE_TYPE': station[0][6]
     })
     for st_element in station:
-        station_dict['station']['ligne'].append({st_element[5]})
+        station_dict['station']['ligne'].append(st_element[5])
 
     return station_dict
 
