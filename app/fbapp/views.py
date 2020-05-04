@@ -77,7 +77,7 @@ def stations_ligne(ligne):
     return list_stations_dict
 
 @app.route('/station_mysql/<int:ligne>/<lat>/<lng>/', methods=['GET'])
-def station(lat, lng):
+def station(ligne, lat, lng):
     station_dict = dict()
     station_dict['station'] = list()
     list_ligne = list()
