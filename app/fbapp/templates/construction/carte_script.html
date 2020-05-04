@@ -90,7 +90,7 @@ function affich_AB(lst){
             xhr.addEventListener('readystatechange', function() { // On gère ici une requête asynchrone
                 if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) { // Si le fichier est chargé sans erreur
                     station = JSON.parse(xhr.responseText);
-                    console.log(station);
+                    //console.log(station);
                     affich_encart_information(station);
                 }
             });
@@ -114,7 +114,7 @@ function affich_AB(lst){
 }
 
 function affich_encart_information(station){
-    // Tous les éléments ayant la classe "merveilles"
+    console.log(station);
     var rightbox = document.getElementById("rightbox");
     rightbox.innerHTLM = "test" + station[0].ID;
 
