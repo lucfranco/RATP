@@ -7,6 +7,7 @@ from class_db_mariadb import gestionMARIADB
 
 # Path file .env-----------------
 env_path = Path.cwd() / '.env'
+print(env_path)
 load_dotenv(dotenv_path=env_path)
 
 # Config MariaDB--------------------------------
