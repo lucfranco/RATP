@@ -86,12 +86,12 @@ def station(ligne, lat, lng):
     ratp = gestionMARIADB(mariadb_config)
     station = ratp.infoStation(lat, lng)
 
+    # recuperation de l'index de la station selectionnee
     for index, item in enumerate(station):
         if (item[4] == ligne):
             idx_ok = index
-        #    print(index, item[index][4])
-        print(index, item)
 
+    # generation du json de la station + les lignes ou cette station existe
     for st_element in station:
         list_ligne.append(st_element[5])
         route.append(st_element[4])
