@@ -89,7 +89,7 @@ def station(lat, lng):
             'DESCRIPTION': station[0][3],
             'ROUTE_ID': station[0][4],
             'ROUTE_TYPE': station[0][6],
-            'ROUTE_SHORT_NAME': ['test', 'test2']
+            'ROUTE_SHORT_NAME': [ligne]
     })
 
     return station_dict
