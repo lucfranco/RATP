@@ -60,6 +60,26 @@ function load_list() {
     }
 }
 
+function load_list2(lgn_val) {
+    array_ligne.push(lgn_val);
+
+    url_get = url_stations_ligne + lgn_val + "/";
+    // On souhaite juste récupérer le contenu du fichier, la méthode GET suffit amplement :
+    console.log("zoom :" + map.getZoom());
+    console.log(url_get);
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url_get);
+    xhr.addEventListener('readystatechange', function() { // On gère ici une requête asynchrone
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) { // Si le fichier est chargé sans erreur
+            list_station = JSON.parse(xhr.responseText);
+            console.log(list_station);
+            affich_AB(list_station);
+        }
+    });
+    xhr.send(null); // La requête est prête, on envoie tout !
+
+}
+
 function affich_AB(lst){
     var groupLayer = L.layerGroup();
     var line = [];
@@ -156,7 +176,7 @@ function affich_encart_information(station){
             }
         }
         if (link_ligne) {
-            text_ligne += '<span onclick="load_list2();" style="text-decoration: underline;">' + station.station[0].ROUTE_SHORT_NAME[i] + '</span> ';
+            text_ligne += '<span onclick="load_list2(station.station[0].ROUTE_ID[i]);" style="text-decoration: underline;">' + station.station[0].ROUTE_SHORT_NAME[i] + '</span> ';
         } else {
             text_ligne += '<span>' + station.station[0].ROUTE_SHORT_NAME[i] + '</span> ';
         }
