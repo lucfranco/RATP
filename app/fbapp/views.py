@@ -72,19 +72,22 @@ def stations_ligne(ligne):
 def station(lat, lng):
     station_dict = dict()
     station_dict['station'] = list()
-    station_dict['station']['ligne'] = list()
+    ligne = list()
+
     ratp = gestionMARIADB(mariadb_config)
     station = ratp.infoStation(lat, lng)
+
+    for st_element in station:
+        ligne.append(st_element[5])
     station_dict['station'].append({
             'NAME': station[0][0],
             'ID': station[0][1],
             'SEQUENCE': station[0][2],
             'DESCRIPTION': station[0][3],
             'ROUTE_ID': station[0][4],
-            'ROUTE_TYPE': station[0][6]
+            'ROUTE_TYPE': station[0][6],
+            'ROUTE_SHORT_NAME': {line}
     })
-    # for st_element in station:
-    #     station_dict['station']['ligne'].append(st_element[5])
 
     return station_dict
 
