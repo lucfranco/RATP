@@ -108,8 +108,10 @@ function affich_encart_information(station){
     console.log(station);
     var rightbox = document.getElementById('rightbox');
     var info = document.getElementById('information');
-    if (info.parentNode) {
-      info.parentNode.removeChild(info);
+    if (info != null) {
+        if (info.parentNode) {
+          info.parentNode.removeChild(info);
+        }
     }
 
     var content_id = "ID Station" + station.station[0].ID;
