@@ -115,9 +115,15 @@ function affich_AB(lst){
 
 function affich_encart_information(station){
     console.log(station);
+    //var rightbox = document.getElementById('rightbox');
+    //rightbox.querySelector('span').textContent = "ID Station" + station.station[0].ID
+
+    var content = "ID Station" + station.station[0].ID;
+    var span_id = document.createElement('span');
     var rightbox = document.getElementById('rightbox');
-    rightbox.querySelector('span').textContent = "test" + station.station[0].ID
-document.querySelector("#rightbox")
+
+    span_id.appendChild(content);
+    rightbox.appendChild(span_id);
 }
 
 function xhr_ajax(url){
