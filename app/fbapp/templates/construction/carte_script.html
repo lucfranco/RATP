@@ -150,16 +150,14 @@ function affich_encart_information(station){
     for(var i= 0; i < station.station[0].ROUTE_SHORT_NAME.length; i++) {
         console.log(array_ligne.length + ' ' + lgn_val + ' ' + station.station[0].ROUTE_SHORT_NAME[i] + ' ' + station.station[0].ROUTE_ID[i])
         for(var j= 0; j < array_ligne.length; j++) {
-            if (array_ligne[j] == station.station[0].ROUTE_ID[i]) {
-                text_ligne += '<span>' + station.station[0].ROUTE_SHORT_NAME[i] + '</span> ';
-            } else {
+            if (array_ligne[j] != station.station[0].ROUTE_ID[i]) {
                 text_ligne += '<span onclick="load_list2();" style="text-decoration: underline;">' + station.station[0].ROUTE_SHORT_NAME[i] + '</span> ';
+            } else {
+                text_ligne += '<span>' + station.station[0].ROUTE_SHORT_NAME[i] + '</span> ';
             }
         }
-
-
+        console.log(text_ligne);
     }
-
 
 
     var content_ligne = "Ligne : <b>" + text_ligne + "</b>";
@@ -167,12 +165,11 @@ function affich_encart_information(station){
     span_ligne.id = 'span_ligne';
     span_ligne.style = style;
 
-
-    span_id.innerHTML = content_id
-    span_name.innerHTML = content_name
-    span_pos.innerHTML = content_pos
-    span_detail.innerHTML = content_detail
-    span_ligne.innerHTML = content_ligne
+    span_id.innerHTML = content_id;
+    span_name.innerHTML = content_name;
+    span_pos.innerHTML = content_pos;
+    span_detail.innerHTML = content_detail;
+    span_ligne.innerHTML = content_ligne;
     rightbox.appendChild(span_id);
     rightbox.appendChild(span_name);
     rightbox.appendChild(span_pos);
