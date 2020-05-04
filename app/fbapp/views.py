@@ -74,7 +74,7 @@ def station(lat, lng):
     station_dict['station'] = list()
     ratp = gestionMARIADB(mariadb_config)
     station = ratp.infoStation(lat, lng)
-    print(station)
+    print(station[0][5])
     for st_element in station:
         station_dict['station'].append({
             'NAME': st_element[0],
