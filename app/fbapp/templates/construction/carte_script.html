@@ -115,12 +115,14 @@ function affich_encart_information(station){
     var span_name = document.getElementById('span_name');
     var span_pos = document.getElementById('span_pos');
     var span_detail = document.getElementById('span_detail');
+    var span_ligne = document.getElementById('span_ligne');
 
     if (info != null) {if (info.parentNode) {info.parentNode.removeChild(info);}}
     if (span_id != null) {if (span_id.parentNode) {span_id.parentNode.removeChild(span_id);}}
     if (span_name != null) {if (span_name.parentNode) {span_name.parentNode.removeChild(span_name);}}
     if (span_pos != null) {if (span_pos.parentNode) {span_pos.parentNode.removeChild(span_pos);}}
     if (span_detail != null) {if (span_detail.parentNode) {span_detail.parentNode.removeChild(span_detail);}}
+    if (span_ligne != null) {if (span_ligne.parentNode) {span_ligne.parentNode.removeChild(span_ligne);}}
 
     var style = 'font-size: 14px; color: #777; display: block;'
 
@@ -144,18 +146,38 @@ function affich_encart_information(station){
     span_detail.id = 'span_detail';
     span_detail.style = style;
 
+    var text_ligne;
     for(var i= 0; i < station.station[0].ROUTE_SHORT_NAME.length; i++) {
         console.log(array_ligne.length + ' ' + lgn_val + ' ' + station.station[0].ROUTE_SHORT_NAME[i] + ' ' + station.station[0].ROUTE_ID[i])
+        for(var j= 0; j < array_ligne.length; j++) {
+            if (array_ligne[j] == station.station[0].ROUTE_ID[i]) {
+                text_ligne += '<span>' + station.station[0].ROUTE_SHORT_NAME[i] + '</span> ';
+            } else {
+                text_ligne += '<span onclick="load_list2();" style="text-decoration: underline;">' + station.station[0].ROUTE_SHORT_NAME[i] + '</span> ';
+            }
+        }
+
+
     }
+
+
+
+    var content_ligne = "Ligne : <b>" + text_ligne + "</b>";
+    var span_ligne = document.createElement('span');
+    span_ligne.id = 'span_ligne';
+    span_ligne.style = style;
+
 
     span_id.innerHTML = content_id
     span_name.innerHTML = content_name
     span_pos.innerHTML = content_pos
     span_detail.innerHTML = content_detail
+    span_ligne.innerHTML = content_ligne
     rightbox.appendChild(span_id);
     rightbox.appendChild(span_name);
     rightbox.appendChild(span_pos);
     rightbox.appendChild(span_detail);
+    rightbox.appendChild(span_ligne);
 }
 
 function xhr_ajax(url){
