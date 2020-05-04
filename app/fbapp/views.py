@@ -77,8 +77,8 @@ def station(lat, lng):
     for st_element in station:
         station_dict['station'].append({
             'ROUTE_SHORT_NAME': st_element[0],
-            'ROUTE_NAME': st_element[1]
-            'STATION_NAME': st_element[4]
+            'ROUTE_NAME': st_element[1],
+            'STATION_NAME': st_element[4],
             'STATION_DESCRIPTION': st_element[5]
         })
     return station_dict
