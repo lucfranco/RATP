@@ -57,18 +57,23 @@ def stations_ligne(ligne):
     list_stations_dict['LIGNE_SHORT_NAME'] = list_stations_ligne[0][10]
     list_stations_dict['LIGNE_ID'] = list_stations_ligne[0][0]
     print(list_stations_ligne)
+    sequence = 1
     for station in list_stations_ligne:
-        list_stations_dict['stations'].append({
-            'ID': station[2],
-            'SEQUENCE': station[3],
-            'NAME': station[4],
-            'DESCRIPTION': station[5],
-            'COLOR': station[8],
-            'PICTO': station[9],
-            "geometry": {
-                "coordinates":[station[7], station[6]]
-            }
-        })
+        if sequence > station[3]:
+            list_stations_dict['stations'].append({
+                'ID': station[2],
+                'SEQUENCE': station[3],
+                'NAME': station[4],
+                'DESCRIPTION': station[5],
+                'COLOR': station[8],
+                'PICTO': station[9],
+                "geometry": {
+                    "coordinates":[station[7], station[6]]
+                }
+            })
+            sequence = station[3]
+        else:
+            pass
 
     return list_stations_dict
 
