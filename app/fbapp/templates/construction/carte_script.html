@@ -87,7 +87,7 @@ function affich_AB(lst){
     //boucle sur les stations de la ligne-------------------------------------
     for(var i= 0; i < lst.stations.length; i++) {
         var imagepath = "/static/pictos/" + lst.stations[i].PICTO;
-        var name_line = lst.stations[i].NAME;
+        var name_line = lst.stations[i].DESCRIPTION;
         myIcon = L.icon({iconUrl: imagepath,iconSize: [19, 30]});
         groupLayer.addLayer(L.marker(
             [lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]],
