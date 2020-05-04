@@ -32,6 +32,7 @@ let httpRequest;
 let response;
 var list_station;
 var layerControl = false;
+var lgn_val;
 // ajout d'un écouteur d'évènement sur le select
 let lgn = document.getElementById("lignes");
 lgn.addEventListener("change", load_list, false);
@@ -110,10 +111,12 @@ function affich_encart_information(station){
     var info = document.getElementById('information');
     var span_id = document.getElementById('span_id');
     var span_name = document.getElementById('span_name');
+    var span_pos = document.getElementById('span_pos');
 
     if (info != null) {if (info.parentNode) {info.parentNode.removeChild(info);}}
     if (span_id != null) {if (span_id.parentNode) {span_id.parentNode.removeChild(span_id);}}
     if (span_name != null) {if (span_name.parentNode) {span_name.parentNode.removeChild(span_name);}}
+    if (span_pos != null) {if (span_pos.parentNode) {span_pos.parentNode.removeChild(span_pos);}}
 
     var style = 'font-size: 14px; color: #777; display: block;'
 
@@ -127,14 +130,21 @@ function affich_encart_information(station){
     span_name.id = 'span_name';
     span_name.style = style;
 
+    var content_pos = "Position Station : <b>" + station.station[0].SEQUENCE + "</b>";
+    var span_pos = document.createElement('span');
+    span_pos.id = 'span_pos';
+    span_pos.style = style;
+
     for(var i= 0; i < station.station[0].ROUTE_SHORT_NAME.length; i++) {
-        console.log(station.station[0].ROUTE_SHORT_NAME[i] + station.station[0].ROUTE_ID[i])
+        console.log(lgn_val + ' ' + station.station[0].ROUTE_SHORT_NAME[i] + ' ' + station.station[0].ROUTE_ID[i])
     }
 
     span_id.innerHTML = content_id
     span_name.innerHTML = content_name
+    span_pos.innerHTML = content_pos
     rightbox.appendChild(span_id);
     rightbox.appendChild(span_name);
+    rightbox.appendChild(span_pos);
 }
 
 function xhr_ajax(url){
