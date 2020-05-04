@@ -82,7 +82,7 @@ function affich_AB(lst){
                 id_station: lst.stations[i].ID
             })
         .on('click', function(e){
-            alert("hi. you clicked the marker at " + e.latlng);
+            //alert("hi. you clicked the marker at " + e.latlng);
             url_get = url_station + e.latlng.lat + "/" + e.latlng.lng + "/";
             console.log(url_get);
             var xhr = new XMLHttpRequest();
@@ -91,6 +91,7 @@ function affich_AB(lst){
                 if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) { // Si le fichier est chargé sans erreur
                     station = JSON.parse(xhr.responseText);
                     console.log(station);
+                    affich_encart_information(station);
                 }
             });
             xhr.send(null); // La requête est prête, on envoie tout !
@@ -101,11 +102,7 @@ function affich_AB(lst){
         //L.marker([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]]).addTo(map);
         line.push([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]]);
     }
-    //map.on('zoomend', function(){
-    //    var currentZoom = map.getZoom();
-    //    myIcon = L.icon({iconUrl: imagepath,iconSize: [38*currentZoom, 95*currentZoom]});
-    //    marker.setIcon(busIcon);
-    //});
+
     groupLayer.addLayer(L.polyline(line, {color: result_color}));
     groupLayer.addTo(map);
     console.log(line);
@@ -114,6 +111,13 @@ function affich_AB(lst){
     }
     layerControl.addOverlay(groupLayer, name_line);
     return false;
+}
+
+affich_encart_information(station){
+    // Tous les éléments ayant la classe "merveilles"
+    var rightbox = document.getElementsById("rightbox");
+    rightbox.innerHTLM = "test" + station[0].ID
+
 }
 
 function xhr_ajax(url){
