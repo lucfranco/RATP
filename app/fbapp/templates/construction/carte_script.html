@@ -151,7 +151,7 @@ function affich_encart_information(station){
         var link_ligne = true;
         console.log(array_ligne.length + ' ' + lgn_val + ' ' + station.station[0].ROUTE_SHORT_NAME[i] + ' ' + station.station[0].ROUTE_ID[i])
         for(var j= 0; j < array_ligne.length; j++) {
-            if (array_ligne[j] = station.station[0].ROUTE_ID[i]) {
+            if (array_ligne[j] == station.station[0].ROUTE_ID[i]) {
                 link_ligne = false;
             }
         }
