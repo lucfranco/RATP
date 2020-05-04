@@ -112,11 +112,13 @@ function affich_encart_information(station){
     var span_id = document.getElementById('span_id');
     var span_name = document.getElementById('span_name');
     var span_pos = document.getElementById('span_pos');
+    var span_detail = document.getElementById('span_detail');
 
     if (info != null) {if (info.parentNode) {info.parentNode.removeChild(info);}}
     if (span_id != null) {if (span_id.parentNode) {span_id.parentNode.removeChild(span_id);}}
     if (span_name != null) {if (span_name.parentNode) {span_name.parentNode.removeChild(span_name);}}
     if (span_pos != null) {if (span_pos.parentNode) {span_pos.parentNode.removeChild(span_pos);}}
+    if (span_detail != null) {if (span_detail.parentNode) {span_detail.parentNode.removeChild(span_detail);}}
 
     var style = 'font-size: 14px; color: #777; display: block;'
 
@@ -135,6 +137,11 @@ function affich_encart_information(station){
     span_pos.id = 'span_pos';
     span_pos.style = style;
 
+    var content_detail = "Position Station : <b>" + station.station[0].DESCRIPTION + "</b>";
+    var span_detail = document.createElement('span');
+    span_detail.id = 'span_detail';
+    span_detail.style = style;
+
     for(var i= 0; i < station.station[0].ROUTE_SHORT_NAME.length; i++) {
         console.log(lgn_val + ' ' + station.station[0].ROUTE_SHORT_NAME[i] + ' ' + station.station[0].ROUTE_ID[i])
     }
@@ -142,9 +149,11 @@ function affich_encart_information(station){
     span_id.innerHTML = content_id
     span_name.innerHTML = content_name
     span_pos.innerHTML = content_pos
+    span_detail.innerHTML = content_detail
     rightbox.appendChild(span_id);
     rightbox.appendChild(span_name);
     rightbox.appendChild(span_pos);
+    rightbox.appendChild(span_detail);
 }
 
 function xhr_ajax(url){

@@ -86,8 +86,8 @@ def station(lat, lng):
     station_dict['station'].append({
             'ID': station[0][0],
             'NAME': station[0][1],
-            'SEQUENCE': station[0][2],
-            'DESCRIPTION': station[0][3],
+            'DESCRIPTION': station[0][2],
+            'SEQUENCE': station[0][3],
             'ROUTE_ID': route,
             'ROUTE_TYPE': station[0][6],
             'ROUTE_SHORT_NAME': ligne
