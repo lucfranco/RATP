@@ -122,14 +122,17 @@ function affich_encart_information(station){
     span_id.id = 'span_id';
     span_id.style = style;
 
-    var content_name = "Nom Station : <b>" + station.station[0].NAME + "</b>";
+    var content_name = "Nom Station : <b>" + NAME + "</b>";
     var span_name = document.createElement('span');
     span_name.id = 'span_name';
     span_name.style = style;
 
+    for(var i= 0; i < station.station[0].ROUTE_SHORT_NAME.length; i++) {
+        console>log(station.station[0].ROUTE_SHORT_NAME[i] + station.station[0].ROUTE_ID[i])
+    }
 
-    span_id.textContent = content_id
-    span_name.textContent = content_name
+    span_id.innerHTML = content_id
+    span_name.innerHTML = content_name
     rightbox.appendChild(span_id);
     rightbox.appendChild(span_name);
 }
