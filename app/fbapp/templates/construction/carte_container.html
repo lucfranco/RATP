@@ -6,13 +6,12 @@
                             <option value="{{ ligne[0] }}">{{ ligne[1] }}{{ ligne[2] }}</option>
                             {% endfor %}
                         </select>
-                        <button name="affich_ligne" id="affich_ligne">Afficher</button>
                     </div>
                     <div class="col-md-12">
                         <div id="map"></div>
                         <div id="rightbox" class="box right-box">
                             <div class="box-title">Informations</div>
-                            <br><span style="font-style:italic;">Cliquez sur une station</span>
+                            <br><span id="information" style="font-style:italic;">Cliquez sur une station</span>
                         </div>
                     </div>
                 </div>

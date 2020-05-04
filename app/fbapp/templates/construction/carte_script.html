@@ -36,12 +36,6 @@ var layerControl = false;
 let lgn = document.getElementById("lignes");
 lgn.addEventListener("change", load_list, false);
 
-// ajout d'un écouteur d'évènement sur le bouton
-let bt_affich = document.getElementById("affich_ligne");
-bt_affich.addEventListener("click", affich, false);
-
-
-
 //function------------------------------------------------
 function load_list() {
     lgn_val = lgn.options[lgn.selectedIndex].value;
@@ -67,7 +61,7 @@ function affich_AB(lst){
     var groupLayer = L.layerGroup();
     var line = [];
     color = {0 : 'yellow', 1: 'red', 2: 'blue', 3: 'green'}
-    //alert(lst.stations.length + '\n' + lst.stations[0].geometry.coordinates[0] + '\n' + lst.stations[(lst.stations.length-1)].geometry.coordinates[0]);
+    //boucle sur les stations de la ligne-------------------------------------
     for(var i= 0; i < lst.stations.length; i++) {
         var imagepath = "/static/pictos/" + lst.stations[i].PICTO;
         var name_line = lst.stations[i].NAME;
@@ -96,12 +90,9 @@ function affich_AB(lst){
             });
             xhr.send(null); // La requête est prête, on envoie tout !
         }));
-
         result_color = color[lst.stations[i].COLOR]
-        //L.circle([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]], 100, {color: result_color}).addTo(map);
-        //L.marker([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]]).addTo(map);
         line.push([lst.stations[i].geometry.coordinates[1], lst.stations[i].geometry.coordinates[0]]);
-    }
+    } //fin de boucle sur les stations de la ligne-----------------------------
 
     groupLayer.addLayer(L.polyline(line, {color: result_color}));
     groupLayer.addTo(map);
@@ -115,15 +106,24 @@ function affich_AB(lst){
 
 function affich_encart_information(station){
     console.log(station);
-    //var rightbox = document.getElementById('rightbox');
-    //rightbox.querySelector('span').textContent = "ID Station" + station.station[0].ID
-
-    var content = "ID Station" + station.station[0].ID;
-    var span_id = document.createElement('span');
     var rightbox = document.getElementById('rightbox');
+    var info = document.getElementById('information');
+    if (info.parentNode) {
+      info.parentNode.removeChild(info);
+    }
 
-    span_id.appendChild(content);
+    var content_id = "ID Station" + station.station[0].ID;
+    var span_id = document.createElement('span');
+    span_id.id = 'span_id';
+
+    var content_name = "Nom Station" + station.station[0].NAME;
+    var span_name = document.createElement('span');
+    span_name.id = 'span_name';
+
+    span_id.textContent = content_id
+    span_name.textContent = content_name
     rightbox.appendChild(span_id);
+    rightbox.appendChild(span_name);
 }
 
 function xhr_ajax(url){
@@ -136,21 +136,6 @@ function xhr_ajax(url){
     });
     xhr.send(null); // La requête est prête, on envoie tout !
 }
-
-function affich() {
-    lgn_val = lgn.options[lgn.selectedIndex].value;
-    if (lgn_val){
-        //alert(lgn_val)
-        clickCircle1 = L.circle([48.853, 2.333], 200).addTo(map);
-        clickCircle = L.circle([48.853, 2.333], 1609 * 3, {color: '#f07300',fillOpacity: 0,opacity: 0.5}).addTo(map);
-    } else {
-        map.removeLayer(clickCircle1);
-        map.removeLayer(clickCircle);
-        alert("Selectionnez une ligne")
-    }
-}
-
-
 
 /*
     var svg = d3.select(map.getPanes().overlayPane).append("svg");
