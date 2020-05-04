@@ -56,7 +56,6 @@ def stations_ligne(ligne):
     list_stations_ligne = ratp.listStationLigne(ligne)
     list_stations_dict['LIGNE_SHORT_NAME'] = list_stations_ligne[0][10]
     list_stations_dict['LIGNE_ID'] = list_stations_ligne[0][0]
-    print(list_stations_ligne)
     sequence = 1
     for station in list_stations_ligne:
         if sequence <= station[3]:
@@ -77,18 +76,22 @@ def stations_ligne(ligne):
 
     return list_stations_dict
 
-@app.route('/station_mysql/<lat>/<lng>/', methods=['GET'])
+@app.route('/station_mysql/<int:ligne>/<lat>/<lng>/', methods=['GET'])
 def station(lat, lng):
     station_dict = dict()
     station_dict['station'] = list()
-    ligne = list()
+    list_ligne = list()
     route = list()
 
     ratp = gestionMARIADB(mariadb_config)
     station = ratp.infoStation(lat, lng)
 
+    for index, item in enumerate(station):
+        if (item[index][4] == ligne)
+        print(index, item[index][4])
+
     for st_element in station:
-        ligne.append(st_element[5])
+        list_ligne.append(st_element[5])
         route.append(st_element[4])
 
     station_dict['station'].append({
@@ -98,7 +101,7 @@ def station(lat, lng):
             'SEQUENCE': station[0][3],
             'ROUTE_ID': route,
             'ROUTE_TYPE': station[0][6],
-            'ROUTE_SHORT_NAME': ligne
+            'ROUTE_SHORT_NAME': list_ligne
     })
 
     return station_dict

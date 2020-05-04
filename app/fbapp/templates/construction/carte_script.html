@@ -100,7 +100,7 @@ function affich_AB(lst){
             })
         .on('click', function(e){
             //alert("hi. you clicked the marker at " + e.latlng);
-            url_get = url_station + e.latlng.lat + "/" + e.latlng.lng + "/";
+            url_get = url_station + lgn_val + "/" + e.latlng.lat + "/" + e.latlng.lng + "/";
             console.log(url_get);
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url_get);
@@ -146,6 +146,27 @@ function affich_encart_information(station){
 
     var style = 'font-size: 14px; color: #777; display: block;'
 
+    for(var i= 0; i < station.station[0].length; i++) {
+        if
+    }
+
+    var text_ligne = '';
+    for(var i= 0; i < station.station[0].ROUTE_SHORT_NAME.length; i++) {
+        var link_ligne = true;
+        console.log(array_ligne.length + ' ' + lgn_val + ' ' + station.station[0].ROUTE_SHORT_NAME[i] + ' ' + station.station[0].ROUTE_ID[i])
+        for(var j= 0; j < array_ligne.length; j++) {
+            if (array_ligne[j] == station.station[0].ROUTE_ID[i]) {
+                link_ligne = false;
+            }
+        }
+        if (link_ligne) {
+            text_ligne += '<span onclick="load_list2(' + station.station[0].ROUTE_ID[i] + ');" style="text-decoration: underline;">' + station.station[0].ROUTE_SHORT_NAME[i] + '</span> ';
+        } else {
+            text_ligne += '<span>' + station.station[0].ROUTE_SHORT_NAME[i] + '</span> ';
+        }
+        console.log(text_ligne);
+    }
+
     var content_id = "ID Station : <b>" + station.station[0].ID + "</b>";
     var span_id = document.createElement('span');
     span_id.id = 'span_id';
@@ -165,23 +186,6 @@ function affich_encart_information(station){
     var span_detail = document.createElement('span');
     span_detail.id = 'span_detail';
     span_detail.style = style;
-
-    var text_ligne = '';
-    for(var i= 0; i < station.station[0].ROUTE_SHORT_NAME.length; i++) {
-        var link_ligne = true;
-        console.log(array_ligne.length + ' ' + lgn_val + ' ' + station.station[0].ROUTE_SHORT_NAME[i] + ' ' + station.station[0].ROUTE_ID[i])
-        for(var j= 0; j < array_ligne.length; j++) {
-            if (array_ligne[j] == station.station[0].ROUTE_ID[i]) {
-                link_ligne = false;
-            }
-        }
-        if (link_ligne) {
-            text_ligne += '<span onclick="load_list2(' + station.station[0].ROUTE_ID[i] + ');" style="text-decoration: underline;">' + station.station[0].ROUTE_SHORT_NAME[i] + '</span> ';
-        } else {
-            text_ligne += '<span>' + station.station[0].ROUTE_SHORT_NAME[i] + '</span> ';
-        }
-        console.log(text_ligne);
-    }
 
 
     var content_ligne = "Ligne : <b>" + text_ligne + "</b>";
