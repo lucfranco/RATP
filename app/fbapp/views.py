@@ -89,7 +89,7 @@ def station(ligne, lat, lng):
     for index, item in enumerate(station):
         #if (item[index][4] == ligne):
         #    print(index, item[index][4])
-        print(index)
+        print(index, item[index][4])
 
     for st_element in station:
         list_ligne.append(st_element[5])
