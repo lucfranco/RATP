@@ -146,15 +146,19 @@ function affich_encart_information(station){
     span_detail.id = 'span_detail';
     span_detail.style = style;
 
-    var text_ligne;
+    var text_ligne = '';
     for(var i= 0; i < station.station[0].ROUTE_SHORT_NAME.length; i++) {
+        var link_ligne = true;
         console.log(array_ligne.length + ' ' + lgn_val + ' ' + station.station[0].ROUTE_SHORT_NAME[i] + ' ' + station.station[0].ROUTE_ID[i])
         for(var j= 0; j < array_ligne.length; j++) {
-            if (array_ligne[j] != station.station[0].ROUTE_ID[i]) {
-                text_ligne += '<span onclick="load_list2();" style="text-decoration: underline;">' + station.station[0].ROUTE_SHORT_NAME[i] + '</span> ';
-            } else {
-                text_ligne += '<span>' + station.station[0].ROUTE_SHORT_NAME[i] + '</span> ';
+            if (array_ligne[j] = station.station[0].ROUTE_ID[i]) {
+                link_ligne = false;
             }
+        }
+        if (link_ligne) {
+            text_ligne += '<span onclick="load_list2();" style="text-decoration: underline;">' + station.station[0].ROUTE_SHORT_NAME[i] + '</span> ';
+        } else {
+            text_ligne += '<span>' + station.station[0].ROUTE_SHORT_NAME[i] + '</span> ';
         }
         console.log(text_ligne);
     }
