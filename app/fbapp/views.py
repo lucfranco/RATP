@@ -55,7 +55,7 @@ def stations_ligne(ligne):
     ratp = gestionMARIADB(mariadb_config)
     list_stations_ligne = ratp.listStationLigne(ligne)
     print(list_stations_ligne)
-    list_stations_dict['LIGNE_SHORT_NAME'] = list_stations_ligne[0]
+    list_stations_dict['LIGNE_SHORT_NAME'] = list_stations_ligne[0][10]
     print(list_stations_ligne)
     for station in list_stations_ligne:
         list_stations_dict['stations'].append({
