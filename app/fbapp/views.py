@@ -8,6 +8,8 @@ from flask import Flask, render_template, json, jsonify
 # Path file .env-----------------
 path_script = Path.cwd()
 env_path = Path.cwd() / '.env'
+print(type(path_script))
+exit
 import_path1 = path_script + '/class_python'
 print(env_path)
 print(import_path1, type(import_path1))
