@@ -29,6 +29,12 @@ mariadb_config = {
     'host': os.getenv("mariadb_host"),
     'database': os.getenv("mariadb_base")
 }
+# Config Cassandra--------------------------------
+cassandra_config = {
+    'ip': os.getenv("cassandra_ip"),
+    'keyspace': os.getenv("cassandra_keyspace")
+}
+
 
 
 app = Flask(__name__)
@@ -173,9 +179,15 @@ def fullscreen():
 
 @app.route('/carte')
 def carte():
-    titre = 'Carte RATP'
+    titre = 'Carte RATP Mysql'
     ratp = gestionMARIADB(mariadb_config)
     return render_template('template_01.html', titre=titre, list_lignes=ratp.listLignes())
+
+@app.route('/cartecassandra')
+def carte():
+    titre = 'Carte RATP Cassandra'
+    ratp_cassandra = gestionCASSANDRA(cassandra_config)
+    return render_template('template_01.html', titre=titre, list_lignes=ratp_cassandra.listLignes())
 
 
 if __name__ == "__main__":
