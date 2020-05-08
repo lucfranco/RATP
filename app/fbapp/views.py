@@ -6,7 +6,8 @@ from flask import Flask, render_template, json, jsonify
 #import mysql.connector
 
 # Path file .env-----------------
-path_base = str(os.getcwd())
+path_base = str(sys.argv[0])
+
 print("path_base = ", path_base, type(path_base))
 path_script = str(Path.cwd())
 env_path = Path.cwd() / '.env'
