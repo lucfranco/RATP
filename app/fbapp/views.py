@@ -102,6 +102,7 @@ def station(ligne, lat, lng):
     # recuperation de l'index de la station selectionnee
     for index, item in enumerate(station):
         print(index,item)
+        print(item[4],ligne)
         if (item[4] == ligne):
             idx_ok = index
 
