@@ -7,7 +7,7 @@ from flask import Flask, render_template, json, jsonify
 
 # Path file .env-----------------
 path_base = str(os.getcwd())
-print(path_base, type(path_base))
+print("path_base = ", path_base, type(path_base))
 path_script = str(Path.cwd())
 env_path = Path.cwd() / '.env'
 print(type(path_script))
