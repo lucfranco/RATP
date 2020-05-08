@@ -36,7 +36,6 @@ cassandra_config = {
 }
 
 
-
 app = Flask(__name__)
 
 # Config options - Make sure you created a 'config.py' file.
@@ -179,16 +178,15 @@ def fullscreen():
 
 @app.route('/carte')
 def carte():
-    titre = 'Carte RATP Mysql'
+    titre = 'Carte RATP MySQL'
     ratp = gestionMARIADB(mariadb_config)
     return render_template('template_01.html', titre=titre, list_lignes=ratp.listLignes())
 
 @app.route('/cartecassandra')
-def carte():
+def cartecassandra():
     titre = 'Carte RATP Cassandra'
     ratp_cassandra = gestionCASSANDRA(cassandra_config)
     return 'ok Cassandra' #render_template('template_01.html', titre=titre, list_lignes=ratp_cassandra.listLignes())
-
 
 if __name__ == "__main__":
     #print(mariadb_config)
