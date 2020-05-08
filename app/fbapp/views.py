@@ -1,15 +1,21 @@
 import os
+import sys
 from pathlib import Path
 from dotenv import load_dotenv
 from flask import Flask, render_template, json, jsonify
-from class_db_mariadb import gestionMARIADB
 #import mysql.connector
 
 # Path file .env-----------------
+path_script = Path.cwd()
 env_path = Path.cwd() / '.env'
+import_path = path_script + '/class_python'
 print(env_path)
+print(import_path)
 load_dotenv(dotenv_path=env_path)
+sys.path.insert(0, import_path)
 
+from class_db_mariadb import gestionMARIADB
+from class_db_cassandra import gestionCASSANDRA
 # Config MariaDB--------------------------------
 mariadb_config = {
     'user': os.getenv("mariadb_user"),
