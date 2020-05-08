@@ -16,7 +16,7 @@ path_env = path_base + '/.env'
 print("path_env = ", path_env, type(path_env))
 load_dotenv(dotenv_path=path_env)
 
-path_import = path_base + + '/class_python'
+path_import = path_base + '/class_python'
 print("path_import = ", path_import, type(path_import))
 sys.path.insert(0, path_import)
 
