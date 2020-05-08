@@ -8,21 +8,17 @@ from flask import Flask, render_template, json, jsonify
 # Path file .env-----------------
 path_origin = str(sys.argv[0])[1:].split('/')
 print("path_origin = ", path_origin, type(path_origin))
-path_base = '/' + '/'.join(path_origin[0:3])
+path_base = '/' + '/'.join(path_origin[0:(path_base.index('RATP')+1)])
 print("path_base = ", path_base, type(path_base))
 
 
+path_env = path_base + '/.env'
+print("path_env = ", path_env, type(path_env))
+load_dotenv(dotenv_path=path_env)
 
-print("path_base = ", path_base, type(path_base))
-path_script = str(Path.cwd())
-env_path = Path.cwd() / '.env'
-print(type(path_script))
-
-import_path1 = path_script + '/class_python'
-print(env_path)
-print(import_path1, type(import_path1))
-load_dotenv(dotenv_path=env_path)
-#sys.path.insert(0, import_path1)
+path_import = path_base + + '/class_python'
+print("path_import = ", path_import, type(path_import))
+sys.path.insert(0, path_import)
 
 from class_db_mariadb import gestionMARIADB
 from class_db_cassandra import gestionCASSANDRA
