@@ -8,7 +8,7 @@ from flask import Flask, render_template, json, jsonify
 # Path file .env-----------------
 path_origin = str(sys.argv[0])[1:].split('/')
 print("path_origin = ", path_origin, type(path_origin))
-path_base = '/' + '/'.join(path_base[0:3])
+path_base = '/' + '/'.join(path_origin[0:3])
 print("path_base = ", path_base, type(path_base))
 
 
