@@ -48,6 +48,7 @@ class gestionCASSANDRA:
         print("0| " + cql)
         self.session.row_factory = named_tuple_factory
         records = self.session.execute(cql)
+        print(records[0])
         for ligne in records:
             print(ligne)
         return records
