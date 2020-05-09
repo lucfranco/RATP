@@ -186,8 +186,7 @@ def carte():
 def cartecassandra():
     titre = 'Carte RATP Cassandra'
     ratp_cassandra = gestionCASSANDRA(cassandra_config)
-    ratp_cassandra.listLignes()
-    return 'ok cas' #ratp_cassandra.listLignes() #render_template('template_01.html', titre=titre, list_lignes=ratp_cassandra.listLignes())
+    return render_template('template_01.html', titre=titre, list_lignes=ratp_cassandra.listLignes())
 
 if __name__ == "__main__":
     #print(mariadb_config)
