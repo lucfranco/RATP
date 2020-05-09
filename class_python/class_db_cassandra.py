@@ -47,6 +47,8 @@ class gestionCASSANDRA:
         cql = "SELECT route_id, route_short_name, route_long_name, route_type FROM list_routes"
         print("0| " + cql)
         records = self.session.execute(cql)
+        for ligne in records:
+            print(ligne)
         return records
 
 
