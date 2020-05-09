@@ -4,15 +4,13 @@
 {% include 'construction/header.html' %}
 </head>
 <body>
-                            {% for ligne in list_lignes %}
-                            <option value="{{ ligne[0] }}">{{ ligne[1] }} - {{ ligne[2] }}</option>
-                            {% endfor %}
+
 {% include 'construction/navigation.html' %}
 
         <div class="padding" id ="map-container">
             <!--{{ url_for(request.endpoint) }}-->
             <div class="container">
-                {% if url_for(request.endpoint) == '/carte' %}
+                {% if url_for(request.endpoint) == '/carte' OR '/cartecassandra' %}
                     {% include 'construction/carte_container.html' %}
                 {% elif url_for(request.endpoint) == '/config' %}
                     {% for name, val in list_env %}
