@@ -50,7 +50,7 @@ class gestionCASSANDRA:
         records = self.session.execute(cql)
         print(records[0])
         for ligne in records:
-            print(ligne)
+            print(ligne[0])
         return records
 
 
