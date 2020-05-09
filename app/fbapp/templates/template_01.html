@@ -23,7 +23,7 @@
 <!--{% include 'construction/footer.html' %}-->
 
 </body>
-{% if url_for(request.endpoint) == '/carte' %}
+{% if url_for(request.endpoint) == '/carte' or '/cartecassandra' %}
 {% include 'construction/carte_script.html' %}
 {% endif %}
 </html>
