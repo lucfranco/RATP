@@ -44,6 +44,7 @@ class gestionCASSANDRA:
 # For Flask
     def listLignes(self):
         print('listLignes CASSANDRA')
+        listLignes = []
         cql = "SELECT route_id, route_short_name, route_long_name, route_type FROM list_routes"
         print("0| " + cql)
         #self.session.row_factory = named_tuple_factory
@@ -51,6 +52,8 @@ class gestionCASSANDRA:
         print(records[0])
         for ligne in records:
             print(ligne[0])
+            listLignes = (ligne[0], ligne[1], ligne[2], ligne[3])
+        print(listLignes)
         return records
 
 
