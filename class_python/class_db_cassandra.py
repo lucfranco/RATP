@@ -46,7 +46,7 @@ class gestionCASSANDRA:
         print('listLignes CASSANDRA')
         cql = "SELECT route_id, route_short_name, route_long_name, route_type FROM list_routes"
         print("0| " + cql)
-        self.session.row_factory = named_tuple_factory
+        #self.session.row_factory = named_tuple_factory
         records = self.session.execute(cql)
         print(records[0])
         for ligne in records:
