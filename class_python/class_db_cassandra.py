@@ -51,7 +51,8 @@ class gestionCASSANDRA:
         records = self.session.execute(cql)
         print(records[0])
         for ligne in records:
-            listLignes.append(ligne[0], ligne[1], ligne[2], ligne[3])
+            print(list(ligne))
+            listLignes.append((ligne[0], ligne[1], ligne[2], ligne[3]))
         print(listLignes)
         return records
 
