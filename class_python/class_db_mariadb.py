@@ -120,6 +120,7 @@ class gestionMARIADB:
         print("0| " + request)
         infostation.execute(request)
         records = infostation.fetchall()
+        print(records)
         self.nb_infostation = infostation.rowcount
         return records
 
