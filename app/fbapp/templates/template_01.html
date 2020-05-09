@@ -4,7 +4,9 @@
 {% include 'construction/header.html' %}
 </head>
 <body>
-
+                            {% for ligne in list_lignes %}
+                            <option value="{{ ligne[0] }}">{{ ligne[1] }} - {{ ligne[2] }}</option>
+                            {% endfor %}
 {% include 'construction/navigation.html' %}
 
         <div class="padding" id ="map-container">
