@@ -100,6 +100,7 @@ class gestionMARIADB:
         print("0| " + request)
         list_Lignes.execute(request)
         records = list_Lignes.fetchall()
+        print(records)
         self.nb_list_Lignes = list_Lignes.rowcount
         return records
 
@@ -120,7 +121,6 @@ class gestionMARIADB:
         print("0| " + request)
         infostation.execute(request)
         records = infostation.fetchall()
-        print(records)
         self.nb_infostation = infostation.rowcount
         return records
 
