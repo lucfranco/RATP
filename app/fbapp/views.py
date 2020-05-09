@@ -7,9 +7,9 @@ from flask import Flask, render_template, json, jsonify
 
 # Path file .env-----------------
 path_origin = str(sys.argv[0])[1:].split('/')
-print("path_origin = ", path_origin, type(path_origin))
+#print("path_origin = ", path_origin, type(path_origin))
 path_base = '/' + '/'.join(path_origin[0:(path_origin.index('RATP')+1)])
-print("path_base = ", path_base, type(path_base))
+#print("path_base = ", path_base, type(path_base))
 
 
 path_env = path_base + '/.env'
@@ -186,7 +186,7 @@ def carte():
 def cartecassandra():
     titre = 'Carte RATP Cassandra'
     ratp_cassandra = gestionCASSANDRA(cassandra_config)
-    return 'ok Cassandra' #render_template('template_01.html', titre=titre, list_lignes=ratp_cassandra.listLignes())
+    return atp_cassandra.listLignes() #render_template('template_01.html', titre=titre, list_lignes=ratp_cassandra.listLignes())
 
 if __name__ == "__main__":
     #print(mariadb_config)

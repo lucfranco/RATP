@@ -41,15 +41,13 @@ class gestionCASSANDRA:
             #self.session.execute(cql, (str(route[0]), int(route[1]), str(route[2]), str(route[3]), int(route[4]), str(route[5]), int(route[6]), str(route[7]), str(route[8])))
             self.session.execute(cql, (trip_id, route_id, route_short_name, route_long_name, route_type, type_name, direction_id, file_name, stop_id, stop_sequence, stop_name, stop_desc, arrival_time, departure_time, stop_lat, stop_lon))
 
-
-
-            #self.session.execute(
-            #    """
-            #    INSERT INTO routes (trip_id, route_id, route_short_name, route_long_name, route_type, type_name, direction_id, file_name, stop_id)
-            #    VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
-            #    """,
-            #    (str(route[0]), int(route[1]), str(route[2]), str(route[3]), int(route[4]), str(route[5]), int(route[6]), str(route[7]), route[8])
-            #    )
+# For Flask
+    def listLignes(self):
+        print('listLignes CASSANDRA')
+        cql = "SELECT route_id, route_short_name, route_long_name, route_type FROM list_routes"
+        print("0| " + cql)
+        records = self.session.execute(cql)
+        return records
 
 
 

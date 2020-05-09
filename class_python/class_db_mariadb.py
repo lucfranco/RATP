@@ -34,6 +34,7 @@ class gestionMARIADB:
 
 # For Cassandra
     def RouteGlobal(self, limit_debut = 0, limit_fin = 10):
+        print(f'limit_debut = {limit_debut} limit_fin = {limit_fin}')
         route_global = self.mariadb.cursor()
         request = ("SELECT tr.trip_id, rtes.route_id, rtes.route_short_name, rtes.route_long_name, rtes.route_type, type_name, tr.direction_id, IF (pic.file_name IS NULL, IF(type_name = 'METRO', 'M-flou0-160x160-bleu.svg', IF(type_name = 'BUS', 'B-flou0-160x160-bleu.svg', IF(type_name = 'RER','R-flou0-160x160-bleu.svg', IF(type_name = 'TRAM','T-flou0-160x160-bleu.svg', '')))), pic.file_name) AS file_name FROM routes AS rtes LEFT JOIN routes_types_names ON routes_types_names.type = rtes.route_type LEFT JOIN trips AS tr ON tr.route_id = rtes.route_id LEFT JOIN pictos AS pic ON pic.route_short_name = rtes.route_short_name ORDER BY route_short_name, rtes.route_id, tr.trip_id  LIMIT " + str(limit_debut) + "," + str(limit_fin))
         #print("0| " + request)
