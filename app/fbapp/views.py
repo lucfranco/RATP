@@ -83,6 +83,39 @@ def stations_ligne_mysql(ligne):
             pass
     return list_stations_dict
 
+@app.route('/station_mysql/<int:ligne>/<lat>/<lng>/', methods=['GET'])
+def station(ligne, lat, lng):
+    station_dict = dict()
+    station_dict['station'] = list()
+    list_ligne = list()
+    route = list()
+
+    ratp = gestionMARIADB(mariadb_config)
+    station = ratp.infoStation(lat, lng)
+
+    # recuperation de l'index de la station selectionnee
+    for index, item in enumerate(station):
+        print(index,item)
+        print(item[4],ligne)
+        if (item[4] == ligne):
+            idx_ok = index
+
+    # generation du json de la station + les lignes ou cette station existe
+    for st_element in station:
+        list_ligne.append(st_element[5])
+        route.append(st_element[4])
+
+    station_dict['station'].append({
+            'ID': station[idx_ok][0],
+            'NAME': station[idx_ok][1],
+            'DESCRIPTION': station[idx_ok][2],
+            'SEQUENCE': station[idx_ok][3],
+            'ROUTE_ID': route,
+            'ROUTE_TYPE': station[idx_ok][6],
+            'ROUTE_SHORT_NAME': list_ligne
+    })
+
+    return station_dict
 
 #######################################
 ##             CASSANDRA             ##
@@ -151,41 +184,6 @@ def mysqlshow():
 @app.route('/stations.json', methods=['GET'])
 def station_json():
     return render_template('json/stations.json')
-
-
-@app.route('/station_mysql/<int:ligne>/<lat>/<lng>/', methods=['GET'])
-def station(ligne, lat, lng):
-    station_dict = dict()
-    station_dict['station'] = list()
-    list_ligne = list()
-    route = list()
-
-    ratp = gestionMARIADB(mariadb_config)
-    station = ratp.infoStation(lat, lng)
-
-    # recuperation de l'index de la station selectionnee
-    for index, item in enumerate(station):
-        print(index,item)
-        print(item[4],ligne)
-        if (item[4] == ligne):
-            idx_ok = index
-
-    # generation du json de la station + les lignes ou cette station existe
-    for st_element in station:
-        list_ligne.append(st_element[5])
-        route.append(st_element[4])
-
-    station_dict['station'].append({
-            'ID': station[idx_ok][0],
-            'NAME': station[idx_ok][1],
-            'DESCRIPTION': station[idx_ok][2],
-            'SEQUENCE': station[idx_ok][3],
-            'ROUTE_ID': route,
-            'ROUTE_TYPE': station[idx_ok][6],
-            'ROUTE_SHORT_NAME': list_ligne
-    })
-
-    return station_dict
 
 
 @app.route('/lines.json', methods=['GET'])

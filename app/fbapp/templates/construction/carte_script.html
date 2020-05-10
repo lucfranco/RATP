@@ -102,6 +102,7 @@ function affich_AB(lst){
             //alert("hi. you clicked the marker at " + e.latlng);
             url_get = url_station + lgn_val + "/" + e.latlng.lat + "/" + e.latlng.lng + "/";
             console.log(url_get);
+            console.log(list_station);
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url_get);
             xhr.addEventListener('readystatechange', function() { // On gère ici une requête asynchrone
