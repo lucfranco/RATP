@@ -27,8 +27,7 @@
 //let clickCircle = '';
 //let clickCircle1 = '';
 let url_stations_ligne = "{{ url_stations_ligne }}";
-let url_station = "/station_mysql/";
-let url_station2 = "/station_mysql2/";
+let url_station = "{{ url_station }}";
 let httpRequest;
 let response;
 var list_station;
@@ -107,7 +106,7 @@ function affich_AB(lst){
                 }
             }
             //url_get = url_station + lgn_val + "/" + e.latlng.lat + "/" + e.latlng.lng + "/";
-            url_get = url_station2 + lgn_val + "/" + station_id + "/";
+            url_get = url_station + lgn_val + "/" + station_id + "/";
             console.log(url_get);
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url_get);
