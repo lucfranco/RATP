@@ -102,8 +102,20 @@ def stations_ligne_cassandra(ligne):
     list_stations_dict['LIGNE_SHORT_NAME'] = list_stations_ligne[0][1]
     list_stations_dict['LIGNE_ID'] = list_stations_ligne[0][0]
 
-    for stations_ligne in list_stations_ligne:
-        print(len(stations_ligne[7]), stations_ligne[7])
+    #for stations_ligne in list_stations_ligne:
+    #    print(len(stations_ligne[7]), stations_ligne[7])
+        for i in range(len(stations_ligne[7]):
+            list_stations_dict['stations'].append({
+                'ID': stations_ligne[8][i],
+                'SEQUENCE': stations_ligne[12][i],
+                'NAME': stations_ligne[11][i],
+                'DESCRIPTION': stations_ligne[7][i],
+                'COLOR': '',
+                'PICTO': list_stations_ligne[4][0],
+                "geometry": {
+                    "coordinates":stations_ligne[10][i], stations_ligne[9][i]]
+                }
+
     '''
     list_stations_dict = dict()
     list_stations_dict['stations'] = list()
