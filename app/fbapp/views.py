@@ -42,6 +42,10 @@ app = Flask(__name__)
 app.config.from_object('config')
 # To get one variable, tape app.config['MY_VARIABLE']
 
+#######################################
+##               MYSQL               ##
+#######################################
+
 # MYSQL Liste des lignes---------------------------------------------------
 @app.route('/carte')
 def carte():
@@ -58,7 +62,7 @@ def stations_ligne_mysql(ligne):
     ratp = gestionMARIADB(mariadb_config)
     list_stations_ligne = ratp.listStationLigne(ligne)
     print(list_stations_ligne)
-    list_stations_dict['LIGNE_SHORT_NAME'] = list_stations_ligne[0][10]
+    list_stations_dict['LIGNE_SHORT_NAME'] = list_stations_ligne[0][9]
     list_stations_dict['LIGNE_ID'] = list_stations_ligne[0][0]
     sequence = 1
     for station in list_stations_ligne:
@@ -69,7 +73,7 @@ def stations_ligne_mysql(ligne):
                 'NAME': station[4],
                 'DESCRIPTION': station[5],
                 'COLOR': station[8],
-                'PICTO': station[9],
+                'PICTO': station[10],
                 "geometry": {
                     "coordinates":[station[7], station[6]]
                 }
