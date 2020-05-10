@@ -52,7 +52,8 @@ def carte():
     titre = 'Carte RATP MySQL'
     ratp = gestionMARIADB(mariadb_config)
     url_stations_ligne = "/stations_ligne_mysql/"
-    return render_template('template_01.html', url_stations_ligne=url_stations_ligne, titre=titre, list_lignes=ratp.listLignes())
+    url_station = "/station_mysql/
+    return render_template('template_01.html', url_station=url_station, url_stations_ligne=url_stations_ligne, titre=titre, list_lignes=ratp.listLignes())
 
 # MYSQL API LISTE DES STATION D'UNE LIGNE--------------------------------
 @app.route('/stations_ligne_mysql/<int:ligne>/', methods=['GET'])
@@ -83,15 +84,15 @@ def stations_ligne_mysql(ligne):
             pass
     return list_stations_dict
 
-@app.route('/station_mysql/<int:ligne>/<lat>/<lng>/', methods=['GET'])
-def station(ligne, lat, lng):
+@app.route('/station_mysql/<int:ligne>/<station_id>/', methods=['GET'])
+def station(ligne, station_id):
     station_dict = dict()
     station_dict['station'] = list()
     list_ligne = list()
     route = list()
 
     ratp = gestionMARIADB(mariadb_config)
-    station = ratp.infoStation(lat, lng)
+    station = ratp.infoStation(station_id)
 
     # recuperation de l'index de la station selectionnee
     for index, item in enumerate(station):
@@ -127,8 +128,9 @@ def station(ligne, lat, lng):
 def cartecassandra():
     titre = 'Carte RATP Cassandra'
     url_stations_ligne = "/stations_ligne_cassandra/"
+    url_station = "/station_cassandra/"
     ratp_cassandra = gestionCASSANDRA(cassandra_config)
-    return render_template('template_01.html', url_stations_ligne=url_stations_ligne, titre=titre, list_lignes=ratp_cassandra.listLignes())
+    return render_template('template_01.html', url_station=url_station, url_stations_ligne=url_stations_ligne, titre=titre, list_lignes=ratp_cassandra.listLignes())
 
 # CASSANDRA API LISTE DES STATION D'UNE LIGNE--------------------------------
 @app.route('/stations_ligne_cassandra/<int:ligne>/', methods=['GET'])
