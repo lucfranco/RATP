@@ -112,7 +112,7 @@ def stations_ligne_cassandra(ligne):
             'NAME': list_stations_ligne[0][11][i],
             'DESCRIPTION': list_stations_ligne[0][7][i],
             'COLOR': '',
-            'PICTO': list_stations_ligne[0][0][4],
+            'PICTO': list_stations_ligne[0][4],
             "geometry": {
                 "coordinates": [list_stations_ligne[0][10][i], list_stations_ligne[0][9][i]]
             }
