@@ -135,7 +135,7 @@ class gestionMARIADB:
     def infoStation(self, station_id):
         print('infoStation')
         infostation = self.mariadb.cursor()
-        request = ("SELECT sts2.stop_id, sts2.stop_name, sts2.stop_desc, str2.stop_sequence, rtes.route_id, rtes.route_short_name, rtes.route_type FROM stops AS sts2 LEFT JOIN stop_times AS str2 ON str2.stop_id = sts2.stop_id LEFT JOIN trips AS tr ON tr.trip_id = str2.trip_id LEFT JOIN routes AS rtes ON rtes.route_id = tr.route_id WHERE sts2.stop_name LIKE (SELECT DISTINCT sts1.stop_name FROM stops AS sts1 WHERE sts1.stop_id = " + str(lat) + ") AND tr.direction_id = 1 GROUP BY tr.route_id;")
+        request = ("SELECT sts2.stop_id, sts2.stop_name, sts2.stop_desc, str2.stop_sequence, rtes.route_id, rtes.route_short_name, rtes.route_type FROM stops AS sts2 LEFT JOIN stop_times AS str2 ON str2.stop_id = sts2.stop_id LEFT JOIN trips AS tr ON tr.trip_id = str2.trip_id LEFT JOIN routes AS rtes ON rtes.route_id = tr.route_id WHERE sts2.stop_name LIKE (SELECT DISTINCT sts1.stop_name FROM stops AS sts1 WHERE sts1.stop_id = " + str(station_id) + ") AND tr.direction_id = 1 GROUP BY tr.route_id;")
         print("0| " + request)
         infostation.execute(request)
         records = infostation.fetchall()
