@@ -103,6 +103,7 @@ function affich_AB(lst){
             url_get = url_station + lgn_val + "/" + e.latlng.lat + "/" + e.latlng.lng + "/";
             console.log(url_get);
             for(var i= 0; i < list_station.stations.length; i++) {
+                console.log(i);
                 if (e.latlng.lat == list_station.stations[i].geometry.coordinates[1]) {
                     console.log(list_station.stations[i].geometry.coordinates);
                     console.log(list_station.stations[i].ID);
