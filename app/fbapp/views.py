@@ -101,8 +101,9 @@ def stations_ligne_cassandra(ligne):
     list_stations_dict['stations'] = list()
     list_stations_dict['LIGNE_SHORT_NAME'] = list_stations_ligne[0][1]
     list_stations_dict['LIGNE_ID'] = list_stations_ligne[0][0]
-    #for stations_ligne in list_stations_ligne:
-    #    print(stations_ligne)
+
+    for stations_ligne in list_stations_ligne:
+        print(len(stations_ligne[7]), stations_ligne[7])
     '''
     list_stations_dict = dict()
     list_stations_dict['stations'] = list()
