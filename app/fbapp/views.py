@@ -52,7 +52,7 @@ def carte():
     titre = 'Carte RATP MySQL'
     ratp = gestionMARIADB(mariadb_config)
     url_stations_ligne = "/stations_ligne_mysql/"
-    url_station = "/station_mysql/
+    url_station = "/station_mysql/"
     return render_template('template_01.html', url_station=url_station, url_stations_ligne=url_stations_ligne, titre=titre, list_lignes=ratp.listLignes())
 
 # MYSQL API LISTE DES STATION D'UNE LIGNE--------------------------------
