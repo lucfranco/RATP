@@ -95,7 +95,7 @@ def cartecassandra():
 @app.route('/stations_ligne_cassandra/<int:ligne>/', methods=['GET'])
 def stations_ligne_cassandra(ligne):
     ratp_cassandra = gestionCASSANDRA(cassandra_config)
-    list_stations_ligne = ratp.listStationLigne(ligne)
+    list_stations_ligne = ratp_cassandra.listStationLigne(ligne)
     print(list_stations_ligne)
     '''
     list_stations_dict = dict()
