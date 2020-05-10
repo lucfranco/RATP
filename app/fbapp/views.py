@@ -1,5 +1,6 @@
 import os
 import sys
+import time
 from pathlib import Path
 from dotenv import load_dotenv
 from flask import Flask, render_template, json, jsonify
@@ -110,7 +111,7 @@ def stations_ligne_cassandra(ligne):
             'SEQUENCE': list_stations_ligne[0][12][i],
             'NAME': list_stations_ligne[0][11][i],
             'DESCRIPTION': list_stations_ligne[0][7][i],
-            'COLOR': list_stations_ligne[0][6][i],
+            'COLOR': list_stations_ligne[0][6],
             'PICTO': list_stations_ligne[0][4],
             "geometry": {
                 "coordinates": [list_stations_ligne[0][10][i], list_stations_ligne[0][9][i]]
