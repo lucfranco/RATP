@@ -97,8 +97,12 @@ def stations_ligne_cassandra(ligne):
     ratp_cassandra = gestionCASSANDRA(cassandra_config)
     list_stations_ligne = ratp_cassandra.listStationLigne(ligne)
 
-    for stations_ligne in list_stations_ligne:
-        print(stations_ligne)
+    list_stations_dict = dict()
+    list_stations_dict['stations'] = list()
+    list_stations_dict['LIGNE_SHORT_NAME'] = list_stations_ligne[0][1]
+    list_stations_dict['LIGNE_ID'] = list_stations_ligne[0][0]
+    #for stations_ligne in list_stations_ligne:
+    #    print(stations_ligne)
     '''
     list_stations_dict = dict()
     list_stations_dict['stations'] = list()
@@ -125,7 +129,7 @@ def stations_ligne_cassandra(ligne):
         else:
             pass
         '''
-    return 'ok'
+    return list_stations_dict
 
 
 
