@@ -51,7 +51,7 @@ def carte():
 
 # MYSQL API LISTE DES STATION D'UNE LIGNE--------------------------------
 @app.route('/stations_ligne_mysql/<int:ligne>/', methods=['GET'])
-def stations_ligne(ligne):
+def stations_ligne_mysql(ligne):
     list_stations_dict = dict()
     list_stations_dict['stations'] = list()
     ratp = gestionMARIADB(mariadb_config)
@@ -93,7 +93,7 @@ def cartecassandra():
 
 # CASSANDRA API LISTE DES STATION D'UNE LIGNE--------------------------------
 @app.route('/stations_ligne_cassandra/<int:ligne>/', methods=['GET'])
-def stations_ligne(ligne):
+def stations_ligne_cassandra(ligne):
     ratp_cassandra = gestionCASSANDRA(cassandra_config)
     list_stations_ligne = ratp.listStationLigne(ligne)
     print(list_stations_ligne)
