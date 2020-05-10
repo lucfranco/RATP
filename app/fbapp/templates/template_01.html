@@ -8,7 +8,7 @@
 {% include 'construction/navigation.html' %}
 
         <div class="padding" id ="map-container">
-            <!--{{ url_for(request.endpoint) }}-->
+            <!-- {{ url_for(request.endpoint) }} -->
             <div class="container">
                 {% if url_for(request.endpoint) == '/carte' or '/cartecassandra' %}
                     {% include 'construction/carte_container.html' %}
@@ -20,7 +20,7 @@
             </div>
         </div>
 
-<!--{% include 'construction/footer.html' %}-->
+<!-- {% include 'construction/footer.html' %} -->
 
 </body>
 {% if url_for(request.endpoint) == '/carte' or '/cartecassandra' %}

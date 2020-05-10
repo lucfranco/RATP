@@ -24,28 +24,25 @@ class gestionCASSANDRA:
         request = ''
         #print(routes)
         for route in routes:
-            print(f'Cassandra | route : trip_id = {route[0]} route_id = {route[1]} short_name = {route[2]} type_name = {route[5]} direction = {route[6]}')
-            trip_id, route_id, route_short_name, route_long_name, route_type, type_name, direction_id, file_name, stop_id, stop_sequence, stop_name, stop_desc, arrival_time, departure_time, stop_lat, stop_lon = route
-            #print(trip_id, '\n', route_id, '\n', route_short_name, '\n', route_long_name, '\n', route_type, '\n', type_name, '\n', direction_id, '\n', file_name, '\n', stop_id, '\n', stop_sequence, '\n', stop_name, '\n', stop_desc, '\n', arrival_time, '\n', departure_time, '\n', stop_lat, '\n', stop_lon, '\n')
+            print(f'Cassandra | route : route_id = {route[0]} short_name = {route[1]} type_name = {route[4]} direction = {route[5]}')
+            route_id, route_short_name, route_long_name, route_type, type_name, direction_id, file_name, stop_id, stop_sequence, stop_name, stop_desc, stop_lat, stop_lon = route
+            #print(route_id, '\n', route_short_name, '\n', route_long_name, '\n', route_type, '\n', type_name, '\n', direction_id, '\n', file_name, '\n', stop_id, '\n', stop_sequence, '\n', stop_name, '\n', stop_desc, '\n', stop_lat, '\n', stop_lon, '\n')
             # convertion en list
             stop_id = stop_id.split(';')
             stop_sequence = stop_sequence.split(';')
             stop_name = stop_name.split(';')
             stop_desc = stop_desc.split(';')
-            arrival_time = arrival_time.split(';')
-            departure_time = departure_time.split(';')
             stop_lat = stop_lat.split(';')
             stop_lon = stop_lon.split(';')
 
-            cql = "INSERT INTO routes (trip_id, route_id, route_short_name, route_long_name, route_type, type_name, direction_id, file_name, stop_id, stop_sequence, stop_name, stop_desc, arrival_time, departure_time, stop_lat, stop_lon) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-            #self.session.execute(cql, (str(route[0]), int(route[1]), str(route[2]), str(route[3]), int(route[4]), str(route[5]), int(route[6]), str(route[7]), str(route[8])))
-            self.session.execute(cql, (trip_id, route_id, route_short_name, route_long_name, route_type, type_name, direction_id, file_name, stop_id, stop_sequence, stop_name, stop_desc, arrival_time, departure_time, stop_lat, stop_lon))
+            cql = "INSERT INTO routes_trips (route_id, route_short_name, route_long_name, route_type, type_name, direction_id, file_name, stop_id, stop_sequence, stop_name, stop_desc, stop_lat, stop_lon) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+            self.session.execute(cql, (route_id, route_short_name, route_long_name, route_type, type_name, direction_id, file_name, stop_id, stop_sequence, stop_name, stop_desc, stop_lat, stop_lon))
 
 # For Flask
     def listLignes(self):
         print('listLignes CASSANDRA')
         records = []
-        cql = "SELECT route_id, route_short_name, route_long_name, route_type FROM list_routes"
+        cql = "SELECT route_id, route_short_name, route_long_name, route_type, type_name FROM routes;"
         print("0| " + cql)
         #self.session.row_factory = named_tuple_factory
         listLignes = self.session.execute(cql)
@@ -62,10 +59,11 @@ class gestionCASSANDRA:
 
 
 '''
-CREATE TABLE IF NOT EXISTS routes (
-trip_id VARCHAR, route_short_name VARCHAR, route_long_name VARCHAR, route_type int, type_name VARCHAR, route_id INT, direction_id int, file_name VARCHAR, stop_id list<text>, stop_sequence list<text>, stop_name list<text>, stop_desc list<text>, arrival_time list<text>, departure_time list<text>, stop_lat list<text>, stop_lon list<text>,
-PRIMARY KEY ( trip_id )
+CREATE TABLE IF NOT EXISTS routes_trips (
+route_id INT, route_short_name VARCHAR, route_long_name VARCHAR, route_type int, type_name VARCHAR, direction_id int, file_name VARCHAR, stop_id list<text>, stop_sequence list<text>, stop_name list<text>, stop_desc list<text>, stop_lat list<text>, stop_lon list<text>,
+PRIMARY KEY ( route_id, route_short_name, type_name )
 );
+CREATE INDEX fk_route_short_name ON routes ( type_name );
 CREATE INDEX fk_route_short_name ON routes ( route_short_name );
 CREATE INDEX fk_route_id ON routes ( route_id );
 

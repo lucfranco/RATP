@@ -36,28 +36,40 @@ class gestionMARIADB:
     def RouteGlobal(self, limit_debut = 0, limit_fin = 10):
         print(f'limit_debut = {limit_debut} limit_fin = {limit_fin}')
         route_global = self.mariadb.cursor()
-        request = ("SELECT tr.trip_id, rtes.route_id, rtes.route_short_name, rtes.route_long_name, rtes.route_type, type_name, tr.direction_id, IF (pic.file_name IS NULL, IF(type_name = 'METRO', 'M-flou0-160x160-bleu.svg', IF(type_name = 'BUS', 'B-flou0-160x160-bleu.svg', IF(type_name = 'RER','R-flou0-160x160-bleu.svg', IF(type_name = 'TRAM','T-flou0-160x160-bleu.svg', '')))), pic.file_name) AS file_name FROM routes AS rtes LEFT JOIN routes_types_names ON routes_types_names.type = rtes.route_type LEFT JOIN trips AS tr ON tr.route_id = rtes.route_id LEFT JOIN pictos AS pic ON pic.route_short_name = rtes.route_short_name ORDER BY route_short_name, rtes.route_id, tr.trip_id  LIMIT " + str(limit_debut) + "," + str(limit_fin))
+        request = ("SELECT rtes.route_id, rtes.route_short_name, rtes.route_long_name, rtes.route_type, type_name, (SELECT tr.direction_id FROM trips AS tr WHERE tr.route_id = rtes.route_id LIMIT 0,1) AS nb_trips, IF (pct.file_name IS NULL, IF(type_name = 'METRO', 'M-flou0-160x160-bleu.svg', IF(type_name = 'BUS', 'B-flou0-160x160-bleu.svg', IF(type_name = 'RER','R-flou0-160x160-bleu.svg', IF(type_name = 'TRAM','T-flou0-160x160-bleu.svg', '')))), pct.file_name) AS file_name, (SELECT GROUP_CONCAT(DISTINCT sts2.stop_id SEPARATOR ';') AS stop_id FROM trips AS tr2 LEFT JOIN stop_times AS str2 ON tr2.trip_id = str2.trip_id LEFT JOIN stops AS sts2 ON sts2.stop_id = str2.stop_id LEFT JOIN routes AS rtes2 ON rtes2.route_id = tr2.route_id WHERE tr2.route_id = rtes.route_id ORDER BY str2.stop_sequence) AS stop_id, (SELECT GROUP_CONCAT(DISTINCT str2.stop_sequence SEPARATOR ';') AS stop_id FROM trips AS tr2 LEFT JOIN stop_times AS str2 ON tr2.trip_id = str2.trip_id LEFT JOIN stops AS sts2 ON sts2.stop_id = str2.stop_id LEFT JOIN routes AS rtes2 ON rtes2.route_id = tr2.route_id WHERE tr2.route_id = rtes.route_id ORDER BY str2.stop_sequence) AS stop_sequence, (SELECT GROUP_CONCAT(DISTINCT sts2.stop_name SEPARATOR ';') AS stop_id FROM trips AS tr2 LEFT JOIN stop_times AS str2 ON tr2.trip_id = str2.trip_id LEFT JOIN stops AS sts2 ON sts2.stop_id = str2.stop_id LEFT JOIN routes AS rtes2 ON rtes2.route_id = tr2.route_id WHERE tr2.route_id = rtes.route_id ORDER BY str2.stop_sequence) AS stop_name, (SELECT GROUP_CONCAT(DISTINCT sts2.stop_desc SEPARATOR ';') AS stop_id FROM trips AS tr2 LEFT JOIN stop_times AS str2 ON tr2.trip_id = str2.trip_id LEFT JOIN stops AS sts2 ON sts2.stop_id = str2.stop_id LEFT JOIN routes AS rtes2 ON rtes2.route_id = tr2.route_id WHERE tr2.route_id = rtes.route_id ORDER BY str2.stop_sequence) AS stop_desc, (SELECT GROUP_CONCAT(DISTINCT sts2.stop_lat SEPARATOR ';') AS stop_id FROM trips AS tr2 LEFT JOIN stop_times AS str2 ON tr2.trip_id = str2.trip_id LEFT JOIN stops AS sts2 ON sts2.stop_id = str2.stop_id LEFT JOIN routes AS rtes2 ON rtes2.route_id = tr2.route_id WHERE tr2.route_id = rtes.route_id ORDER BY str2.stop_sequence) AS stop_lat, (SELECT GROUP_CONCAT(DISTINCT sts2.stop_lon SEPARATOR ';') AS stop_id FROM trips AS tr2 LEFT JOIN stop_times AS str2 ON tr2.trip_id = str2.trip_id LEFT JOIN stops AS sts2 ON sts2.stop_id = str2.stop_id LEFT JOIN routes AS rtes2 ON rtes2.route_id = tr2.route_id WHERE tr2.route_id = rtes.route_id ORDER BY str2.stop_sequence) AS stop_lon FROM routes AS rtes LEFT JOIN routes_types_names ON routes_types_names.type = rtes.route_type LEFT JOIN pictos AS pct ON pct.route_short_name = rtes.route_short_name  LIMIT " + str(limit_debut) + "," + str(limit_fin))
         #print("0| " + request)
         route_global.execute(request)
         records = route_global.fetchall()
-
-        records_lst = []
-        for route in records:
-            print(f'Mysql     | route : trip_id = {route[0]} route_id = {route[1]} short_name = {route[2]} type_name = {route[5]} direction = {route[6]}')
-            list_trip_stop = self.trip_stop(route[0], route[1])
-            route = route + list_trip_stop[0]
-            records_lst.append(route)
-
         self.nb_route_global = route_global.rowcount
-        return records_lst
-
-    def trip_stop(self, trip_id, route_id):
-        trip_stop = self.mariadb.cursor()
-        request =("SELECT (SELECT GROUP_CONCAT(sts2.stop_id SEPARATOR ';') FROM stop_times AS sts2 LEFT JOIN trips AS tr2 ON tr2.trip_id = sts2.trip_id WHERE sts2.trip_id = " +  str(trip_id) + " AND tr2.route_id = " +  str(route_id) + " ORDER BY sts2.stop_sequence) AS stop_id,(SELECT GROUP_CONCAT(sts2.stop_sequence SEPARATOR ';') FROM stop_times AS sts2 LEFT JOIN trips AS tr2 ON tr2.trip_id = sts2.trip_id WHERE sts2.trip_id = " +  str(trip_id) + " AND tr2.route_id = " +  str(route_id) + " ORDER BY sts2.stop_sequence) AS stop_sequence,(SELECT GROUP_CONCAT(st2.stop_name SEPARATOR ';') FROM stop_times AS sts2 LEFT JOIN trips AS tr2 ON tr2.trip_id = sts2.trip_id LEFT JOIN stops AS st2 ON st2.stop_id = sts2.stop_id WHERE sts2.trip_id = " +  str(trip_id) + " AND tr2.route_id = " +  str(route_id) + " ORDER BY sts2.stop_sequence) AS stop_name,(SELECT GROUP_CONCAT(st2.stop_desc SEPARATOR ';') FROM stop_times AS sts2 LEFT JOIN trips AS tr2 ON tr2.trip_id = sts2.trip_id LEFT JOIN stops AS st2 ON st2.stop_id = sts2.stop_id WHERE sts2.trip_id = " +  str(trip_id) + " AND tr2.route_id = " +  str(route_id) + " ORDER BY sts2.stop_sequence) AS stop_desc,(SELECT GROUP_CONCAT(sts2.arrival_time SEPARATOR ';') FROM stop_times AS sts2 LEFT JOIN trips AS tr2 ON tr2.trip_id = sts2.trip_id WHERE sts2.trip_id = " +  str(trip_id) + " AND tr2.route_id = " +  str(route_id) + " ORDER BY sts2.stop_sequence) AS arrival_time,(SELECT GROUP_CONCAT(sts2.departure_time SEPARATOR ';') FROM stop_times AS sts2 LEFT JOIN trips AS tr2 ON tr2.trip_id = sts2.trip_id WHERE sts2.trip_id = " +  str(trip_id) + " AND tr2.route_id = " +  str(route_id) + " ORDER BY sts2.stop_sequence) AS departure_time,(SELECT GROUP_CONCAT(st2.stop_lat SEPARATOR ';') FROM stop_times AS sts2 LEFT JOIN trips AS tr2 ON tr2.trip_id = sts2.trip_id LEFT JOIN stops AS st2 ON st2.stop_id = sts2.stop_id WHERE sts2.trip_id = " +  str(trip_id) + " AND tr2.route_id = " +  str(route_id) + " ORDER BY sts2.stop_sequence) AS stop_lat,(SELECT GROUP_CONCAT(st2.stop_lon SEPARATOR ';') FROM stop_times AS sts2 LEFT JOIN trips AS tr2 ON tr2.trip_id = sts2.trip_id LEFT JOIN stops AS st2 ON st2.stop_id = sts2.stop_id WHERE sts2.trip_id = " +  str(trip_id) + " AND tr2.route_id = " +  str(route_id) + " ORDER BY sts2.stop_sequence) AS stop_lon")
-        #print("1|- " + request)
-        trip_stop.execute(request)
-        records = trip_stop.fetchall()
+        for route in records:
+            print(f'Mysql     | route : route_id = {route[0]} short_name = {route[1]} type_name = {route[4]} direction = {route[5]}')
         return records
+
+#    def RouteGlobal(self, limit_debut = 0, limit_fin = 10):
+#        print(f'limit_debut = {limit_debut} limit_fin = {limit_fin}')
+#        route_global = self.mariadb.cursor()
+#        request = ("SELECT tr.trip_id, rtes.route_id, rtes.route_short_name, rtes.route_long_name, rtes.route_type, type_name, tr.direction_id, IF (pic.file_name IS NULL, IF(type_name = 'METRO', 'M-flou0-160x160-bleu.svg', IF(type_name = 'BUS', 'B-flou0-160x160-bleu.svg', IF(type_name = 'RER','R-flou0-160x160-bleu.svg', IF(type_name = 'TRAM','T-flou0-160x160-bleu.svg', '')))), pic.file_name) AS file_name FROM routes AS rtes LEFT JOIN routes_types_names ON routes_types_names.type = rtes.route_type LEFT JOIN trips AS tr ON tr.route_id = rtes.route_id LEFT JOIN pictos AS pic ON pic.route_short_name = rtes.route_short_name ORDER BY route_short_name, rtes.route_id, tr.trip_id  LIMIT " + str(limit_debut) + "," + str(limit_fin))
+#        #print("0| " + request)
+#        route_global.execute(request)
+#        records = route_global.fetchall()
+#
+#        records_lst = []
+#        for route in records:
+#            print(f'Mysql     | route : trip_id = {route[0]} route_id = {route[1]} short_name = {route[2]} type_name = {route[5]} direction = {route[6]}')
+#            list_trip_stop = self.trip_stop(route[0], route[1])
+#            route = route + list_trip_stop[0]
+#            records_lst.append(route)
+#
+#        self.nb_route_global = route_global.rowcount
+#        return records_lst
+#
+#    def trip_stop(self, trip_id, route_id):
+#        trip_stop = self.mariadb.cursor()
+#        request =("SELECT (SELECT GROUP_CONCAT(sts2.stop_id SEPARATOR ';') FROM stop_times AS sts2 LEFT JOIN trips AS tr2 ON tr2.trip_id = sts2.trip_id WHERE sts2.trip_id = " +  str(trip_id) + " AND tr2.route_id = " +  str(route_id) + " ORDER BY sts2.stop_sequence) AS stop_id,(SELECT GROUP_CONCAT(sts2.stop_sequence SEPARATOR ';') FROM stop_times AS sts2 LEFT JOIN trips AS tr2 ON tr2.trip_id = sts2.trip_id WHERE sts2.trip_id = " +  str(trip_id) + " AND tr2.route_id = " +  str(route_id) + " ORDER BY sts2.stop_sequence) AS stop_sequence,(SELECT GROUP_CONCAT(st2.stop_name SEPARATOR ';') FROM stop_times AS sts2 LEFT JOIN trips AS tr2 ON tr2.trip_id = sts2.trip_id LEFT JOIN stops AS st2 ON st2.stop_id = sts2.stop_id WHERE sts2.trip_id = " +  str(trip_id) + " AND tr2.route_id = " +  str(route_id) + " ORDER BY sts2.stop_sequence) AS stop_name,(SELECT GROUP_CONCAT(st2.stop_desc SEPARATOR ';') FROM stop_times AS sts2 LEFT JOIN trips AS tr2 ON tr2.trip_id = sts2.trip_id LEFT JOIN stops AS st2 ON st2.stop_id = sts2.stop_id WHERE sts2.trip_id = " +  str(trip_id) + " AND tr2.route_id = " +  str(route_id) + " ORDER BY sts2.stop_sequence) AS stop_desc,(SELECT GROUP_CONCAT(sts2.arrival_time SEPARATOR ';') FROM stop_times AS sts2 LEFT JOIN trips AS tr2 ON tr2.trip_id = sts2.trip_id WHERE sts2.trip_id = " +  str(trip_id) + " AND tr2.route_id = " +  str(route_id) + " ORDER BY sts2.stop_sequence) AS arrival_time,(SELECT GROUP_CONCAT(sts2.departure_time SEPARATOR ';') FROM stop_times AS sts2 LEFT JOIN trips AS tr2 ON tr2.trip_id = sts2.trip_id WHERE sts2.trip_id = " +  str(trip_id) + " AND tr2.route_id = " +  str(route_id) + " ORDER BY sts2.stop_sequence) AS departure_time,(SELECT GROUP_CONCAT(st2.stop_lat SEPARATOR ';') FROM stop_times AS sts2 LEFT JOIN trips AS tr2 ON tr2.trip_id = sts2.trip_id LEFT JOIN stops AS st2 ON st2.stop_id = sts2.stop_id WHERE sts2.trip_id = " +  str(trip_id) + " AND tr2.route_id = " +  str(route_id) + " ORDER BY sts2.stop_sequence) AS stop_lat,(SELECT GROUP_CONCAT(st2.stop_lon SEPARATOR ';') FROM stop_times AS sts2 LEFT JOIN trips AS tr2 ON tr2.trip_id = sts2.trip_id LEFT JOIN stops AS st2 ON st2.stop_id = sts2.stop_id WHERE sts2.trip_id = " +  str(trip_id) + " AND tr2.route_id = " +  str(route_id) + " ORDER BY sts2.stop_sequence) AS stop_lon")
+#        #print("1|- " + request)
+#        trip_stop.execute(request)
+#        records = trip_stop.fetchall()
+#        return records
 
 # For FLASK
     def extractRouteGlobal(self):
@@ -94,13 +106,17 @@ class gestionMARIADB:
         return records
 
     def listLignes(self):
+        print('- listLignes | Mysql')
+        startTime = time.time()
         print('listLignes')
         list_Lignes = self.mariadb.cursor()
-        request = '''SELECT route_id, route_short_name, route_long_name, route_type FROM routes'''
+        request = ("SELECT route_id, route_short_name, route_long_name, route_type FROM routes")
         print("0| " + request)
         list_Lignes.execute(request)
         records = list_Lignes.fetchall()
         self.nb_list_Lignes = list_Lignes.rowcount
+        elapseTime = time.time()-startTime
+        print(f'- listLignes : {elapseTime}')
         return records
 
     def listStationLigne(self, var_ligne):
