@@ -102,7 +102,7 @@ def cartecassandra():
 def stations_ligne_cassandra(ligne):
     ratp_cassandra = gestionCASSANDRA(cassandra_config)
     list_stations_ligne = ratp_cassandra.listStationLigne(ligne)
-
+    print(list_stations_ligne)
     list_stations_dict = dict()
     list_stations_dict['stations'] = list()
     list_stations_dict['LIGNE_SHORT_NAME'] = list_stations_ligne[0][1]
@@ -120,6 +120,7 @@ def stations_ligne_cassandra(ligne):
                 "coordinates": [list_stations_ligne[0][10][i], list_stations_ligne[0][9][i]]
             }
         })
+
     return list_stations_dict
 
 
