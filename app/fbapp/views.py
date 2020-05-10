@@ -47,7 +47,8 @@ app.config.from_object('config')
 def carte():
     titre = 'Carte RATP MySQL'
     ratp = gestionMARIADB(mariadb_config)
-    return render_template('template_01.html', titre=titre, list_lignes=ratp.listLignes())
+    url_stations_ligne = "/stations_ligne_mysql/"
+    return render_template('template_01.html', url_stations_ligne=url_stations_ligne, titre=titre, list_lignes=ratp.listLignes())
 
 # MYSQL API LISTE DES STATION D'UNE LIGNE--------------------------------
 @app.route('/stations_ligne_mysql/<int:ligne>/', methods=['GET'])
@@ -88,8 +89,9 @@ def stations_ligne_mysql(ligne):
 @app.route('/cartecassandra')
 def cartecassandra():
     titre = 'Carte RATP Cassandra'
+    url_stations_ligne = "/stations_ligne_cassandra/"
     ratp_cassandra = gestionCASSANDRA(cassandra_config)
-    return render_template('template_01.html', titre=titre, list_lignes=ratp_cassandra.listLignes())
+    return render_template('template_01.html', url_stations_ligne=url_stations_ligne, titre=titre, list_lignes=ratp_cassandra.listLignes())
 
 # CASSANDRA API LISTE DES STATION D'UNE LIGNE--------------------------------
 @app.route('/stations_ligne_cassandra/<int:ligne>/', methods=['GET'])
@@ -102,48 +104,18 @@ def stations_ligne_cassandra(ligne):
     list_stations_dict['LIGNE_SHORT_NAME'] = list_stations_ligne[0][1]
     list_stations_dict['LIGNE_ID'] = list_stations_ligne[0][0]
 
-    #for stations_ligne in list_stations_ligne:
-    #    print(len(stations_ligne[7]), stations_ligne[7])
-
     for i in range(0, len(list_stations_ligne[0][7])-1):
         list_stations_dict['stations'].append({
             'ID': list_stations_ligne[0][8][i],
             'SEQUENCE': list_stations_ligne[0][12][i],
             'NAME': list_stations_ligne[0][11][i],
             'DESCRIPTION': list_stations_ligne[0][7][i],
-            'COLOR': '',
+            'COLOR': list_stations_ligne[0][6][i],
             'PICTO': list_stations_ligne[0][4],
             "geometry": {
                 "coordinates": [list_stations_ligne[0][10][i], list_stations_ligne[0][9][i]]
             }
         })
-
-    '''
-    list_stations_dict = dict()
-    list_stations_dict['stations'] = list()
-    ratp = gestionMARIADB(mariadb_config)
-    list_stations_ligne = ratp.listStationLigne(ligne)
-    print(list_stations_ligne)
-    list_stations_dict['LIGNE_SHORT_NAME'] = list_stations_ligne[0][10]
-    list_stations_dict['LIGNE_ID'] = list_stations_ligne[0][0]
-    sequence = 1
-    for station in list_stations_ligne:
-        if sequence <= station[3]:
-            list_stations_dict['stations'].append({
-                'ID': station[2],
-                'SEQUENCE': station[3],
-                'NAME': station[4],
-                'DESCRIPTION': station[5],
-                'COLOR': station[8],
-                'PICTO': station[9],
-                "geometry": {
-                    "coordinates":[station[7], station[6]]
-                }
-            })
-            sequence = station[3]
-        else:
-            pass
-        '''
     return list_stations_dict
 
 
