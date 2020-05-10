@@ -1,4 +1,5 @@
 # Class Base Cassandra
+import time
 from cassandra.cluster import Cluster
 import json
 
@@ -40,7 +41,8 @@ class gestionCASSANDRA:
 
 # For Flask
     def listLignes(self):
-        print('listLignes CASSANDRA')
+        print('listLignes Cassandra')
+        startTime = time.time()
         records = []
         cql = "SELECT route_id, route_short_name, route_long_name, route_type, type_name FROM routes;"
         print("0| " + cql)
@@ -48,10 +50,13 @@ class gestionCASSANDRA:
         listLignes = self.session.execute(cql)
         for ligne in listLignes:
             records.append(tuple(ligne))
+        elapseTime = time.time()-startTime
+        print(f'- listLignes : {elapseTime}')
         return records
 
     def listStationLigne(self, var_ligne):
-        print('listStationLigne CASSANDRA')
+        print('listStationLigne Cassandra')
+        startTime = time.time()
         records = []
         cql = "SELECT * FROM routes_trips WHERE route_id = " + str(var_ligne) + ";"
         print("0| " + cql)
@@ -59,6 +64,8 @@ class gestionCASSANDRA:
         listStationLigne = self.session.execute(cql)
         for lignestation in listStationLigne:
             records.append(tuple(lignestation))
+        elapseTime = time.time()-startTime
+        print(f'- listStationLigne : {elapseTime}')
         return records
 
 

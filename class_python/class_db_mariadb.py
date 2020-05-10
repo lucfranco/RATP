@@ -109,7 +109,6 @@ class gestionMARIADB:
     def listLignes(self):
         print('- listLignes | Mysql')
         startTime = time.time()
-        print('listLignes')
         list_Lignes = self.mariadb.cursor()
         request = ("SELECT route_id, route_short_name, route_long_name, route_type FROM routes")
         print("0| " + request)
@@ -121,13 +120,16 @@ class gestionMARIADB:
         return records
 
     def listStationLigne(self, var_ligne):
-        print('listStationLigne')
+        print('listStationLigne | Mysql')
+        startTime = time.time()
         list_station_lgn = self.mariadb.cursor()
         request = ("SELECT tr.route_id, tr.trip_id, s_tr.stop_id, s_tr.stop_sequence, sts.stop_name, sts.stop_desc, sts.stop_lat, sts.stop_lon, rtes.route_type, pct.file_name, rtes.route_short_name FROM trips AS tr LEFT JOIN stop_times AS s_tr ON tr.trip_id = s_tr.trip_id LEFT JOIN stops AS sts ON sts.stop_id = s_tr.stop_id LEFT JOIN routes AS rtes ON rtes.route_id = tr.route_id LEFT JOIN pictos AS pct ON rtes.route_short_name = pct.route_short_name WHERE tr.route_id = " + str(var_ligne) + " GROUP BY stop_name ORDER BY tr.trip_id, s_tr.stop_sequence")
         print("0| " + request)
         list_station_lgn.execute(request)
         records = list_station_lgn.fetchall()
         self.nb_list_station_lgn = list_station_lgn.rowcount
+        elapseTime = time.time()-startTime
+        print(f'- listStationLigne : {elapseTime}')
         return records
 
     def infoStation(self, lat, lng):
