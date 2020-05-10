@@ -44,11 +44,23 @@ class gestionCASSANDRA:
         records = []
         cql = "SELECT route_id, route_short_name, route_long_name, route_type, type_name FROM routes;"
         print("0| " + cql)
-        #self.session.row_factory = named_tuple_factory
+
         listLignes = self.session.execute(cql)
         for ligne in listLignes:
             records.append(tuple(ligne))
         return records
+
+    def listStationLigne(self, var_ligne):
+        print('listStationLigne CASSANDRA')
+        records = []
+        cql = "SELECT * FROM routes_trips WHERE route_id = " + str(var_ligne) + ";"
+        print("0| " + cql)
+
+        listStationLigne = self.session.execute(cql)
+        for lignestation in listStationLigne:
+            records.append(tuple(lignestation))
+        return records
+
 
 
 

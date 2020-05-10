@@ -42,29 +42,14 @@ app = Flask(__name__)
 app.config.from_object('config')
 # To get one variable, tape app.config['MY_VARIABLE']
 
-@app.route('/')
-@app.route('/index/')
-def index():
-    return render_template('index.html')
-
-@app.route('/config')
-def config():
-    titre = 'Configuration'
-    list_env = ''
-    for i, j in os.environ.items():
-        list_env += 'Var: ' + str(i) + ' Value: ' + str(j) + '<br/>'
-    return render_template('template_01.html', titre=titre, list_env=os.environ.items())
-
-@app.route('/mysqlshow')
-def mysqlshow():
+# MYSQL Liste des lignes---------------------------------------------------
+@app.route('/carte')
+def carte():
+    titre = 'Carte RATP MySQL'
     ratp = gestionMARIADB(mariadb_config)
-    test = ratp.test("pipo") #ratp.extractRouteGlobal()
-    return test
+    return render_template('template_01.html', titre=titre, list_lignes=ratp.listLignes())
 
-@app.route('/stations.json', methods=['GET'])
-def station_json():
-    return render_template('json/stations.json')
-
+# MYSQL API LISTE DES STATION D'UNE LIGNE--------------------------------
 @app.route('/stations_ligne_mysql/<int:ligne>/', methods=['GET'])
 def stations_ligne(ligne):
     list_stations_dict = dict()
@@ -91,8 +76,81 @@ def stations_ligne(ligne):
             sequence = station[3]
         else:
             pass
-
     return list_stations_dict
+
+
+#######################################
+##             CASSANDRA             ##
+#######################################
+
+
+# CASSANDRA Liste des lignes---------------------------------------------------
+@app.route('/cartecassandra')
+def cartecassandra():
+    titre = 'Carte RATP Cassandra'
+    ratp_cassandra = gestionCASSANDRA(cassandra_config)
+    return render_template('template_01.html', titre=titre, list_lignes=ratp_cassandra.listLignes())
+
+# CASSANDRA API LISTE DES STATION D'UNE LIGNE--------------------------------
+@app.route('/stations_ligne_cassandra/<int:ligne>/', methods=['GET'])
+def stations_ligne(ligne):
+    ratp_cassandra = gestionCASSANDRA(cassandra_config)
+    list_stations_ligne = ratp.listStationLigne(ligne)
+    print(list_stations_ligne)
+    '''
+    list_stations_dict = dict()
+    list_stations_dict['stations'] = list()
+    ratp = gestionMARIADB(mariadb_config)
+    list_stations_ligne = ratp.listStationLigne(ligne)
+    print(list_stations_ligne)
+    list_stations_dict['LIGNE_SHORT_NAME'] = list_stations_ligne[0][10]
+    list_stations_dict['LIGNE_ID'] = list_stations_ligne[0][0]
+    sequence = 1
+    for station in list_stations_ligne:
+        if sequence <= station[3]:
+            list_stations_dict['stations'].append({
+                'ID': station[2],
+                'SEQUENCE': station[3],
+                'NAME': station[4],
+                'DESCRIPTION': station[5],
+                'COLOR': station[8],
+                'PICTO': station[9],
+                "geometry": {
+                    "coordinates":[station[7], station[6]]
+                }
+            })
+            sequence = station[3]
+        else:
+            pass
+        '''
+    return list_stations_dict
+
+
+
+
+@app.route('/')
+@app.route('/index/')
+def index():
+    return render_template('index.html')
+
+@app.route('/config')
+def config():
+    titre = 'Configuration'
+    list_env = ''
+    for i, j in os.environ.items():
+        list_env += 'Var: ' + str(i) + ' Value: ' + str(j) + '<br/>'
+    return render_template('template_01.html', titre=titre, list_env=os.environ.items())
+
+@app.route('/mysqlshow')
+def mysqlshow():
+    ratp = gestionMARIADB(mariadb_config)
+    test = ratp.test("pipo") #ratp.extractRouteGlobal()
+    return test
+
+@app.route('/stations.json', methods=['GET'])
+def station_json():
+    return render_template('json/stations.json')
+
 
 @app.route('/station_mysql/<int:ligne>/<lat>/<lng>/', methods=['GET'])
 def station(ligne, lat, lng):
@@ -175,18 +233,6 @@ def test2():
 @app.route('/fullscreen')
 def fullscreen():
     return render_template('fullscreen.html')
-
-@app.route('/carte')
-def carte():
-    titre = 'Carte RATP MySQL'
-    ratp = gestionMARIADB(mariadb_config)
-    return render_template('template_01.html', titre=titre, list_lignes=ratp.listLignes())
-
-@app.route('/cartecassandra')
-def cartecassandra():
-    titre = 'Carte RATP Cassandra'
-    ratp_cassandra = gestionCASSANDRA(cassandra_config)
-    return render_template('template_01.html', titre=titre, list_lignes=ratp_cassandra.listLignes())
 
 if __name__ == "__main__":
     #print(mariadb_config)
