@@ -115,6 +115,7 @@ def stations_ligne_cassandra(ligne):
             "geometry": {
                 "coordinates":stations_ligne[10][i], stations_ligne[9][i]
             }
+        })
 
     '''
     list_stations_dict = dict()
