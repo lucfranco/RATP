@@ -29,5 +29,5 @@ soap_ratp = soapRATP(soap_config, path_base)
 
 
 if __name__ == "__main__":
-    missions = stop_horaire('M13', 'Mairie de Saint-Ouen', 'A', [])
+    missions = soap_ratp.stop_horaire('M13', 'Mairie de Saint-Ouen', 'A', [])
     print(missions)
