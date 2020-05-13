@@ -31,6 +31,7 @@ class soapRATP:
         }
         for mission in missions['missions']:
             mission['stationsDates']
+            mission['stationsMessages']
         #for mission in missions['missions']:
         #    print(mission['stationsDates'])
         #    stationsDates = mission['stationsDates']
