@@ -7,7 +7,7 @@ class soapRATP:
         self.config = config
         self.path_base = path_base
         try:
-            ratp_client = Client(self.path_base + '/Soap/' + self.config["wsdl"])
+            self.ratp_client = Client(self.path_base + '/Soap/' + self.config["wsdl"])
             self.line_t = ratp_client.get_type('ns0:Line')
             self.station_t = ratp_client.get_type('ns0:Station')
             self.direction_t = ratp_client.get_type('ns0:Direction')
@@ -23,7 +23,7 @@ class soapRATP:
         oline = self.line_t(id=line)
         ostation = self.station_t(line = oline, name=station)
         odirection = self.direction_t(sens = sens)
-        missions = ratp_client.service.getMissionsNext(station=ostation, direction=odirection)
+        missions = self.ratp_client.service.getMissionsNext(station=ostation, direction=odirection)
         ratp_horaire = {
             'line' : missions['argumentDirection']['line']['code'],
             'name' : missions['argumentDirection']['name'],
