@@ -25,8 +25,8 @@ def stop_horaire(line, station, sens, stops):
     odirection = direction_t(sens = sens)
     missions = ratp_client.service.getMissionsNext(station=ostation, direction=odirection)
     ratp_horaire = {
-        'line' : missions['argumentDirection']['line']['code']
-        'name' : missions['argumentDirection']['name']
+        'line' : missions['argumentDirection']['line']['code'],
+        'name' : missions['argumentDirection']['name'],
         'sens' : missions['argumentDirection']['sens']
     }
     return ratp_horaire
