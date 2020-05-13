@@ -17,7 +17,7 @@ class soapRATP:
         else:
             print("soap RATP OK !!")
 
-    def stop_horaire(line, station, sens, stops):
+    def stop_horaire(self, line, station, sens, stops):
         ratp_horaire = {}
 
         oline = line_t(id=line)
