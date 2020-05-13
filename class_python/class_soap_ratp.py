@@ -29,7 +29,8 @@ class soapRATP:
             'name' : missions['argumentDirection']['name'],
             'sens' : missions['argumentDirection']['sens']
         }
-        print(missions['missions'])
+        for mission in missions['missions']:
+            mission['stationsDates']
         #for mission in missions['missions']:
         #    print(mission['stationsDates'])
         #    stationsDates = mission['stationsDates']
