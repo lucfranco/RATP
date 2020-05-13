@@ -8,10 +8,10 @@ class soapRATP:
         self.path_base = path_base
         try:
             self.ratp_client = Client(self.path_base + '/Soap/' + self.config["wsdl"])
-            self.line_t = ratp_client.get_type('ns0:Line')
-            self.station_t = ratp_client.get_type('ns0:Station')
-            self.direction_t = ratp_client.get_type('ns0:Direction')
-            self.mission_t = ratp_client.get_type('ns0:Mission')
+            self.line_t = self.ratp_client.get_type('ns0:Line')
+            self.station_t = self.ratp_client.get_type('ns0:Station')
+            self.direction_t = self.ratp_client.get_type('ns0:Direction')
+            self.mission_t = self.ratp_client.get_type('ns0:Mission')
         except:
             print('erreur de connexion soap RATP')
         else:
