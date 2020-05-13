@@ -1,51 +1,32 @@
-from zeep import Client
+# SOAP RATP
+# -*- coding: utf-8 -*-
+import os
+import sys
+from pathlib import Path
+from dotenv import load_dotenv
 
-wsdl = "https://graphical.weather.gov/xml/SOAP_server/ndfdXMLserver.php?wsdl"
-client = Client(wsdl=wsdl)
-string_array = client.get_type('ns0:Line')
-string_array('RA')
-client.service.method(string_array)
+# Path file .env-----------------
+path_origin = str(os.path.abspath(sys.argv[0]))[1:].split('/')
+#print("path_origin = ", path_origin, type(path_origin))
+path_base = '/' + '/'.join(path_origin[0:(path_origin.index('RATP') + 1)])
+#print("path_base = ", path_base, type(path_base))
 
+path_env = path_base + '/.env'
+print("path_env = ", path_env, type(path_env))
+load_dotenv(dotenv_path=path_env)
 
-client = Client('http://opendata-tr.ratp.fr/wsiv/services/Wsiv')
-order_type = client.get_type('ns0:Line')
-order = order_type(id='RA')
-client.service.submit_order(user_id=1, order=order)
+path_import = path_base + '/class_python'
+print("path_import = ", path_import, type(path_import))
+sys.path.insert(0, path_import)
 
+from class_soap_ratp import soapRATP
+# Config Soap--------------------------------
+soap_config = {
+    'wsdl': os.getenv("wsdl_file")
+}
 
-
-wsdl = os.getenv("api_url")
-client = zeep.Client(wsdl=wsdl)
-print(client.service.Line('Zeep', 'testzz'))
-
-from zeep import Client
-from zeep import xsd
-
-client = Client(os.getenv("api_url"))
-order_type = client.get_element('ns0:Order')
-order = xsd.AnyObject(
-  order_type, order_type(number='1234', price=99))
-client.service.submit_something(user_id=1, _value_1=order)
-
-element = client.get_element('ns0:ElementName')
-obj = element(item_1='foo')
+soap_ratp = soapRATP(soap_config)
 
 
-from zeep import Client, xsd
-
-API_KEY_TEST = 'YOUR_OWN_API_KEY'
-WSDL_TEST = 'https://apitest.trafficvance.com/?v3=system.wsdl'
-
-client = Client(WSDL)
-header = xsd.Element(
-    '{WSDL_TEST}AuthenticateRequest',
-    xsd.ComplexType([
-        xsd.Element(
-            '{WSDL_TEST}apiKey', xsd.String()
-        )
-    ])
-)
-header_value = header(apiKey=API_KEY_TEST)
-
-res = client.service.getServerTime(_soapheaders=[header_value])
-'''
+if __name__ == "__main__":
+    print('main')
