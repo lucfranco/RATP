@@ -30,8 +30,8 @@ class soapRATP:
             'sens' : missions['argumentDirection']['sens']
         }
         for mission in missions['missions']:
-            stationsDates = [mission['stationsDates']]
-            stationsMessages = [mission['stationsMessages']]
+            stationsDates = mission['stationsDates']
+            stationsMessages = mission['stationsMessages']
         print(stationsDates, type(stationsDates))
         ratp_horaire.append({
             'stationsDates' : stationsDates,
