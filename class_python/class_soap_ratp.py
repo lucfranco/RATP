@@ -17,16 +17,16 @@ class soapRATP:
         else:
             print("soap RATP OK !!")
 
-def stop_horaire(line, station, sens, stops):
-    ratp_horaire = {}
+    def stop_horaire(line, station, sens, stops):
+        ratp_horaire = {}
 
-    oline = line_t(id=line)
-    ostation = station_t(line = oline, name=station)
-    odirection = direction_t(sens = sens)
-    missions = ratp_client.service.getMissionsNext(station=ostation, direction=odirection)
-    ratp_horaire = {
-        'line' : missions['argumentDirection']['line']['code'],
-        'name' : missions['argumentDirection']['name'],
-        'sens' : missions['argumentDirection']['sens']
-    }
-    return ratp_horaire
+        oline = line_t(id=line)
+        ostation = station_t(line = oline, name=station)
+        odirection = direction_t(sens = sens)
+        missions = ratp_client.service.getMissionsNext(station=ostation, direction=odirection)
+        ratp_horaire = {
+            'line' : missions['argumentDirection']['line']['code'],
+            'name' : missions['argumentDirection']['name'],
+            'sens' : missions['argumentDirection']['sens']
+        }
+        return ratp_horaire
