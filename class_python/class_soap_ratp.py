@@ -29,14 +29,15 @@ class soapRATP:
             'name' : missions['argumentDirection']['name'],
             'sens' : missions['argumentDirection']['sens']
         }
-        for mission in missions['missions']:
-            print(mission['stationsDates'])
+        print(missions['missions'])
+        #for mission in missions['missions']:
+        #    print(mission['stationsDates'])
         #    stationsDates = mission['stationsDates']
         #    stationsMessages = mission['stationsMessages']
         #print(stationsDates, type(stationsDates))
-        ratp_horaire.append({
-            'stationsDates' : stationsDates,
-            'stationsMessages' : stationsMessages
-        })
+        #ratp_horaire.append({
+        #    'stationsDates' : stationsDates,
+        #    'stationsMessages' : stationsMessages
+        #})
 
         return ratp_horaire
