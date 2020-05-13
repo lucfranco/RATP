@@ -3,11 +3,12 @@ from zeep import Client
 
 
 class soapRATP:
-    def __init__(self, config):
+    def __init__(self, config, path_base):
         self.config = config
-        print(self.config)
+        self.path_base = path_base
         try:
-            ratp_client = Client(config["wsdl_file"])
+
+            ratp_client = Client(self.path_base + '/Soap/' + self.config["wsdl"])
 
             line_t = ratp_client.get_type('ns0:Line')
             station_t = ratp_client.get_type('ns0:Station')
