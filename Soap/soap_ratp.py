@@ -3,7 +3,7 @@
 import io
 import os
 import sys
-from pathlib import Path
+import csv
 from dotenv import load_dotenv
 import avro.schema
 from avro.io import DatumReader, DatumWriter
@@ -67,15 +67,4 @@ if __name__ == "__main__":
         else:
             print(metadata.topic)
             print(raw_bytes)
-'''
 
-
-    writer = DataFileWriter(open("users.avro", "wb"), DatumWriter(), schema)
-    writer.append(missions)
-    writer.close()
-
-    reader = DataFileReader(open("users.avro", "rb"), DatumReader())
-    for user in reader:
-        print(user)
-    reader.close()
-'''

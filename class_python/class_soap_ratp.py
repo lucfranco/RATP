@@ -30,8 +30,10 @@ class soapRATP:
             'sens' : missions['argumentDirection']['sens']
         }
 
-        ratp_horaire['stationA_id'] = missions['stations']['geoPointA']['id']
-        ratp_horaire['stationA_name'] = missions['stations']['geoPointA']['name']
+        ratp_horaire['stationA_id'] = missions['argumentStation']['geoPointA']['id']
+        ratp_horaire['stationA_name'] = missions['argumentStation']['geoPointA']['name']
+        ratp_horaire['stationB_id'] = missions['argumentStation']['geoPointB']['id']
+        ratp_horaire['stationB_name'] = missions['argumentStation']['geoPointB']['name']
         # info temps reel-------------------------
         stationsDates = []
         stationsMessages = []
