@@ -1,5 +1,6 @@
 # SOAP RATP
 # -*- coding: utf-8 -*-
+import io
 import os
 import sys
 from pathlib import Path
