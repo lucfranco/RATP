@@ -32,7 +32,8 @@ soap_config = {
 
 soap_ratp = soapRATP(soap_config, path_base)
 
-schema = avro.schema.Parse(open(path_origin + '/Soap/'  + 'stop_horaire.avsc').read())
+path_shema = path_base + '/Soap/'  + 'stop_horaire.avsc'
+schema = avro.schema.Parse(open(path_shema).read())
 
 if __name__ == "__main__":
     missions = soap_ratp.stop_horaire('M13', 'Mairie de Saint-Ouen', 'A', [])
