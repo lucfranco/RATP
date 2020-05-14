@@ -3,7 +3,7 @@
     "type": "record",
     "name": "stop",
     "fields": [
-        {"name": line", "type": "int"},
+        {"name": "line", "type": "int"},
         {"name": "name", "type": "string"},
         {"name"; "sens", "type": "string"},
         {"name": "stationsDates", "type": ["long", "null"]},
