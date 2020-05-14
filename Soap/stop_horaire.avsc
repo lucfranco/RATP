@@ -1,12 +1,33 @@
 {
-    "namespace": "stops_real_time",
-    "type": "record",
-    "name": "stop",
-    "fields": [
-        {"name": "line", "type": "string"},
-        {"name": "name", "type": "string"},
-        {"name": "sens", "type": "string"},
-        {"name" : "stationsDates","type": {"type": "array", "name" : "stationsDates"}},
-        {"name" : "stationsMessages", "type": {"type": array", "name" : "stationsMessages"}}
-    ]
+  "name": "MyClass",
+  "type": "record",
+  "namespace": "com.acme.avro",
+  "fields": [
+    {
+      "name": "line",
+      "type": "string"
+    },
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "sens",
+      "type": "string"
+    },
+    {
+      "name": "stationsDates",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    },
+    {
+      "name": "stationsMessages",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    }
+  ]
 }
