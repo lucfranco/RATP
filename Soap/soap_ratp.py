@@ -9,7 +9,6 @@ import avro.schema
 from avro.datafile import DataFileReader, DataFileWriter
 from avro.io import DatumReader, DatumWriter
 
-schema = avro.schema.Parse(open("stop_horaire.avsc").read())
 
 # Path file .env-----------------
 path_origin = str(os.path.abspath(sys.argv[0]))[1:].split('/')
@@ -33,6 +32,7 @@ soap_config = {
 
 soap_ratp = soapRATP(soap_config, path_base)
 
+schema = avro.schema.Parse(open(path_origin + '/Soap/'  + 'stop_horaire.avsc').read())
 
 if __name__ == "__main__":
     missions = soap_ratp.stop_horaire('M13', 'Mairie de Saint-Ouen', 'A', [])
