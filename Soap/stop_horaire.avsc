@@ -6,7 +6,7 @@
         {"name": "line", "type": "string"},
         {"name": "name", "type": "string"},
         {"name": "sens", "type": "string"},
-        {"type": "array", "name" : "stationsDates", "items": "string"},
-        {"type": "array", "name" : "stationsMessages", "items": "string"}
+        {"name" : "stationsDates","type": {"type": "array", "name" : "stationsDates"}},
+        {"name" : "stationsMessages", "type": {"type": array", "name" : "stationsMessages"}}
     ]
 }
