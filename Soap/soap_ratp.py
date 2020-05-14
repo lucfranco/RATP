@@ -41,6 +41,8 @@ if __name__ == "__main__":
         raw_bytes = bytes_writer.getvalue()
     except:
         print('erreur avro')
+    else:
+        print('ok avro')
 '''
 
 
