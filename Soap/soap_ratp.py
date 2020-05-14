@@ -5,6 +5,12 @@ import sys
 from pathlib import Path
 from dotenv import load_dotenv
 
+import avro.schema
+from avro.datafile import DataFileReader, DataFileWriter
+from avro.io import DatumReader, DatumWriter
+
+schema = avro.schema.Parse(open("stop_horaire.avsc").read())
+
 # Path file .env-----------------
 path_origin = str(os.path.abspath(sys.argv[0]))[1:].split('/')
 #print("path_origin = ", path_origin, type(path_origin))
