@@ -45,6 +45,7 @@ class soapRATP:
           print(mission['stationsDates'][0])
           stationsDates.append(mission['stationsDates'][0])
           stationsMessages.append(mission['stationsMessages'][0])
-          ratp_horaire.append('stationsDates' : stationsDates, 'stationsMessages' : stationsMessages)
+
+        ratp_horaire = {'stationsDates' : stationsDates, 'stationsMessages' : stationsMessages}
 
         return ratp_horaire
