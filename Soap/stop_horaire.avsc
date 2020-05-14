@@ -1,5 +1,4 @@
 {
-    "namespace": "stops_real_time",
     "type": "record",
     "name": "stop",
     "fields": [
