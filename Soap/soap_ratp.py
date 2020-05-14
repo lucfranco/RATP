@@ -37,9 +37,14 @@ if __name__ == "__main__":
     writer = DatumWriter(SCHEMA)
     bytes_writer = io.BytesIO()
     encoder = avro.io.BinaryEncoder(bytes_writer)
-    print(writer.write(missions, encoder))
-    raw_bytes = bytes_writer.getvalue()
-    print(raw_bytes)
+
+    try:
+        writer.write(missions, encoder)
+        raw_bytes = bytes_writer.getvalue()
+    except:
+        print('erreur AVRO shema')
+    else:
+        print(raw_bytes)
 
 '''
 
