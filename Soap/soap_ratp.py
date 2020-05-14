@@ -38,3 +38,12 @@ schema = avro.schema.Parse(open(path_shema).read())
 if __name__ == "__main__":
     missions = soap_ratp.stop_horaire('M13', 'Mairie de Saint-Ouen', 'A', [])
     print(missions)
+    writer = DataFileWriter(open("users.avro", "wb"), DatumWriter(), schema)
+    writer.append(missions)
+    writer.close()
+
+    reader = DataFileReader(open("users.avro", "rb"), DatumReader())
+    for user in reader:
+        print user
+    reader.close()
+
