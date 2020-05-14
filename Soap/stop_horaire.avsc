@@ -1,7 +1,7 @@
 {
-    'line': 'int',
-    'name': 'string',
-    'sens': 'string',
-    'stationsDates': ['long'],
-    'stationsMessages': ['string']
+    "line": "int",
+    "name": "string",
+    "sens": "string",
+    "stationsDates": ["long"],
+    "stationsMessages": ["string"]
 }
