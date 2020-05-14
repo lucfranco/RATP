@@ -44,6 +44,6 @@ if __name__ == "__main__":
 
     reader = DataFileReader(open("users.avro", "rb"), DatumReader())
     for user in reader:
-        print user
+        print(user)
     reader.close()
 
