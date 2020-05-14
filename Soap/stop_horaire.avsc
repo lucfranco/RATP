@@ -1,7 +1,12 @@
 {
-    "line": "int",
-    "name": "string",
-    "sens": "string",
-    "stationsDates": ["long"],
-    "stationsMessages": ["string"]
+    "namespace": "stops_real_time",
+    "type": "record",
+    "name": "stop",
+    "fields": [
+        {"name": line", "type": "int"},
+        {"name": "name", "type": "string"},
+        {"name"; "sens", "type": "string"},
+        {"name": "stationsDates", "type": ["long", "null"]},
+        {"name": "stationsMessages", "type": ["string", "null"]}
+    ]
 }
