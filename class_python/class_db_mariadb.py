@@ -16,6 +16,7 @@ class gestionMARIADB:
     nb_list_Lignes = 0
     nb_list_station_lgn = 0
     nb_infostation = 0
+    nb_perf = 0
 
     def __init__(self, config):
         self.config = config
@@ -32,6 +33,10 @@ class gestionMARIADB:
                 print(err)
         else:
             print("mariadb OK !!")
+def addslashes(s):
+    d = {'"':'\\"', "'":"\\'", "\0":"\\\0", "\\":"\\\\"}
+    return ''.join(d.get(c, c) for c in s)
+
 
 # For Cassandra
     def RouteGlobal(self, limit_debut = 0, limit_fin = 10):
@@ -71,6 +76,16 @@ class gestionMARIADB:
 #        trip_stop.execute(request)
 #        records = trip_stop.fetchall()
 #        return records
+# PERF
+    def perf(self, base, requete, perf):
+        perf = self.mariadb.cursor()
+        request("INSERT INTO perf_RATP (base, requete, perf) VALUES ('" + base + "', '" + requete + "', '" + perf + "')")
+        print("1| " + request)
+        perf.execute(request)
+        records = perf.fetchall()
+        self.nb_perf = perf.rowcount
+        return records
+
 
 # For FLASK
     def extractRouteGlobal(self):
@@ -107,16 +122,20 @@ class gestionMARIADB:
         return records
 
     def listLignes(self):
-        print('- listLignes | Mysql')
+        #print('- listLignes | Mysql')
         startTime = time.time()
+
         list_Lignes = self.mariadb.cursor()
         request = ("SELECT route_id, route_short_name, route_long_name, route_type FROM routes")
         print("0| " + request)
         list_Lignes.execute(request)
         records = list_Lignes.fetchall()
+
         self.nb_list_Lignes = list_Lignes.rowcount
+
         elapseTime = time.time()-startTime
-        print(f'- listLignes : {elapseTime}')
+        self.perf("Mysql", "listLignes", elapseTime)
+        #print(f'- listLignes : {elapseTime}')
         return records
 
     def listStationLigne(self, var_ligne):
@@ -129,6 +148,7 @@ class gestionMARIADB:
         records = list_station_lgn.fetchall()
         self.nb_list_station_lgn = list_station_lgn.rowcount
         elapseTime = time.time()-startTime
+        self.perf("Mysql", "listStationLigne", elapseTime)
         print(f'- listStationLigne : {elapseTime}')
         return records
 
@@ -201,11 +221,15 @@ class gestionMARIADB:
             stationsMessages_4 = ''
 
         print(long_stationsDates, var_stationsDates_1,var_stationsDates_2,var_stationsDates_3,var_stationsDates_4)
-        #print(stationsMessages_1, stationsMessages_2, stationsMessages_3, stationsMessages_4)
+        print(stationsMessages_1, stationsMessages_2, stationsMessages_3, stationsMessages_4)
+
+        message_kafka['stationA_name'] = self.addslashes(message_kafka['stationA_name'])
+        message_kafka['stationR_name'] = self.addslashes(message_kafka['stationR_name'])
 
 
-        request = ("INSERT INTO stop_temps_reel (route_id, route_name, sens, Date_temps_reel, stationsDates1, stationsDates2, stationsDates3, stationsDates4, stationsMessages1, stationsMessages2, stationsMessages3, stationsMessages4, stationA_id, stationA_name, stationR_id, stationR_name) VALUE ('" + message_kafka['line'] + "', '" + message_kafka['name'] + "', '" +  message_kafka['sens'] + "', NOW(), '" + var_stationsDates_1 + "', '" +  var_stationsDates_2 + "', '" +  var_stationsDates_3 + "', '" +  var_stationsDates_4+ "', '" +  stationsMessages_1 + "', '" +  stationsMessages_2 + "', '" +  stationsMessages_3 + "', '" +  stationsMessages_4+ "', '" +  message_kafka['stationA_id']+ "', '" +  message_kafka['stationA_name']+ "', '" +  message_kafka['stationR_id']+ "', '" +  message_kafka['stationA_name'] + "')")
-        #print("0| " + request)
+        request = ("INSERT INTO stop_temps_reel (route_id, route_name, sens, Date_temps_reel, stationsDates1, stationsDates2, stationsDates3, stationsDates4, stationsMessages1, stationsMessages2, stationsMessages3, stationsMessages4, stationA_id, stationA_name, stationR_id, stationR_name) VALUE ('" + message_kafka['line'] + "', '" + message_kafka['name'] + "', '" +  message_kafka['sens'] + "', NOW(), '" + var_stationsDates_1 + "', '" +  var_stationsDates_2 + "', '" +  var_stationsDates_3 + "', '" +  var_stationsDates_4+ "', '" +  stationsMessages_1 + "', '" +  stationsMessages_2 + "', '" +  stationsMessages_3 + "', '" +  stationsMessages_4+ "', '" +  message_kafka['stationA_id']+ "', '" +  message_kafka['stationA_name'] + "', '" +  message_kafka['stationR_id'] + "', '" +  message_kafka['stationA_name'] + "')")
+        #request = ('INSERT INTO stop_temps_reel (route_id, route_name, sens, Date_temps_reel, stationsDates1, stationsDates2, stationsDates3, stationsDates4, stationsMessages1, stationsMessages2, stationsMessages3, stationsMessages4, stationA_id, stationA_name, stationR_id, stationR_name) VALUE ("' + message_kafka['line'] + '", '" + message_kafka['name'].replace("'","\'") + "', '" +  message_kafka['sens'] + "', NOW(), '" + var_stationsDates_1 + "', '" +  var_stationsDates_2 + "', '" +  var_stationsDates_3 + "', '" +  var_stationsDates_4+ "', '" +  stationsMessages_1 + "', '" +  stationsMessages_2 + "', '" +  stationsMessages_3 + "', '" +  stationsMessages_4+ "', '" +  message_kafka['stationA_id']+ "', '" +  message_kafka['stationA_name'] + "', '" +  message_kafka['stationR_id'] + "', '" +  message_kafka['stationA_name'] + "')')
+        print("0| " + request)
         infostation.execute(request)
         self.mariadb.commit()
         self.nb_infostation = infostation.rowcount
