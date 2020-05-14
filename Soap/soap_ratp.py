@@ -50,7 +50,7 @@ if __name__ == "__main__":
     else:
         print('ok avro')
         try:
-            ack = producer.send(topic_name, json.dumps(raw_bytes).encode())
+            ack = producer.send(topic_name, raw_bytes)
             metadata = ack.get()
         except Exception as e:
             print(e)
