@@ -1,9 +1,14 @@
 {
+    "namespace": "stops_real_time",
     "type": "record",
     "name": "stop",
     "fields": [
         {"name": "line", "type": "string"},
         {"name": "name", "type": "string"},
-        {"name": "sens", "type": "string"}
+        {"name": "sens", "type": "string"},
+        "fields": [
+            {"name": "stationsDates", "type": "string"},
+            {"name": "stationsMessages", "type": "string"}
+        ]
     ]
 }
