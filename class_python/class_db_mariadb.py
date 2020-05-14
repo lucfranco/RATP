@@ -16,6 +16,7 @@ class gestionMARIADB:
     nb_list_Lignes = 0
     nb_list_station_lgn = 0
     nb_infostation = 0
+    nb_perf = 0
 
     def __init__(self, config):
         self.config = config
@@ -47,7 +48,14 @@ class gestionMARIADB:
         return records
 
 # PERF
-
+    def perf(self, base, requete, perf):
+        perf = self.mariadb.cursor()
+        request("INSERT INTO perf_RATP (base, requete, perf) VALUES ('" + base + "', '" + requete + "', '" + perf + "')")
+        print("1| " + request)
+        perf.execute(request)
+        records = perf.fetchall()
+        self.nb_perf = perf.rowcount
+        return records
 # For FLASK
     def extractRouteGlobal(self):
         route_global = self.mariadb.cursor()
@@ -92,6 +100,7 @@ class gestionMARIADB:
         records = list_Lignes.fetchall()
         self.nb_list_Lignes = list_Lignes.rowcount
         elapseTime = time.time()-startTime
+        self.perf('Mysql', 'listLignes', elapseTime)
         print(f'- listLignes : {elapseTime}')
         return records
 
