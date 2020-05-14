@@ -56,7 +56,7 @@ if __name__ == "__main__":
             print(e)
         else:
             print(metadata.topic)
-            print(message)
+            print(raw_bytes)
 '''
 
 
