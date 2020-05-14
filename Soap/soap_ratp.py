@@ -32,6 +32,7 @@ path_shema = path_base + '/Soap/'  + 'stop_horaire.avsc'
 schema = avro.schema.Parse(open(path_shema).read())
 
 # Configuration Kafka-----------------
+print(os.getenv("aws_kafka_ip")
 bootstrap_servers = [os.getenv("aws_kafka_ip") + ':9092']
 topic_name = 'ratp-1'
 producer = KafkaProducer(bootstrap_servers = bootstrap_servers)
