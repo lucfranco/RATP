@@ -29,6 +29,10 @@ class soapRATP:
             'name' : missions['argumentDirection']['name'],
             'sens' : missions['argumentDirection']['sens']
         }
+
+        ratp_horaire['stationA_id'] = missions['stations']['geoPointA']['id']
+        ratp_horaire['stationA_name'] = missions['stations']['geoPointA']['name']
+        # info temps reel-------------------------
         stationsDates = []
         stationsMessages = []
 
@@ -39,4 +43,5 @@ class soapRATP:
         ratp_horaire['stationsDates'] = stationsDates
         ratp_horaire['stationsMessages'] = stationsMessages
 
+        print(ratp_horaire)
         return ratp_horaire
