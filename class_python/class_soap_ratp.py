@@ -29,6 +29,9 @@ class soapRATP:
             'name' : missions['argumentDirection']['name'],
             'sens' : missions['argumentDirection']['sens']
         }
+        stationsDates = []
+        stationsMessages = []
+
         for mission in missions['missions']:
           stationsDates.append(mission['stationsDates'][0])
           stationsMessages.append(mission['stationsMessages'][0])
