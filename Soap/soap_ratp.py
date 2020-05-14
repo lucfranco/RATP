@@ -33,7 +33,7 @@ schema = avro.schema.Parse(open(path_shema).read())
 
 # Configuration Kafka-----------------
 bootstrap_servers = [os.getenv("aws_kafka_ip") + ':9092']
-topic_name = 'ratp-1'
+topic_name = 'stops_real_time'
 producer = KafkaProducer(bootstrap_servers = bootstrap_servers)
 
 if __name__ == "__main__":
@@ -47,9 +47,19 @@ if __name__ == "__main__":
         raw_bytes = bytes_writer.getvalue()
     except:
         print('erreur avro')
+        try:
+            topic_name = 'erreur_stops_real_time'
+            ack = producer.send(topic_name, raw_bytes)
+            metadata = ack.get()
+        except Exception as e:
+            print(e)
+        else:
+            print(metadata.topic)
+            print(raw_bytes)
     else:
         print('ok avro')
         try:
+            topic_name = 'stops_real_time'
             ack = producer.send(topic_name, raw_bytes)
             metadata = ack.get()
         except Exception as e:
