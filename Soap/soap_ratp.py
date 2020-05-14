@@ -38,14 +38,12 @@ if __name__ == "__main__":
     bytes_writer = io.BytesIO()
     encoder = avro.io.BinaryEncoder(bytes_writer)
 
-    try:
-        writer.write(missions, encoder)
-        raw_bytes = bytes_writer.getvalue()
-    except:
-        print('erreur AVRO shema')
-    else:
-        print(raw_bytes)
 
+    if writer.write(missions, encoder):
+        raw_bytes = bytes_writer.getvalue()
+        print(raw_bytes)
+    else:
+        print('pb avro')
 '''
 
     writer = DataFileWriter(open("users.avro", "wb"), DatumWriter(), schema)
