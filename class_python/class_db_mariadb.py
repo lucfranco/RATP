@@ -16,7 +16,6 @@ class gestionMARIADB:
     nb_list_Lignes = 0
     nb_list_station_lgn = 0
     nb_infostation = 0
-    nb_perf = 0
 
     def __init__(self, config):
         self.config = config
@@ -77,15 +76,6 @@ def addslashes(s):
 #        records = trip_stop.fetchall()
 #        return records
 # PERF
-    def perf(self, base, requete, perf):
-        perf = self.mariadb.cursor()
-        request("INSERT INTO perf_RATP (base, requete, perf) VALUES ('" + base + "', '" + requete + "', '" + perf + "')")
-        print("1| " + request)
-        perf.execute(request)
-        records = perf.fetchall()
-        self.nb_perf = perf.rowcount
-        return records
-
 
 # For FLASK
     def extractRouteGlobal(self):
@@ -122,20 +112,16 @@ def addslashes(s):
         return records
 
     def listLignes(self):
-        #print('- listLignes | Mysql')
+        print('- listLignes | Mysql')
         startTime = time.time()
-
         list_Lignes = self.mariadb.cursor()
         request = ("SELECT route_id, route_short_name, route_long_name, route_type FROM routes")
         print("0| " + request)
         list_Lignes.execute(request)
         records = list_Lignes.fetchall()
-
         self.nb_list_Lignes = list_Lignes.rowcount
-
         elapseTime = time.time()-startTime
-        self.perf("Mysql", "listLignes", elapseTime)
-        #print(f'- listLignes : {elapseTime}')
+        print(f'- listLignes : {elapseTime}')
         return records
 
     def listStationLigne(self, var_ligne):
@@ -148,7 +134,6 @@ def addslashes(s):
         records = list_station_lgn.fetchall()
         self.nb_list_station_lgn = list_station_lgn.rowcount
         elapseTime = time.time()-startTime
-        self.perf("Mysql", "listStationLigne", elapseTime)
         print(f'- listStationLigne : {elapseTime}')
         return records
 
