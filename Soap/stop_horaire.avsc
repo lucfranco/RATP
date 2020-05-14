@@ -6,7 +6,7 @@
         {"name": "line", "type": "string"},
         {"name": "name", "type": "string"},
         {"name": "sens", "type": "string"},
-        "fields" : [
+        "fields" ,: [
             {"name": "stationsDates", "type": "string"},
             {"name": "stationsMessages", "type": "string"}
         ]
