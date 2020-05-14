@@ -37,9 +37,10 @@ if __name__ == "__main__":
     writer = DatumWriter(SCHEMA)
     bytes_writer = io.BytesIO()
     encoder = avro.io.BinaryEncoder(bytes_writer)
-    writer.write(missions, encoder)
+    print(writer.write(missions, encoder))
     raw_bytes = bytes_writer.getvalue()
     print(raw_bytes)
+
 '''
 
     writer = DataFileWriter(open("users.avro", "wb"), DatumWriter(), schema)
