@@ -7,6 +7,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 import avro.schema
 from avro.io import DatumReader, DatumWriter
+from kafka import KafkaProducer
 
 # Path file .env / Class-----------------
 path_origin = str(os.path.abspath(sys.argv[0]))[1:].split('/')
@@ -30,6 +31,11 @@ soap_ratp = soapRATP(soap_config, path_base)
 path_shema = path_base + '/Soap/'  + 'stop_horaire.avsc'
 schema = avro.schema.Parse(open(path_shema).read())
 
+# Configuration Kafka-----------------
+bootstrap_servers = [os.getenv("aws_kafka_ip") + ':9092']
+topic_name = 'ratp-1'
+producer = KafkaProducer(bootstrap_servers = bootstrap_servers)
+
 if __name__ == "__main__":
     missions = soap_ratp.stop_horaire('M13', 'Mairie de Saint-Ouen', 'A', [])
     try:
@@ -43,6 +49,14 @@ if __name__ == "__main__":
         print('erreur avro')
     else:
         print('ok avro')
+        try:
+            ack = producer.send(topic_name, json.dumps(raw_bytes).encode())
+            metadata = ack.get()
+        except Exception as e:
+            print(e)
+        else:
+            print(metadata.topic)
+            print(message)
 '''
 
 
