@@ -50,7 +50,8 @@ class gestionMARIADB:
 # PERF
     def perf(self, base, requete, perf):
         perf = self.mariadb.cursor()
-        request = ("INSERT INTO perf_RATP (base, requete, perf) VALUES ('" + base + "', '" + requete + "', '" + str(perf) + "')")
+        print(str(perf) type(perf))
+        request = ("INSERT INTO perf_RATP (base, requete, perf) VALUES ('" + base + "', '" + requete + "', '')")
         print("1| " + request)
         perf.execute(request)
         records = perf.fetchall()
