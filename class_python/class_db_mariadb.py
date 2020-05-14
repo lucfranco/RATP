@@ -32,7 +32,7 @@ class gestionMARIADB:
                 print(err)
         else:
             print("mariadb OK !!")
-def addslashes(s):
+def addslashes(self,s):
     d = {'"':'\\"', "'":"\\'", "\0":"\\\0", "\\":"\\\\"}
     return ''.join(d.get(c, c) for c in s)
 
