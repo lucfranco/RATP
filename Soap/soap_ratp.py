@@ -49,14 +49,14 @@ if __name__ == "__main__":
         print('erreur avro')
     else:
         print('ok avro')
-        try:
-            ack = producer.send(topic_name, json.dumps(raw_bytes).encode())
-            metadata = ack.get()
-        except Exception as e:
-            print(e)
-        else:
-            print(metadata.topic)
-            print(message)
+        #try:
+        #    ack = producer.send(topic_name, json.dumps(raw_bytes).encode())
+        #    metadata = ack.get()
+        #except Exception as e:
+        #    print(e)
+        #else:
+        #    print(metadata.topic)
+        #    print(message)
 '''
 
 
