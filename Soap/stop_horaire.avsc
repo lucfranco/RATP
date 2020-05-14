@@ -5,8 +5,6 @@
     "fields": [
         {"name": "line", "type": "int"},
         {"name": "name", "type": "string"},
-        {"name": "sens", "type": "string"},
-        {"name": "stationsDates", "type": ["long", "null"]},
-        {"name": "stationsMessages", "type": ["string", "null"]}
+        {"name": "sens", "type": "string"}
     ]
 }
