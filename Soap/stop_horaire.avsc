@@ -2,7 +2,7 @@
     "type": "record",
     "name": "stop",
     "fields": [
-        {"name": "line", "type": "int"},
+        {"name": "line", "type": "string"},
         {"name": "name", "type": "string"},
         {"name": "sens", "type": "string"}
     ]
