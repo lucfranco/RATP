@@ -39,10 +39,11 @@ if __name__ == "__main__":
     encoder = avro.io.BinaryEncoder(bytes_writer)
 
 
-    writer.write(missions, encoder)
-    raw_bytes = bytes_writer.getvalue()
-    print(raw_bytes)
 
+    if writer.write(missions, encoder):
+        raw_bytes = bytes_writer.getvalue()
+
+    raise Exception('My error!')
 '''
 
     writer = DataFileWriter(open("users.avro", "wb"), DatumWriter(), schema)
