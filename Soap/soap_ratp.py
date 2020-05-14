@@ -32,19 +32,17 @@ schema = avro.schema.Parse(open(path_shema).read())
 
 if __name__ == "__main__":
     missions = soap_ratp.stop_horaire('M13', 'Mairie de Saint-Ouen', 'A', [])
-
-    SCHEMA = avro.schema.Parse(open(path_shema).read())
-    writer = DatumWriter(SCHEMA)
-    bytes_writer = io.BytesIO()
-    encoder = avro.io.BinaryEncoder(bytes_writer)
-
-
-
-    if writer.write(missions, encoder):
+    try:
+        SCHEMA = avro.schema.Parse(open(path_shema).read())
+        writer = DatumWriter(SCHEMA)
+        bytes_writer = io.BytesIO()
+        encoder = avro.io.BinaryEncoder(bytes_writer)
+        writer.write(missions, encoder)
         raw_bytes = bytes_writer.getvalue()
-
-    raise Exception('My error!')
+    except:
+        print('erreur avro')
 '''
+
 
     writer = DataFileWriter(open("users.avro", "wb"), DatumWriter(), schema)
     writer.append(missions)
