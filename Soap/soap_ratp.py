@@ -4,6 +4,7 @@ import io
 import os
 import sys
 import csv
+import time
 from dotenv import load_dotenv
 import avro.schema
 from avro.io import DatumReader, DatumWriter
@@ -37,34 +38,41 @@ topic_name = 'stops_real_time'
 producer = KafkaProducer(bootstrap_servers = bootstrap_servers)
 
 if __name__ == "__main__":
-    missions = soap_ratp.stop_horaire('M13', 'Mairie de Saint-Ouen', 'A', [])
-    try:
-        SCHEMA = avro.schema.Parse(open(path_shema).read())
-        writer = DatumWriter(SCHEMA)
-        bytes_writer = io.BytesIO()
-        encoder = avro.io.BinaryEncoder(bytes_writer)
-        writer.write(missions, encoder)
-        raw_bytes = bytes_writer.getvalue()
-    except:
-        print('erreur avro')
-        try:
-            topic_name = 'erreur_stops_real_time'
-            ack = producer.send(topic_name, raw_bytes)
-            metadata = ack.get()
-        except Exception as e:
-            print(e)
-        else:
-            print(metadata.topic)
-            print(raw_bytes)
-    else:
-        print('ok avro')
-        try:
-            topic_name = 'stops_real_time'
-            ack = producer.send(topic_name, raw_bytes)
-            metadata = ack.get()
-        except Exception as e:
-            print(e)
-        else:
-            print(metadata.topic)
-            print(raw_bytes)
+    with open(path_base + '/Soap/'  + 'new_liste_soap.csv', 'r') as csvfile:
+        list_stop = csv.reader(csvfile, delimiter=',')
+        for stop in list_stop:
+            print(stop[1], stop[2], stop[5])
+            time.sleep(3)
+
+
+            missions = soap_ratp.stop_horaire(stop[1], stop[2], stop[5], [])
+            try:
+                SCHEMA = avro.schema.Parse(open(path_shema).read())
+                writer = DatumWriter(SCHEMA)
+                bytes_writer = io.BytesIO()
+                encoder = avro.io.BinaryEncoder(bytes_writer)
+                writer.write(missions, encoder)
+                raw_bytes = bytes_writer.getvalue()
+            except:
+                print('erreur avro')
+                try:
+                    topic_name = 'erreur_stops_real_time'
+                    ack = producer.send(topic_name, raw_bytes)
+                    metadata = ack.get()
+                except Exception as e:
+                    print(e)
+                else:
+                    print(metadata.topic)
+                    print(raw_bytes)
+            else:
+                print('ok avro')
+                try:
+                    topic_name = 'stops_real_time'
+                    ack = producer.send(topic_name, raw_bytes)
+                    metadata = ack.get()
+                except Exception as e:
+                    print(e)
+                else:
+                    print(metadata.topic)
+                    print(raw_bytes)
 

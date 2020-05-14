@@ -142,6 +142,78 @@ class gestionMARIADB:
         self.nb_infostation = infostation.rowcount
         return records
 
+
+# KAFKA stop_temps reel------------------------------------------------------
+    def stop_temps_reel(self, message_kafka):
+        infostation = self.mariadb.cursor()
+        print('stop_temps_reel')
+        #print(message_kafka)
+        var_stationsDates_1 = ''
+        var_stationsDates_2 = ''
+        var_stationsDates_3 = ''
+        var_stationsDates_4 = ''
+        stationsMessages_1 = ''
+        stationsMessages_2 = ''
+        stationsMessages_3 = ''
+        stationsMessages_4 = ''
+        long_stationsDates = len(message_kafka['stationsDates'])
+        if long_stationsDates >= 3:
+            var_stationsDates_1 = message_kafka['stationsDates'][0][8:10]+":"+message_kafka['stationsDates'][0][10:]
+            var_stationsDates_2 = message_kafka['stationsDates'][1][8:10]+":"+message_kafka['stationsDates'][1][10:]
+            var_stationsDates_3 = message_kafka['stationsDates'][2][8:10]+":"+message_kafka['stationsDates'][2][10:]
+            var_stationsDates_4 = ''
+        elif long_stationsDates == 2:
+            var_stationsDates_1 = message_kafka['stationsDates'][0][8:10]+":"+message_kafka['stationsDates'][0][10:]
+            var_stationsDates_2 = message_kafka['stationsDates'][1][8:10]+":"+message_kafka['stationsDates'][1][10:]
+            var_stationsDates_3 = ''
+            var_stationsDates_4 = ''
+        elif long_stationsDates == 1:
+            var_stationsDates_1 = message_kafka['stationsDates'][0][8:10]+":"+message_kafka['stationsDates'][0][10:]
+            var_stationsDates_2 = ''
+            var_stationsDates_3 = ''
+            var_stationsDates_4 = ''
+        elif long_stationsDates == 0:
+            var_stationsDates_1 = ''
+            var_stationsDates_2 = ''
+            var_stationsDates_3 = ''
+            var_stationsDates_4 = ''
+
+        long_stationsMessages = len(message_kafka['stationsMessages'])
+        if long_stationsMessages >= 3:
+            stationsMessages_1 = message_kafka['stationsMessages'][0]
+            stationsMessages_2 = message_kafka['stationsMessages'][1]
+            stationsMessages_3 = message_kafka['stationsMessages'][2]
+            stationsMessages_4 = ''
+        if long_stationsMessages == 2:
+            stationsMessages_1 = message_kafka['stationsMessages'][0]
+            stationsMessages_2 = message_kafka['stationsMessages'][1]
+            stationsMessages_3 = ''
+            stationsMessages_4 = ''
+        if long_stationsMessages == 1:
+            stationsMessages_1 = message_kafka['stationsMessages'][0]
+            stationsMessages_2 = ''
+            stationsMessages_3 = ''
+            stationsMessages_4 = ''
+        if long_stationsMessages == 0:
+            stationsMessages_1 = ''
+            stationsMessages_2 = ''
+            stationsMessages_3 = ''
+            stationsMessages_4 = ''
+
+        print(long_stationsDates, var_stationsDates_1,var_stationsDates_2,var_stationsDates_3,var_stationsDates_4)
+        #print(stationsMessages_1, stationsMessages_2, stationsMessages_3, stationsMessages_4)
+
+
+        request = ("INSERT INTO stop_temps_reel (route_id, route_name, sens, Date_temps_reel, stationsDates1, stationsDates2, stationsDates3, stationsDates4, stationsMessages1, stationsMessages2, stationsMessages3, stationsMessages4, stationA_id, stationA_name, stationR_id, stationR_name) VALUE ('" + message_kafka['line'] + "', '" + message_kafka['name'] + "', '" +  message_kafka['sens'] + "', NOW(), '" + var_stationsDates_1 + "', '" +  var_stationsDates_2 + "', '" +  var_stationsDates_3 + "', '" +  var_stationsDates_4+ "', '" +  stationsMessages_1 + "', '" +  stationsMessages_2 + "', '" +  stationsMessages_3 + "', '" +  stationsMessages_4+ "', '" +  message_kafka['stationA_id']+ "', '" +  message_kafka['stationA_name']+ "', '" +  message_kafka['stationR_id']+ "', '" +  message_kafka['stationA_name'] + "')")
+        #print("0| " + request)
+        infostation.execute(request)
+        self.mariadb.commit()
+        self.nb_infostation = infostation.rowcount
+
+
+
+
+
 #    def infoStation(self, lat, lng):
 #        print('infoStation')
 #        infostation = self.mariadb.cursor()
