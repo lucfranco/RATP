@@ -1,7 +1,7 @@
 {
-  "name": "MyClass",
+  "name": "stops",
   "type": "record",
-  "namespace": "com.acme.avro",
+  "namespace": "stops_real_time",
   "fields": [
     {
       "name": "line",
