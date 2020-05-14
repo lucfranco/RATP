@@ -2,7 +2,7 @@
   "name": "stops",
   "type": "record",
   "namespace": "stops_real_time",
-  "fields": [
+"fields": [
     {
       "name": "line",
       "type": "string"
@@ -13,6 +13,22 @@
     },
     {
       "name": "sens",
+      "type": "string"
+    },
+    {
+      "name": "stationA_id",
+      "type": "string"
+    },
+    {
+      "name": "stationA_name",
+      "type": "string"
+    },
+    {
+      "name": "stationR_id",
+      "type": "string"
+    },
+    {
+      "name": "stationR_name",
       "type": "string"
     },
     {
